@@ -1,8 +1,60 @@
-* {
-    text-align: center;
-    color: aqua;
+.carousel-inner img{
+	width: 100%;
 }
-input {
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  height: 100px;
+  width: 100px;
+  outline: black;
+  background-size: 100%, 100%;
+  border: 1px solid black;
+  background-color: rgba(0,0,0, 0.8);
+}
+
+.carousel-control-prev-icon { 
+    background-image:url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E"); 
+    width: 30px;
+    height: 48px;
+}
+.carousel-control-next-icon { 
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+    width: 30px;
+    height: 48px;
+}
+
+  
+.carousel-caption {
+    position: absolute; 
+    right: 20%;
+    top: 80px; /* Cambiar bottom por top y los píxeles que necesites */
+    left: 20%;
+    z-index: 10;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #fff;
+    text-align: center;
+    font-weight: bolder;
+    /*background-color: rgba(0, 0, 0, 0.5); /* Añadir para conseguir el fondo con opacidad */
+}
+.slider1{
     color: black;
-    font-size: 25px;
+    top: 50px;
+}
+
+.slider3{
+    top: 250px;
+    right: 0%;
+    left: 45%;
+}
+
+#registro{
+    color: blue;
+    text-align: center;
+    margin-bottom: 5px;
+    font-size: 50px;
+}
+
+.coupon{
+    margin-top: 15px;
 }
