@@ -58,33 +58,33 @@
 
 
     <!-- Carousel pagina principal -->
-    <div class="container">
+    <section class="container-fluid">
         <div class="row">
-            <div class="col-lg-8">
+            <div class="col">
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
                         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+                        
                     </ol>
-                    <div class="carousel-inner">
+                    <div class="carousel-inner rounded">
                         <div class="carousel-item active">
-                            <img class="rounded" src="./img/slider1.jpg" alt="First slide" height="400" >
-                            <div class="carousel-caption d-none d-md-block slider1">
-                                <h4>Lo mejor en tecnologia a un precio increible</h4>
-                            </div>
+                            <img  src="./img/slider1.png" alt="First slide" height="600">
                         </div>
                         <div class="carousel-item">
-                            <img class="rounded" src="./img/slider2.jpg" alt="Second slide" height="400">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h4>Compra computadoras y accesorios</h4>
-                            </div>
+                            <img src="./img/slider2.png" alt="Second slide" height="600">
                         </div>
                         <div class="carousel-item">
-                            <img class="rounded" src="./img/slider3.jpg" alt="Third slide" height="400">
-                            <div class="carousel-caption d-none d-md-block slider3">
-                                <h4>Usa la mejor cámara fotográfica</h4>
-                            </div>
+                            <img src="./img/slider3.png" alt="Third slide" height="600">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="./img/slider4.png" alt="Third slide" height="600">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="./img/slider5.png" alt="Third slide" height="600">
                         </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -95,43 +95,58 @@
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="sr-only">Next</span>
                     </a>
-
                 </div>
             </div>
-            <div class="col-lg-4 rounded" style="background-color:#ccc">
-                <a href=""><p id="registro"><i class="fas fa-user"></i></p></a>
-                <h5 class="text-center">Bienvenido</h5>
-                <div class="row">
-                    <div class="col">
-                        <a class="btn btn-dark btn-block" href="">Unirse</a>
-                    </div>
-                    <div class="col">
-                        <a class="btn btn-light btn-block" href="">Registrarse</a>
-                    </div>
-                </div>
-
-                <div class="row coupon">
-                    <div class="col">
-                        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-                            <div class="carousel-inner">
-                              <div class="carousel-item active">
-                                <a href=""><img class="d-block w-100" src="./img/cupon10.png" alt="First slide"></a>
-                              </div>
-                              <div class="carousel-item">
-                                <a href=""><img class="d-block w-100" src="./img/cupon40.png" alt="Second slide"></a>
-                              </div>
-                              <div class="carousel-item">
-                                <a href=""><img class="d-block w-100" src="./img/cupon50.png" alt="Third slide"></a>
-                              </div>
-                            </div>
-                          </div>
-                    </div>
-                </div>
-                
-            </div>
-
         </div>
-    </div>
+    </section>
+
+
+    <!--Métodos de pagos-->
+    <section class="container pagos" style="background-color: white;">
+        <div class="row">
+            <div class="col">
+                <ul class="nav nav-pills nav-fill">
+                    <li class="nav-item">
+                        <a href="" data-toggle="modal" data-target="#modalpagos"><p class="icono"><i class="far fa-credit-card"></i></p></a>
+                        <p class="title-item">Paga con tarjeta de credito</p>
+                        <a class="nav-link" href="">ver más</a>
+                    </li>
+                        
+                    <li class="nav-item">
+                        <a href=""><p class="icono"><i class="fas fa-university"></i></p></a>
+                        <p class="title-item">Transfiere desde tu banco</p>
+                        <a class="nav-link" href="">ver más</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href=""><p class="icono"><i class="far fa-money-bill-alt"></i></p></a>
+                        <p class="title-item">Paga en efectivo</p>
+                        <a class="nav-link" href="">ver más</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href=""><p class="icono"><i class="fas fa-plus-circle"></i></p></a>
+                        <p class="title-item">Más medios de pago</p>
+                        <a class="nav-link" href="">ver todos</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!--modal para ver los métodos de pagos-->
+
+    <section class="modal" tabindex="-1" role="dialog" id="modalpagos" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <p>hola mateo</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     
 </body>

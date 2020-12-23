@@ -1,28 +1,39 @@
+body{
+    background-color: #ebebeb;
+}
 .carousel-inner img{
 	width: 100%;
 }
 
+.carousel-control-prev,
+.carousel-control-next{
+    width: 8%;
+}
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-  height: 100px;
-  width: 100px;
+  height: 50px;
+  width: 50px;
   outline: black;
   background-size: 100%, 100%;
-  border: 1px solid black;
-  background-color: rgba(0,0,0, 0.8);
+  border-radius: 50px 50px;
+  border: 1px solid white;
+  background-color: rgba(255, 255, 255,1);
+  box-shadow: 1px 1px 3px 0 rgba(0,0,0,.22);
+  background-image: none;
 }
 
-.carousel-control-prev-icon { 
-    background-image:url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E"); 
-    width: 30px;
-    height: 48px;
-}
-.carousel-control-next-icon { 
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
-    width: 30px;
-    height: 48px;
+.carousel-control-next-icon:after
+{
+  content: '>';
+  font-size: 29px;
+  color: black;
 }
 
+.carousel-control-prev-icon:after {
+  content: '<';
+  font-size: 29px;
+  color: black;
+}
   
 .carousel-caption {
     position: absolute; 
@@ -37,24 +48,30 @@
     font-weight: bolder;
     /*background-color: rgba(0, 0, 0, 0.5); /* Añadir para conseguir el fondo con opacidad */
 }
-.slider1{
-    color: black;
-    top: 50px;
+
+.pagos{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding-top: 10px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 3px 0 rgba(0,0,0,.22);
 }
 
-.slider3{
-    top: 250px;
-    right: 0%;
-    left: 45%;
+.title-item{
+    margin-bottom: 0px;
 }
 
-#registro{
-    color: blue;
-    text-align: center;
-    margin-bottom: 5px;
-    font-size: 50px;
+p.icono{
+    width: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #fecb01;
+    font-size: 23px;
+    border: 1px solid rgba(0,0,0,.22);
+    border-radius: 50% 50%;
+    
 }
 
-.coupon{
-    margin-top: 15px;
+p.icono:hover{
+    box-shadow: 1px 1px 3px 0 rgba(0,0,0,.22);
 }
