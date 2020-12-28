@@ -1,8 +1,32 @@
-* {
-    text-align: center;
-    color: aqua;
+*{
+	box-sizing: border-box;
 }
-input {
-    color: black;
-    font-size: 25px;
+
+.d-block1{
+    margin: 0px;
+    text-align: center;
+    color: seashell;
+    font-size: 17px;
+    font-family: Corbel;
+    padding: 10px;
+    background-color: #85C1E9;
+}
+.navbar-nav a {
+	text-align: center;
+	margin: auto;
+	margin-right: 5px;
+	padding: 3px;
+	display: block;
+}
+.navbar-nav a:hover {
+	border-radius: 5%;
+	background-color: #85C1E9;
+}
+form a{
+	text-align: center;
+	margin: auto;
+	display: block;
+}
+#modal_categorias a {
+	font-size: 20px;
 }
