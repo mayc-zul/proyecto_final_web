@@ -30,3 +30,204 @@ form a{
 #modal_categorias a {
 	font-size: 20px;
 }
+body{
+    background-color: #ebebeb;
+}
+.carousel-inner img{
+	width: 100%;
+}
+
+.carousel-control-prev,
+.carousel-control-next{
+    width: 8%;
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  height: 50px;
+  width: 50px;
+  outline: black;
+  background-size: 100%, 100%;
+  border-radius: 50px 50px;
+  border: 1px solid white;
+  background-color: rgba(255, 255, 255,1);
+  box-shadow: 1px 1px 3px 0 rgba(0,0,0,.22);
+  background-image: none;
+}
+
+.carousel-control-next-icon:after
+{
+  content: '>';
+  font-size: 29px;
+  color: black;
+}
+
+.carousel-control-prev-icon:after {
+  content: '<';
+  font-size: 29px;
+  color: black;
+}
+  
+.carousel-caption {
+    position: absolute; 
+    right: 20%;
+    top: 80px; /* Cambiar bottom por top y los píxeles que necesites */
+    left: 20%;
+    z-index: 10;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #fff;
+    text-align: center;
+    font-weight: bolder;
+    /*background-color: rgba(0, 0, 0, 0.5); /* Añadir para conseguir el fondo con opacidad */
+}
+
+.pagos{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding-top: 15px;
+    padding-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 3px 0 rgba(0,0,0,.22);
+
+}
+
+.title-item{
+    margin-bottom: 0px;
+}
+
+p.icono{
+    width: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #fecb01;
+    font-size: 23px;
+    border: 1px solid rgba(0,0,0,.22);
+    border-radius: 50% 50%;
+    
+}
+
+p.icono:hover{
+    box-shadow: 1px 1px 3px 0 rgba(0,0,0,.22);
+}
+
+.monal-icono{
+    width: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #fecb01;
+    font-size: 23px;
+    border: 1px solid rgba(0,0,0,.22);
+    border-radius: 50% 50%;
+    box-shadow: 1px 1px 3px 0 rgba(0,0,0,.22);
+}
+p.monal-icono i{
+    margin-left: 6px;
+}
+.col-icon{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.modal-margin{
+    margin-bottom: 20px;
+}
+
+.card-producto:hover{
+    box-shadow: 2px 2px 8px 0 rgba(0,0,0,.12);
+    transition: .5s;
+}
+
+.serv-icon{
+    text-align: center;
+    margin-top: 10px;
+    font-size: 45px;
+    color: rgb(85, 85, 145);
+}
+
+div.col p.text-muted{
+    margin-top: 10px;
+    font-size: 14px;
+    padding-bottom: 10px;
+}
+
+
+
+.image-box {
+    /* Here's the trick */
+    box-shadow: inset 0 0 0 100vw rgba(0,0,0,0.5);
+  
+    /* Basic background styles */
+    background: var(--image-url) center center;
+    background-size: cover;
+  
+    /* Here's the same styles we applied to our content-div earlier */
+    color: white;
+    min-height: 100vh;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    /* Add a transition, just for fun */
+    transition: box-shadow .3s ease-out;
+    /*Efecto de mover el scroll*/
+    background-attachment: fixed;
+    
+}
+.image-box:hover {
+    box-shadow: inset 0 0 0 100vw rgba(0,0,0,0.2);
+}
+
+.btn-personalizado{
+    margin-top: 35px;
+    background-color: black;
+    color: white;
+    border: 1px solid black;
+}
+
+
+.serv{
+    border-left: 1px solid #eeeeee;
+    border-bottom: 1px solid #ffcc00;
+}
+
+.footer-tilte{
+    margin-top: 50px;
+}
+.footer-text{
+    color: white;
+    text-align: justify;
+
+}
+
+.redes{
+    font-size: 30px;
+    color: white;
+    float: left;
+    padding-left: 20px;
+}
+
+.facebook:hover{
+    color: #3b5997;
+}
+
+.twitter:hover{
+    color: #41b7d8;
+}
+
+.instagram:hover{
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  -webkit-background-clip: text;
+          /* Also define standard property for compatibility */
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.pie{
+    width: 100%;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    color: white;
+    font-size: 12px;
+}
