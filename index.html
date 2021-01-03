@@ -38,21 +38,21 @@
     </div>
 
     <div class="navbar navbar-expand-sm navbar-dark bg-dark fixed">
-    	<div class="col-1">
-	    	<a href="#" class="navbar-brand"><h2>BestBuy</h2></a>
+    	<div class="col-2">
+	    	<a href="#" class="navbar-brand"><h2>TecnoCompras</h2></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 		</div>
 
     	<div class="collapse navbar-collapse" id="navbarSupportedContent">
-    		<input class="form-control mr-sm-2 col-9" type="search" placeholder="Busca lo que necesites" aria-label="Search">
+    		<input class="form-control mr-sm-2 col-7" type="search" placeholder="Busca lo que necesites" aria-label="Search">
             <button class="btn btn-outline-light mr-3" type="submit">Buscar</button>
     		
             <ul class="navbar-nav mr-auto">
-            	<a href="#" class="nav-link" data-toggle="modal" data-target="#modal_categorias"><img src="./icons/menubars.png" width="27px" height="27px"><br>Categorias</a>
-            	<a href="#" class="nav-link" data-toggle="modal" data-target="#modal_car"><img src="./icons/carrito.png" width="28px" height="28px"><br>Mi carrito</a>
-            	<a href="#" class="nav-link" data-toggle="modal" data-target="#modal_user" ><img src="./icons/usuario.png" width="28px" height="28px"><br>Inciar sesion</a>
+                <a href="#" class="nav-link" data-toggle="modal" data-target="#modal_categorias"><p class="nav-icon"><i class="fas fa-bars"></i></p>Categorias</a>
+            	<a href="#" class="nav-link" data-toggle="modal" data-target="#modal_car"><p class="nav-icon"><i class="fas fa-shopping-cart"></i></p><p>Mi carrito</p></a>
+            	<a href="#" class="nav-link" data-toggle="modal" data-target="#modal_user" ><p class="nav-icon"><i class="fas fa-user"></i></p><p>Inciar sesion</p></a>
             	
             </ul>
     		
@@ -62,61 +62,21 @@
     		<div class="modal-dialog">
     			<div class="modal-content">
 					<div class="modal-header">
-						<h2 class="modal-title">Categorías</h2>
+						<h2 class="modal-title"><b>Categorías</b></h2>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
 					</div>
-    				<div class="modal_body mt-2">
-	    				<ul>
-	    					<li>
-								<a href="">Cámaras y Fotografía</a>
-							</li>
-							<li>
-								<a href="">Electrónicos para autos y vehículos</a>
-							</li>
-							<li>
-								<a href="">Teléfonos celulares y accesorios</a>
-							</li>
-							<li>
-								<a href="">Equipos y accesorios</a>
-							</li>
-							<li>
-								<a href="">GPS y navegación</a>
-							</li>
-							<li>
-								<a href="">Audífonos</a>
-							</li>
-							<li>
-								<a href="">Audio para el hogar</a>
-							</li>
-							<li>
-								<a href="">Electrónicos de oficina</a>
-							</li>
-							<li>
-								<a href="">Audio y video portátil</a>
-							</li>
-							<li>
-								<a href="">Seguridad y vigilancia</a>
-							</li>
-							<li>
-								<a href="">Televisión y video</a>
-							</li>
-							<li>
-								<a href="">Consolas de videojuegos y accesorios</a>
-							</li>
-							<li>
-								<a href="">Proyectores de video</a>
-							</li>
-							<li>
-								<a href="">Tecnología ponible</a>
-							</li>
-							<li>
-								<a href="">Lectores y accesorios para libros electrónicos</a>
-							</li>
-	    				</ul>    					
+    				<div class="modal_body">
+                        <div class="list-group">
+                            <a href="" class="list-group-item list-group-item-action"><p><i class="fas fa-camera"></i></p><p>Cámara y Fotografía</p></a>
+                            <a href="" class="list-group-item list-group-item-action"><p><i class="fas fa-mobile-alt"></i></p><p>Teléfonos Celulares y Accesorios</p></a>
+                            <a href="" class="list-group-item list-group-item-action"><p><i class="fas fa-headphones-alt"></i></p><p>Audio y Vídeo</p></a>
+                            <a href="computadores.html" class="list-group-item list-group-item-action"><p><i class="fas fa-laptop"></i></p><p>Computadores y Accesorios</p></a>
+                            <a href="televisores.html" class="list-group-item list-group-item-action"><p><i class="fas fa-tv"></i></p><p>Televisores</p></a>
+                            <a href="consolas.html" class="list-group-item list-group-item-action"><p><i class="fas fa-gamepad"></i></p><p>Consolas de Videojuegos y Accesorios</p></a>
+                        </div>
     				</div>
-    				
     			</div>
     		</div>
     	</div>
@@ -126,7 +86,7 @@
     		<div class="modal-dialog">
     			<div class="modal-content">
     				<div class="modal-header">
-						<h2 class="modal-title">Iniciar Sesión</h2>
+						<h2 class="modal-title"><b>Iniciar Sesión</b></h2>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
@@ -155,7 +115,7 @@
     		<div class="modal-dialog">
     			<div class="modal-content">
     				<div class="modal-header">
-						<h2 class="modal-title">Registrarse</h2>
+						<h2 class="modal-title"><b>Registrarse</b></h2>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
@@ -179,7 +139,6 @@
                             <div class="form-group">
                                 <label>Contraseña</label><input class="form-control form-control-sm" type="password" name="password" size="6" maxlength="10" required>
                             </div>
-                            <br>
             
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" value="radio1" id="radio1">

@@ -13,10 +13,8 @@
 }
 .navbar-nav a {
 	text-align: center;
-	margin: auto;
-	margin-right: 5px;
-	padding: 3px;
-	display: block;
+	margin-right: 8px;
+	padding: 0;
 }
 .navbar-nav a:hover {
 	border-radius: 5%;
@@ -94,6 +92,24 @@ body{
 .title-item{
     margin-bottom: 0px;
 }
+
+p.nav-icon {
+    font-size: 25px;
+    margin: auto;
+    color: white;
+}
+
+
+.list-group-item p {
+    display: inline-block;
+    margin: auto;
+    text-align: center;
+}
+.list-group-item i {
+    width: 30px;
+    margin-right: 10px;
+}
+
 
 p.icono{
     width: 40px;
