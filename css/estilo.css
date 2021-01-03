@@ -82,7 +82,7 @@ body{
 .pagos{
     margin-top: 30px;
     margin-bottom: 30px;
-    padding-top: 15px;
+    padding-top: 20px;
     padding-bottom: 20px;
     border-radius: 5px;
     box-shadow: 2px 2px 3px 0 rgba(0,0,0,.22);
@@ -143,13 +143,26 @@ p.monal-icono i{
     margin-top: auto;
     margin-bottom: auto;
 }
-.modal-margin{
-    margin-bottom: 20px;
+
+.card-img-overlay{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0 0 0 100vw rgba(0,0,0,0.5);
+    transition: 1s;
+}
+.card-img-overlay:hover{
+    box-shadow: inset 0 0 0 100vw rgba(0,0,0,0.2);
+    
 }
 
+.card-producto{
+    transition: 1s;
+}
 .card-producto:hover{
     box-shadow: 2px 2px 8px 0 rgba(0,0,0,.12);
-    transition: .5s;
+    
 }
 
 .serv-icon{
@@ -246,4 +259,11 @@ div.col p.text-muted{
     text-align: center;
     color: white;
     font-size: 12px;
+}
+
+.scrollspy{
+    overflow: auto;
+    position: relative;
+    height: 400px;
+    background-color: #fff;
 }

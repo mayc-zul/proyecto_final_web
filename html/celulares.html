@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Virtual Shop</title>
+	<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../css/estilo.css">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    
+    <!--iconos-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+
+</head>
+<body>
+    <!-- Barra de navegacion -->
+
+	<div id="carousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <h4 class="d-block1 w-100">Envío gratis por compras superiores a $150</h4>
+          </div>
+          <div class="carousel-item">
+            <h4 class="d-block1 w-100">Más del 25% de descuento en cursos de programación</h4>
+          </div>
+        </div>
+    </div>
+
+    <div class="navbar navbar-expand-sm navbar-dark bg-dark fixed">
+    	<div class="col-2">
+	    	<a href="#" class="navbar-brand"><h2>BestBuy</h2></a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+		</div>
+
+    	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+    		<input class="form-control mr-sm-2 col-7" type="search" placeholder="Busca lo que necesites" aria-label="Search">
+            <button class="btn btn-outline-light mr-3" type="submit">Buscar</button>
+    		
+            <ul class="navbar-nav mr-auto">
+            	<a href="#" class="nav-link" data-toggle="modal" data-target="#modal_categorias"><img src="./icons/menubars.png" width="27px" height="27px"><br>Categorias</a>
+            	<a href="#" class="nav-link" data-toggle="modal" data-target="#modal_car"><img src="./icons/carrito.png" width="28px" height="28px"><br>Mi carrito</a>
+            	<a href="#" class="nav-link" data-toggle="modal" data-target="#modal_user" ><img src="./icons/usuario.png" width="28px" height="28px"><br>Inciar sesion</a>
+            	
+            </ul>
+    		
+    	</div>
+
+    	<div class="modal fade" id="modal_categorias">
+    		<div class="modal-dialog">
+    			<div class="modal-content">
+					<div class="modal-header">
+						<h2 class="modal-title">Categorías</h2>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+    				<div class="modal_body mt-2">
+	    				<ul>
+	    					<li>
+								<a href="">Cámaras y Fotografía</a>
+							</li>
+							<li>
+								<a href="">Electrónicos para autos y vehículos</a>
+							</li>
+							<li>
+								<a href="">Teléfonos celulares y accesorios</a>
+							</li>
+							<li>
+								<a href="">Equipos y accesorios</a>
+							</li>
+							<li>
+								<a href="">GPS y navegación</a>
+							</li>
+							<li>
+								<a href="">Audífonos</a>
+							</li>
+							<li>
+								<a href="">Audio para el hogar</a>
+							</li>
+							<li>
+								<a href="">Electrónicos de oficina</a>
+							</li>
+							<li>
+								<a href="">Audio y video portátil</a>
+							</li>
+							<li>
+								<a href="">Seguridad y vigilancia</a>
+							</li>
+							<li>
+								<a href="">Televisión y video</a>
+							</li>
+							<li>
+								<a href="">Consolas de videojuegos y accesorios</a>
+							</li>
+							<li>
+								<a href="">Proyectores de video</a>
+							</li>
+							<li>
+								<a href="">Tecnología ponible</a>
+							</li>
+							<li>
+								<a href="">Lectores y accesorios para libros electrónicos</a>
+							</li>
+	    				</ul>    					
+    				</div>
+    				
+    			</div>
+    		</div>
+    	</div>
+
+
+    	<div class="modal fade" id="modal_user">
+    		<div class="modal-dialog">
+    			<div class="modal-content">
+    				<div class="modal-header">
+						<h2 class="modal-title">Iniciar Sesión</h2>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+
+					<div class="modal-body">
+						<form>
+                            <div class="form-group">
+                                <label>Correo</label><input class="form-control form-control-sm" type="email" name="mail" required>
+                            </div>                    		
+                            <div class="form-group">
+                                <label>Contraseña</label><input class="form-control form-control-sm" type="password" name="password" size="6" maxlength="10" required>
+                            </div>
+
+                            <button class="btn col-12" type="submit" data-dismiss="modal">Iniciar Sesión</button><br><br>
+                            <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#modal_registro">Aún no estas registrado? Haz click aquí</a>
+                        </form>
+					</div>
+    				
+    			</div>
+    		</div>
+    	</div>
+
+
+    	<div class="modal fade" id="modal_registro">
+    		<div class="modal-dialog">
+    			<div class="modal-content">
+    				<div class="modal-header">
+						<h2 class="modal-title">Registrarse</h2>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+
+					<div class="modal-body">
+						<form>
+                            <div class="form-group">
+                                <label>Nombre</label>
+                                <input class="form-control form-control-sm" type="text" name="name" required>
+                            </div>
+                            <div class="form-group"> 
+                                <label>Fecha de nacimiento</label><input class="form-control form-control-sm" type="date" name="birthday" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Teléfono</label><input class="form-control form-control-sm">
+                            </div>
+                            <div class="form-group">
+                                <label>Correo electrónico</label><input class="form-control form-control-sm" type="email" name="mail" required>
+                            </div>                    		
+                            <div class="form-group">
+                                <label>Contraseña</label><input class="form-control form-control-sm" type="password" name="password" size="6" maxlength="10" required>
+                            </div>
+                            <br>
+            
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="radio1" id="radio1">
+                                <label class="form-check-label" for="defaultCheck1">Acepto los términos y condiciones</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="radio2" id="radio2">
+                                <label class="form-check-label" for="defaultCheck1">Deseo recibir correos con novedades</label>
+                            </div>
+                            <br>
+
+                            <button class="btn" type="submit" data-dismiss="modal">Registrarme</button>
+                            <button class="btn" type="reset">Borrar información</button>
+                        </form>
+					</div>
+    				
+    			</div>
+    		</div>
+    	</div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row py-3">
+            <div class="col">
+                <h4 class="text-center">Lo mejor en celulares</h4>
+                <p>Los mejores celulares del mercado y las marcas más reconocidas como Samsung, Apple, Huawei, Motorola los encuentras en tu éxito. Decide entre los celulares básicos, smartphones y otras opciones con diferentes características que se ajustan a ti.</p>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <aside class="col-3 scrollspy" data-spy="scroll" data-offset="0">
+                <h5 class="border-bottom pt-3">Filtros</h5>
+                <form action="" class="border-bottom pt-3">
+                    <h6>Precios</h6>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="canon" id="Mcheck1"><label class="form-check-label">Menos de $499.000</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="fujifilm" id="Mcheck2"><label class="form-check-label">$500.000 - $999.999</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="gopro" id="Mcheck3"><label class="form-check-label">$1.000.000 - $2.999.999</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="instax" id="Mcheck4"><label class="form-check-label">$3.000.000 - $3.999.999</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="nikon" id="Mcheck5"><label class="form-check-label">$4.000.000 - 4.999.999</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="sony" id="Mcheck6"><label class="form-check-label"> Más de $5.000.000</label>
+                    </div>
+                </form>
+
+                <form action="" class="border-bottom pt-3">
+                    <h6>Marcas</h6>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="canon" id="Mcheck1"><label class="form-check-label">ALCATEL</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="fujifilm" id="Mcheck2"><label class="form-check-label">APPLE</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="gopro" id="Mcheck3"><label class="form-check-label">HUAWEI</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="instax" id="Mcheck4"><label class="form-check-label">KRONO</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="nikon" id="Mcheck5"><label class="form-check-label">LG</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="sony" id="Mcheck6"><label class="form-check-label">MOTOROLA</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="canon" id="Mcheck1"><label class="form-check-label">NOKIA</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="fujifilm" id="Mcheck2"><label class="form-check-label">SAMSUNG</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="gopro" id="Mcheck3"><label class="form-check-label">XIAOMI</label>
+                    </div>
+                </form>
+
+                <form action="" class="border-bottom">
+                    <h6>Memoria interna</h6>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="acc_camara" id="Tcheck1"><label class="form-check-label">256GB</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="deportivas" id="Tcheck2"><label class="form-check-label">128GB</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="digital" id="Tcheck3"><label class="form-check-label">64GB</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="instantanea" id="Tcheck4"><label class="form-check-label">32GB</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="profesional" id="Tcheck5"><label class="form-check-label">16GB</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="semiprofesional" id="Tcheck6"><label class="form-check-label">8GB</label>
+                    </div>
+                </form>
+
+                <form action="" class="border-bottom pt-3">
+                    <h6>Cámara frontal</h6>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="canon" id="Mcheck1"><label class="form-check-label">32MP</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="fujifilm" id="Mcheck2"><label class="form-check-label">20MP</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="gopro" id="Mcheck3"><label class="form-check-label">16MP</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="instax" id="Mcheck4"><label class="form-check-label">13MP</label>
+                    </div>
+                </form>
+
+                <form action="" class="border-bottom pt-3">
+                    <h6>Tamaño de la pantalla</h6>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="canon" id="Mcheck1"><label class="form-check-label">6.5 pulgadas</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="fujifilm" id="Mcheck2"><label class="form-check-label">6.4 pulgadas</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="gopro" id="Mcheck3"><label class="form-check-label">6.3 pulgadas</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="instax" id="Mcheck4"><label class="form-check-label">6.2 pulgadas</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="instax" id="Mcheck4"><label class="form-check-label">5 pulgadas</label>
+                    </div>
+                </form>
+
+                <form action="" class="border-bottom pt-3">
+                    <h6>Cámara posterior</h6>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="canon" id="Mcheck1"><label class="form-check-label">108MP + 12MP + 12MP</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="fujifilm" id="Mcheck2"><label class="form-check-label">12MP + 64MP+ 12MP</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="gopro" id="Mcheck3"><label class="form-check-label">13MP</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="instax" id="Mcheck4"><label class="form-check-label">48MP + 5MP 8MP + 2MP + 2MP</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="instax" id="Mcheck4"><label class="form-check-label">12MP + 12MP + 8MP</label>
+                    </div>
+                </form>
+            </aside>
+            <section class="col-9"> 
+                <!--Ruta-->
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="../index.html">Inicio</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Teléfonos celulares y accesorios</li>
+                    </ol>
+                </nav>
+
+                <div class="card-deck pb-4">
+                    <div class="card card-producto">
+                        <img class="card-img-top border-bottom" src="./img/celular1.jpg">
+                        <div class="card-body">
+                            <h5 class="card-title text-warning">$759.900</h5>
+                            <p class="card-text">Celular Xiaomi Redmi Note 9S 128GB</p>
+                        </div>
+                    </div>
+
+                    <div class="card card-producto">
+                        <img class="card-img-top border-bottom" src="./img/celular2.jpg">
+                        <div class="card-body">
+                            <h5 class="card-title text-warning">$529.900</h5>
+                            <p class="card-text">Celular Samsung Galaxy M11 32GB + Micro SD 32GB + Cover</p>
+                        </div>
+                    </div>
+
+                    <div class="card card-producto">
+                        <img class="card-img-top border-bottom" src="./img/celular3.jpg">
+                        <div class="card-body">
+                            <h5 class="card-title text-warning">$699.900</h5>
+                            <p class="card-text">Celular Motorola One Fusion Plus 128GB</p>
+                        </div>
+                    </div>
+
+                    <div class="card card-producto">
+                        <img class="card-img-top border-bottom" src="./img/celular4.jpg">
+                        <div class="card-body">
+                            <h5 class="card-title text-warning">$1.099.900</h5>
+                            <p class="card-text">Celular Samsung Galcy M31 128GB + Cover</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-deck pb-4">
+                    <div class="card card-producto">
+                        <img class="card-img-top border-bottom" src="./img/celular5.jpg">
+                        <div class="card-body">
+                            <h5 class="card-title text-warning">$649.900</h5>
+                            <p class="card-text">Celular Xiaomi Redmi Note 8 128GB</p>
+                        </div>
+                    </div>
+
+                    <div class="card card-producto">
+                        <img class="card-img-top border-bottom" src="./img/celular6.jpg">
+                        <div class="card-body">
+                            <h5 class="card-title text-warning">$649.900</h5>
+                            <p class="card-text">Celular Nokia 3.4 64GB</p>
+                        </div>
+                    </div>
+
+                    <div class="card card-producto">
+                        <img class="card-img-top border-bottom" src="./img/celular7.jpg">
+                        <div class="card-body">
+                            <h5 class="card-title text-warning">$3.099.900</h5>
+                            <p class="card-text">¡Phone 11 64GB</p>
+                        </div>
+                    </div>
+
+                    <div class="card card-producto">
+                        <img class="card-img-top border-bottom" src="./img/celular8.jpg">
+                        <div class="card-body">
+                            <h5 class="card-title text-warning">$2.349.900</h5>
+                            <p class="card-text">¡Phone XR 64GB</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-deck pb-4">
+                    <div class="card card-producto">
+                        <img class="card-img-top border-bottom" src="./img/celular9.jpg">
+                        <div class="card-body">
+                            <h5 class="card-title text-warning">$79.900</h5>
+                            <p class="card-text">Cargador Smartphone MI Inalámbrico</p>
+                        </div>
+                    </div>
+
+                    <div class="card card-producto">
+                        <img class="card-img-top border-bottom" src="./img/celular10.jpg">
+                        <div class="card-body">
+                            <h5 class="card-title text-warning">$199.990</h5>
+                            <p class="card-text">Batería Externa Samsung</p>
+                        </div>
+                    </div>
+
+                    <div class="card card-producto">
+                        <img class="card-img-top border-bottom" src="./img/celular11.jpg">
+                        <div class="card-body">
+                            <h5 class="card-title text-warning">$749.900</h5>
+                            <p class="card-text">Smarwatch Galaxy Watch 42mm R810</p>
+                        </div>
+                    </div>
+
+                    <div class="card card-producto">
+                        <img class="card-img-top border-bottom" src="./img/celular12.jpg">
+                        <div class="card-body">
+                            <h5 class="card-title text-warning">$2.109.900</h5>
+                            <p class="card-text">Apple Watch Seria 6(GPS) 44mm</p>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+    </div>
+
+    <!--Servicios a ofrecer-->
+
+    <section class="container-fluid" style="background-color: white;">
+        <div class="row">
+            <div class="col serv">
+                <p class="serv-icon"><i class="fas fa-money-check-alt"></i></p>
+                <h5 class="title-item text-center">Precios increíbles</h5>
+                <p class="text-muted text-center">Ofrecemos precios competitivos en nuestra gama de productos de más de 100 millones.</p>
+            </div>    
+            <div class="col serv">
+                <p class="serv-icon"><i class="fas fa-truck-moving"></i></p>
+                <h5 class="title-item text-center">Envíos a todo el mundo</h5>
+                <p class="text-muted text-center">Realizamos envíos a más de 200 países y regiones.</p>
+            </div>
+            <div class="col serv">
+                <p class="serv-icon"><i class="far fa-credit-card"></i></p>
+                <h5 class="title-item text-center">Pago seguro</h5>
+                <p class="text-muted text-center">Pague con los métodos de pago más populares y seguros del mundo.</p>
+            </div> 
+            <div class="col serv">
+                <p class="serv-icon"><i class="fas fa-shield-alt"></i></p>
+                <h5 class="title-item text-center">Compra con confianza</h5>
+                <p class="text-muted text-center">Nuestra Protección al Comprador cubre su compra desde el clic hasta la entrega.</p>
+            </div>  
+            <div class="col serv">
+                <p class="serv-icon"><i class="fas fa-user-friends"></i></p>
+                <h5 class="title-item text-center">Centro de ayuda 24/7</h5>
+                <p class="text-muted text-center">Asistencia las 24 horas para una experiencia de compra fluida.</p>
+            </div> 
+        </div>
+    </section>
+
+    <footer class="container-fluid" style="background-color: #222222;">
+        <div class="row">
+            <div class="col">
+                <h6 class="footer-text footer-tilte">SUSCRÍBETE A NUESTRO NEWSLETTER</h6>
+                <small class="footer-text">Infórmate de lo último. Nuestras ofertas y novedades directamente en tu e-mail.</small>
+
+                <h6>Siguenos en</h6>
+                <p class="redes facebook"><i class="fab fa-facebook-square"></i></p>
+                <p class="redes twitter"><i class="fab fa-twitter-square"></i></p>
+                <p class="redes instagram"><i class="fab fa-instagram"></i></p>
+            </div>
+
+            <div class="col">
+                <h6 class="footer-text footer-tilte">Páginas</h6>
+                <nav class="nav flex-column">
+                    <a class="nav-link" href="#">Inicio</a>
+                    <a class="nav-link" href="#">Tienda</a>
+                    <a class="nav-link" href="#">Sobre Nosotros</a>
+                    <a class="nav-link" href="#">Contacto</a>
+                </nav>          
+            </div>
+
+            <div class="col">
+                <h6 class="footer-text footer-tilte">Puntos físicos</h6>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <p class="pie">© 2020-2021, "nombre de la tienda", Inc. o sus filiales</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
