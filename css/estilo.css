@@ -267,3 +267,29 @@ div.col p.text-muted{
     height: 400px;
     background-color: #fff;
 }
+
+.scrollspy::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.scrollspy::-webkit-scrollbar:vertical {
+    width:10px;
+}
+
+.scrollspy::-webkit-scrollbar-button:increment,.contenedor::-webkit-scrollbar-button {
+    display: none;
+} 
+
+.scrollspy::-webkit-scrollbar:horizontal {
+    height: 10px;
+}
+
+.scrollspy::-webkit-scrollbar-thumb {
+    background-color: #797979;
+    border-radius: 20px;
+    border: 2px solid #f1f2f3;
+}
+
+.scrollspy::-webkit-scrollbar-track {
+    border-radius: 10px;  
+}
