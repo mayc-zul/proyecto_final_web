@@ -3,8 +3,9 @@ session_start();
 
 if (isset($_SESSION['user'])) {
     if($_SESSION['tipo_usuario'] == 'administrador'){
-        echo '<h1>Benvenido administrador '.$_SESSION['user'].' </h1>';
-        echo '<br><a href="cerrar.php">Cerrar Sesión</a>';
+        //echo '<h1>Benvenido administrador '.$_SESSION['user'].' </h1>';
+        //echo '<br><a href="./audiovideo.php">Cerrar Sesión</a>';
+        header('Location: ./audiovideo.php');
        
 
     }elseif($_SESSION['tipo_usuario'] == 'cliente'){
