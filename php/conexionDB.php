@@ -14,7 +14,6 @@ try {
     //}
     //$pdo = null;
 
-    echo 'Conectado <br>';
 
 } catch (PDOException $e) {
     print "Error!: " . $e->getMessage() . "<br/>";

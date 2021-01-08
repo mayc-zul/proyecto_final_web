@@ -24,6 +24,81 @@
 
 </head>
 <body>
+
+    <?php 
+        include_once './conexionDB.php';
+
+        $sql_leer = "SELECT * FROM audiovideo"; //Nombre de la tabla
+        $gsent = $pdo->prepare($sql_leer); //pdo es la conexion traida desde connect
+        $gsent->execute();
+        $resultado = $gsent->fetchAll();
+        
+        if ($_POST) {
+            $nombre = $_POST["nombre"];
+            $precio = $_POST["precio"];
+            $descripcion = $_POST["descripcion"];
+            $imagen = file_get_contents($_FILES["imagen"]["tmp_name"]);
+
+            $sql_agregar = "INSERT INTO audiovideo (nombre,precio,descripcion,imagen) VALUES (?,?,?,?)";
+            $sentencia_agregar = $pdo->prepare($sql_agregar);
+            $sentencia_agregar->execute(array($nombre,$precio,$descripcion,$imagen));
+
+            header("location:./audiovideo.php");
+        }
+
+    ?>
+    <?php if ($_GET): ?>
+
+        <?php 
+            $id = $_GET['id'];
+            $sql_unico = "SELECT * FROM audiovideo WHERE id=?"; //Nombre de la tabla
+            $gsent_unico = $pdo->prepare($sql_unico); //pdo es la conexion traida desde connect
+            $gsent_unico->execute(array($id));
+            $resultado_unico = $gsent_unico->fetch();
+        ?>
+
+        <script type="text/javascript">
+            $(window).on('load', function() {
+                $('#modal_editar').modal('show');
+            });
+        </script>
+        <div class="modal fade" id="modal_editar">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title"><b>Editar Producto</b></h2>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-body">
+                        <form method="POST" enctype="multipart/form-data" action="editarA.php">
+                            <div class="form-group">
+                                <input type="hidden" name="id" value="<?php echo $resultado_unico['id'] ?>">
+                                <label>Nombre del producto</label><input class="form-control form-control-sm" type="text" name="nombre" value="<?php echo $resultado_unico['nombre'] ?>" required>
+                            </div>
+                            <img style="margin: auto; display: block;" width="250px" src="data:image/jpg;base64,<?php echo base64_encode(($resultado_unico['imagen'])); ?>">                    		
+                            <div class="form-group">
+                                <label>Precio del producto</label><input class="form-control form-control-sm" type="text" name="precio" value="<?php echo $resultado_unico['precio'] ?>" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Descripcion del producto</label><input class="form-control form-control-sm" type="text" name="descripcion" value="<?php echo $resultado_unico['descripcion'] ?>" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Imagen del producto</label><input class="form-control form-control-sm" type="file" name="imagen" required>
+                            </div>
+                            
+
+                            <input class="btn col-12" type="submit" value="Guardar Cambios"><br>
+                        </form>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    <?php endif ?>
+
     <!-- Barra de navegacion -->
 
 	<div id="carousel" class="carousel slide" data-ride="carousel">
@@ -262,106 +337,71 @@
                 </nav>
 
                 <div class="card-deck pb-4">
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/audiovideo1.jpg">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$2.099.900</h5>
-                            <p class="card-text">Stereo Inteligente Sonos FIVE</p>
+
+                    <div class="card card-producto" data-toggle="modal" data-target="#modal_agregar">
+                        <div class="card-body bg-light">
+                            <a href="#" class="nav-link"><i class="fas fa-plus text-dark" style="font-size: 120px; text-align: center; display: block;"></i></a>
+                        </div>
+                    </div>
+	            
+
+                    <div class="modal fade show" id="modal_agregar">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h2 class="modal-title"><b>Agregar Productos</b></h2>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+
+                                <div class="modal-body">
+                                    <form method="POST" enctype="multipart/form-data">
+                                        <div class="form-group">
+                                            <label>Nombre del producto</label><input class="form-control form-control-sm" type="text" name="nombre" required>
+                                        </div>                    		
+                                        <div class="form-group">
+                                            <label>Precio del producto</label><input class="form-control form-control-sm" type="text" name="precio" value="$"required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Descripcion del producto</label><input class="form-control form-control-sm" type="text" name="descripcion"required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Imagen del producto</label><input class="form-control form-control-sm" type="file" name="imagen"required>
+                                        </div>
+                                        
+
+                                        <input class="btn col-12" type="submit" value="Agregar"><br>
+                                    </form>
+                                </div>
+                                
+                            </div>
                         </div>
                     </div>
 
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/audiovideo2.jpg">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$1.369.900</h5>
-                            <p class="card-text">Stereo BOSE Home Speaker 500 Bluetooth con Alexa</p>
+                    <?php for($i=0; $i < count($resultado); $i++): ?>
+                        
+                        
+                        <div class="card card-producto">
+                            <img  class="card-img-top border-bottom" src="data:image/jpg;base64,<?php echo base64_encode(($resultado[$i]['imagen'])); ?>">
+                            <div class="card-body">
+                                <h5 class="card-title text-warning"><?php echo $resultado[$i]['precio'] ?></h5>
+                                <p class="card-text"><?php echo $resultado[$i]['nombre'] ?></p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="audiovideo.php?id=<?php echo $resultado[$i]['id']?>"><i class="fas fa-pencil-alt" style="float: left;"></i></a><a href="eliminarA.php?id=<?php echo $resultado[$i]['id']?>"><i class="far fa-trash-alt" style="float: right;"></i></a>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/audiovideo3.jpg">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$299.900</h5>
-                            <p class="card-text">Stereo inalámbrico Echo Dot 3 Amazon Con Alexa Bluetooth</p>
-                        </div>
-                    </div>
-
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/audiovideo4.jpg">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$849.900</h5>
-                            <p class="card-text">Stereo Bluetooth JBL Charge 4</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card-deck pb-4">
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/audiovideo5.jpg">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$399.900</h5>
-                            <p class="card-text">Parlante Soundcore Fiesta Rave Neo Conexión Bluetooth</p>
-                        </div>
-                    </div>
-
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/audiovideo6.jpg">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$1.899.900</h5>
-                            <p class="card-text">Barra de sonido Samsung HW-Q7OT/ZL</p>
-                        </div>
-                    </div>
-
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/audiovideo7.jpg">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$1.299.900</h5>
-                            <p class="card-text">Torre Musical LG Xboom RN9</p>
-                        </div>
-                    </div>
-
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/audiovideo8.jpg">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$69.900</h5>
-                            <p class="card-text">Stereo Inalámbrico 8 pulgadas DD-Dkaraok</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card-deck pb-4">
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/audiovideo9.jpg">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$1.129.900</h5>
-                            <p class="card-text">Proyector Viewsonic PA502s 3500 Lumens 3D</p>
-                        </div>
-                    </div>
-
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/audiovideo10.jpg">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$799.900</h5>
-                            <p class="card-text">Proyector Led-video beam-BSPJ-002 Brigthside</p>
-                        </div>
-                    </div>
-
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/audiovideo11.jpg">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$299.900</h5>
-                            <p class="card-text">Audífonos Inalámbrico JBL Live 400</p>
-                        </div>
-                    </div>
-
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/audiovideo12.jpg">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$749.000</h5>
-                            <p class="card-text">Audífonos BOSE  Soudsport Free Wireless</p>
-                        </div>
-                    </div>
-                </div>
+                        <?php
+                            if (($i+1) == count($resultado)) {
+                                echo "</div>";
+                            }
+                            elseif (($i+2)%4 == 0) {
+                                echo "</div>";
+                                echo '<div class="card-deck pb-4">';
+                            }                	
+                        ?>
+                    <?php endfor ?>	
 
             </section>
         </div>

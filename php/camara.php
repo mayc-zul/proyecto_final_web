@@ -23,6 +23,82 @@
 
 </head>
 <body>
+
+<?php 
+        include_once './conexionDB.php';
+
+        $sql_leer = "SELECT * FROM camaras"; //Nombre de la tabla
+        $gsent = $pdo->prepare($sql_leer); //pdo es la conexion traida desde connect
+        $gsent->execute();
+        $resultado = $gsent->fetchAll();
+        
+        if ($_POST) {
+            $nombre = $_POST["nombre"];
+            $precio = $_POST["precio"];
+            $descripcion = $_POST["descripcion"];
+            $imagen = file_get_contents($_FILES["imagen"]["tmp_name"]);
+
+            $sql_agregar = "INSERT INTO camaras (nombre,precio,descripcion,imagen) VALUES (?,?,?,?)";
+            $sentencia_agregar = $pdo->prepare($sql_agregar);
+            $sentencia_agregar->execute(array($nombre,$precio,$descripcion,$imagen));
+
+            header("location:./camara.php");
+        }
+
+    ?>
+    <?php if ($_GET): ?>
+
+        <?php 
+            $id = $_GET['id'];
+            $sql_unico = "SELECT * FROM camaras WHERE id=?"; //Nombre de la tabla
+            $gsent_unico = $pdo->prepare($sql_unico); //pdo es la conexion traida desde connect
+            $gsent_unico->execute(array($id));
+            $resultado_unico = $gsent_unico->fetch();
+        ?>
+
+        <script type="text/javascript">
+            $(window).on('load', function() {
+                $('#modal_editar').modal('show');
+            });
+        </script>
+        <div class="modal fade" id="modal_editar">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title"><b>Editar Producto</b></h2>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-body">
+                        <form method="POST" enctype="multipart/form-data" action="editarCam.php">
+                            <div class="form-group">
+                                <input type="hidden" name="id" value="<?php echo $resultado_unico['id'] ?>">
+                                <label>Nombre del producto</label><input class="form-control form-control-sm" type="text" name="nombre" value="<?php echo $resultado_unico['nombre'] ?>" required>
+                            </div>
+                            <img style="margin: auto; display: block;" width="250px" src="data:image/jpg;base64,<?php echo base64_encode(($resultado_unico['imagen'])); ?>">                    		
+                            <div class="form-group">
+                                <label>Precio del producto</label><input class="form-control form-control-sm" type="text" name="precio" value="<?php echo $resultado_unico['precio'] ?>" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Descripcion del producto</label><input class="form-control form-control-sm" type="text" name="descripcion" value="<?php echo $resultado_unico['descripcion'] ?>" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Imagen del producto</label><input class="form-control form-control-sm" type="file" name="imagen" required>
+                            </div>
+                            
+
+                            <input class="btn col-12" type="submit" value="Guardar Cambios"><br>
+                        </form>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    <?php endif ?>
+
+
     <!-- Barra de navegacion -->
 
 	<div id="carousel" class="carousel slide" data-ride="carousel">
@@ -266,106 +342,71 @@
                 </nav>
 
                 <div class="card-deck pb-4">
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/camara1.jpg">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$4.499.000</h5>
-                            <p class="card-text">Cámara canon eos m50 24mpx kit 15-45 is stm</p>
+
+                    <div class="card card-producto" data-toggle="modal" data-target="#modal_agregar">
+                        <div class="card-body bg-light">
+                            <a href="#" class="nav-link"><i class="fas fa-plus text-dark" style="font-size: 120px; text-align: center; display: block;"></i></a>
+                        </div>
+                    </div>
+	            
+
+                    <div class="modal fade show" id="modal_agregar">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h2 class="modal-title"><b>Agregar Productos</b></h2>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+
+                                <div class="modal-body">
+                                    <form method="POST" enctype="multipart/form-data">
+                                        <div class="form-group">
+                                            <label>Nombre del producto</label><input class="form-control form-control-sm" type="text" name="nombre" required>
+                                        </div>                    		
+                                        <div class="form-group">
+                                            <label>Precio del producto</label><input class="form-control form-control-sm" type="text" name="precio" value="$"required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Descripcion del producto</label><input class="form-control form-control-sm" type="text" name="descripcion"required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Imagen del producto</label><input class="form-control form-control-sm" type="file" name="imagen"required>
+                                        </div>
+                                        
+
+                                        <input class="btn col-12" type="submit" value="Agregar"><br>
+                                    </form>
+                                </div>
+                                
+                            </div>
                         </div>
                     </div>
 
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/camara2.jpg">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$289.999</h5>
-                            <p class="card-text">Cámara instax mini 11</p>
+                    <?php for($i=0; $i < count($resultado); $i++): ?>
+                        
+                        
+                        <div class="card card-producto">
+                            <img  class="card-img-top border-bottom" src="data:image/jpg;base64,<?php echo base64_encode(($resultado[$i]['imagen'])); ?>">
+                            <div class="card-body">
+                                <h5 class="card-title text-warning"><?php echo $resultado[$i]['precio'] ?></h5>
+                                <p class="card-text"><?php echo $resultado[$i]['nombre'] ?></p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="camara.php?id=<?php echo $resultado[$i]['id']?>"><i class="fas fa-pencil-alt" style="float: left;"></i></a><a href="eliminarCam.php?id=<?php echo $resultado[$i]['id']?>"><i class="far fa-trash-alt" style="float: right;"></i></a>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/camara3.jpg">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$54.000</h5>
-                            <p class="card-text">Película instax mini x 20</p>
-                        </div>
-                    </div>
-
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/camara4.jpg">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$79.299</h5>
-                            <p class="card-text">Aro de luz led 26cm fotografía selfie con trípode negro</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card-deck pb-4">
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/camara5.jpg">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$3.499.000</h5>
-                            <p class="card-text">Cámara canon eos m50 ef-m15-45 is stm</p>
-                        </div>
-                    </div>
-
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/camara6.jpg">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$2.449.000</h5>
-                            <p class="card-text">Cámara sony alpha a6000 mirrorless 24.3mpx lente 16-50mm</p>
-                        </div>
-                    </div>
-
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/camara7.jpg">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$383.000</h5>
-                            <p class="card-text">Neewer 35mm f1,2 apertura grande prime aps-c lente para fuji x</p>
-                        </div>
-                    </div>
-
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/camara8.jpg">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$1.969.000</h5>
-                            <p class="card-text">Cámara gopro hero 8</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card-deck pb-4">
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/camara9.jpg">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$229.000</h5>
-                            <p class="card-text">Kit de accesorios para cámara gopro hero 8</p>
-                        </div>
-                    </div>
-
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/camara10.jpg">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$259.950</h5>
-                            <p class="card-text">Cámara de seguridad inalámbrica full hd nexht 360g</p>
-                        </div>
-                    </div>
-
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/camara11.jpg">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$1.258.000</h5>
-                            <p class="card-text">Cámara de video canon vixia hf r800 zoom potente+32gb</p>
-                        </div>
-                    </div>
-
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/camara12.jpg">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$91.800</h5>
-                            <p class="card-text">Cámara de seguridad ip wifi robotica full hd 360g 3 antenas</p>
-                        </div>
-                    </div>
-                </div>
+                        <?php
+                            if (($i+1) == count($resultado)) {
+                                echo "</div>";
+                            }
+                            elseif (($i+2)%4 == 0) {
+                                echo "</div>";
+                                echo '<div class="card-deck pb-4">';
+                            }                	
+                        ?>
+                    <?php endfor ?>	
 
             </section>
         </div>

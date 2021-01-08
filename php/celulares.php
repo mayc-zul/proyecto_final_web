@@ -23,6 +23,81 @@
 
 </head>
 <body>
+
+    <?php 
+        include_once './conexionDB.php';
+
+        $sql_leer = "SELECT * FROM celulares"; //Nombre de la tabla
+        $gsent = $pdo->prepare($sql_leer); //pdo es la conexion traida desde connect
+        $gsent->execute();
+        $resultado = $gsent->fetchAll();
+        
+        if ($_POST) {
+            $nombre = $_POST["nombre"];
+            $precio = $_POST["precio"];
+            $descripcion = $_POST["descripcion"];
+            $imagen = file_get_contents($_FILES["imagen"]["tmp_name"]);
+
+            $sql_agregar = "INSERT INTO celulares (nombre,precio,descripcion,imagen) VALUES (?,?,?,?)";
+            $sentencia_agregar = $pdo->prepare($sql_agregar);
+            $sentencia_agregar->execute(array($nombre,$precio,$descripcion,$imagen));
+
+            header("location:./celulares.php");
+        }
+
+    ?>
+    <?php if ($_GET): ?>
+
+        <?php 
+            $id = $_GET['id'];
+            $sql_unico = "SELECT * FROM celulares WHERE id=?"; //Nombre de la tabla
+            $gsent_unico = $pdo->prepare($sql_unico); //pdo es la conexion traida desde connect
+            $gsent_unico->execute(array($id));
+            $resultado_unico = $gsent_unico->fetch();
+        ?>
+
+        <script type="text/javascript">
+            $(window).on('load', function() {
+                $('#modal_editar').modal('show');
+            });
+        </script>
+        <div class="modal fade" id="modal_editar">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title"><b>Editar Producto</b></h2>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-body">
+                        <form method="POST" enctype="multipart/form-data" action="editarCel.php">
+                            <div class="form-group">
+                                <input type="hidden" name="id" value="<?php echo $resultado_unico['id'] ?>">
+                                <label>Nombre del producto</label><input class="form-control form-control-sm" type="text" name="nombre" value="<?php echo $resultado_unico['nombre'] ?>" required>
+                            </div>
+                            <img style="margin: auto; display: block;" width="250px" src="data:image/jpg;base64,<?php echo base64_encode(($resultado_unico['imagen'])); ?>">                    		
+                            <div class="form-group">
+                                <label>Precio del producto</label><input class="form-control form-control-sm" type="text" name="precio" value="<?php echo $resultado_unico['precio'] ?>" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Descripcion del producto</label><input class="form-control form-control-sm" type="text" name="descripcion" value="<?php echo $resultado_unico['descripcion'] ?>" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Imagen del producto</label><input class="form-control form-control-sm" type="file" name="imagen" required>
+                            </div>
+                            
+
+                            <input class="btn col-12" type="submit" value="Guardar Cambios"><br>
+                        </form>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    <?php endif ?>
+
     <!-- Barra de navegacion -->
 
 	<div id="carousel" class="carousel slide" data-ride="carousel">
@@ -311,106 +386,71 @@
                 </nav>
 
                 <div class="card-deck pb-4">
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/celular1.jpg">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$759.900</h5>
-                            <p class="card-text">Celular Xiaomi Redmi Note 9S 128GB</p>
+
+                    <div class="card card-producto" data-toggle="modal" data-target="#modal_agregar">
+                        <div class="card-body bg-light">
+                            <a href="#" class="nav-link"><i class="fas fa-plus text-dark" style="font-size: 120px; text-align: center; display: block;"></i></a>
+                        </div>
+                    </div>
+	            
+
+                    <div class="modal fade show" id="modal_agregar">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h2 class="modal-title"><b>Agregar Productos</b></h2>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+
+                                <div class="modal-body">
+                                    <form method="POST" enctype="multipart/form-data">
+                                        <div class="form-group">
+                                            <label>Nombre del producto</label><input class="form-control form-control-sm" type="text" name="nombre" required>
+                                        </div>                    		
+                                        <div class="form-group">
+                                            <label>Precio del producto</label><input class="form-control form-control-sm" type="text" name="precio" value="$"required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Descripcion del producto</label><input class="form-control form-control-sm" type="text" name="descripcion"required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Imagen del producto</label><input class="form-control form-control-sm" type="file" name="imagen"required>
+                                        </div>
+                                        
+
+                                        <input class="btn col-12" type="submit" value="Agregar"><br>
+                                    </form>
+                                </div>
+                                
+                            </div>
                         </div>
                     </div>
 
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/celular2.jpg">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$529.900</h5>
-                            <p class="card-text">Celular Samsung Galaxy M11 32GB + Micro SD 32GB + Cover</p>
+                    <?php for($i=0; $i < count($resultado); $i++): ?>
+                        
+                        
+                        <div class="card card-producto">
+                            <img  class="card-img-top border-bottom" src="data:image/jpg;base64,<?php echo base64_encode(($resultado[$i]['imagen'])); ?>">
+                            <div class="card-body">
+                                <h5 class="card-title text-warning"><?php echo $resultado[$i]['precio'] ?></h5>
+                                <p class="card-text"><?php echo $resultado[$i]['nombre'] ?></p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="celulares.php?id=<?php echo $resultado[$i]['id']?>"><i class="fas fa-pencil-alt" style="float: left;"></i></a><a href="eliminarCel.php?id=<?php echo $resultado[$i]['id']?>"><i class="far fa-trash-alt" style="float: right;"></i></a>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/celular3.jpg">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$699.900</h5>
-                            <p class="card-text">Celular Motorola One Fusion Plus 128GB</p>
-                        </div>
-                    </div>
-
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/celular4.jpg">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$1.099.900</h5>
-                            <p class="card-text">Celular Samsung Galcy M31 128GB + Cover</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card-deck pb-4">
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/celular5.jpg">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$649.900</h5>
-                            <p class="card-text">Celular Xiaomi Redmi Note 8 128GB</p>
-                        </div>
-                    </div>
-
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/celular6.jpg">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$649.900</h5>
-                            <p class="card-text">Celular Nokia 3.4 64GB</p>
-                        </div>
-                    </div>
-
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/celular7.jpg">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$3.099.900</h5>
-                            <p class="card-text">¡Phone 11 64GB</p>
-                        </div>
-                    </div>
-
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/celular8.jpg">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$2.349.900</h5>
-                            <p class="card-text">¡Phone XR 64GB</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card-deck pb-4">
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/celular9.jpg">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$79.900</h5>
-                            <p class="card-text">Cargador Smartphone MI Inalámbrico</p>
-                        </div>
-                    </div>
-
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/celular10.jpg">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$199.990</h5>
-                            <p class="card-text">Batería Externa Samsung</p>
-                        </div>
-                    </div>
-
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/celular11.jpg">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$749.900</h5>
-                            <p class="card-text">Smarwatch Galaxy Watch 42mm R810</p>
-                        </div>
-                    </div>
-
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/celular12.jpg">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$2.109.900</h5>
-                            <p class="card-text">Apple Watch Seria 6(GPS) 44mm</p>
-                        </div>
-                    </div>
-                </div>
+                        <?php
+                            if (($i+1) == count($resultado)) {
+                                echo "</div>";
+                            }
+                            elseif (($i+2)%4 == 0) {
+                                echo "</div>";
+                                echo '<div class="card-deck pb-4">';
+                            }                	
+                        ?>
+                    <?php endfor ?>
 
             </section>
         </div>

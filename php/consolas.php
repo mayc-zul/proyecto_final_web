@@ -21,6 +21,81 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 </head>
 <body>
+
+    <?php 
+        include_once './conexionDB.php';
+
+        $sql_leer = "SELECT * FROM consolas"; //Nombre de la tabla
+        $gsent = $pdo->prepare($sql_leer); //pdo es la conexion traida desde connect
+        $gsent->execute();
+        $resultado = $gsent->fetchAll();
+        
+        if ($_POST) {
+            $nombre = $_POST["nombre"];
+            $precio = $_POST["precio"];
+            $descripcion = $_POST["descripcion"];
+            $imagen = file_get_contents($_FILES["imagen"]["tmp_name"]);
+
+            $sql_agregar = "INSERT INTO consolas (nombre,precio,descripcion,imagen) VALUES (?,?,?,?)";
+            $sentencia_agregar = $pdo->prepare($sql_agregar);
+            $sentencia_agregar->execute(array($nombre,$precio,$descripcion,$imagen));
+
+            header("location:./consolas.php");
+        }
+
+    ?>
+    <?php if ($_GET): ?>
+
+        <?php 
+            $id = $_GET['id'];
+            $sql_unico = "SELECT * FROM consolas WHERE id=?"; //Nombre de la tabla
+            $gsent_unico = $pdo->prepare($sql_unico); //pdo es la conexion traida desde connect
+            $gsent_unico->execute(array($id));
+            $resultado_unico = $gsent_unico->fetch();
+        ?>
+
+        <script type="text/javascript">
+            $(window).on('load', function() {
+                $('#modal_editar').modal('show');
+            });
+        </script>
+        <div class="modal fade" id="modal_editar">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title"><b>Editar Producto</b></h2>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-body">
+                        <form method="POST" enctype="multipart/form-data" action="editarCon.php">
+                            <div class="form-group">
+                                <input type="hidden" name="id" value="<?php echo $resultado_unico['id'] ?>">
+                                <label>Nombre del producto</label><input class="form-control form-control-sm" type="text" name="nombre" value="<?php echo $resultado_unico['nombre'] ?>" required>
+                            </div>
+                            <img style="margin: auto; display: block;" width="250px" src="data:image/jpg;base64,<?php echo base64_encode(($resultado_unico['imagen'])); ?>">                    		
+                            <div class="form-group">
+                                <label>Precio del producto</label><input class="form-control form-control-sm" type="text" name="precio" value="<?php echo $resultado_unico['precio'] ?>" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Descripcion del producto</label><input class="form-control form-control-sm" type="text" name="descripcion" value="<?php echo $resultado_unico['descripcion'] ?>" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Imagen del producto</label><input class="form-control form-control-sm" type="file" name="imagen" required>
+                            </div>
+                            
+
+                            <input class="btn col-12" type="submit" value="Guardar Cambios"><br>
+                        </form>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    <?php endif ?>
+    
     <!-- Barra de navegacion -->
 
 	<div id="carousel" class="carousel slide" data-ride="carousel">
@@ -246,107 +321,74 @@
                     <li class="breadcrumb-item active" aria-current="page">Consolas de Videojuegos y Accesorios</li>
                     </ol>
                 </nav>
+                
                 <div class="card-deck pb-4">
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/consola8.webp">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$1.799.881</h5>
-                            <p class="card-text">Consola Xbox One S 1 Tera Dos Controles 4k Blu Ray</p>
+
+                    <div class="card card-producto" data-toggle="modal" data-target="#modal_agregar">
+                        <div class="card-body bg-light">
+                            <a href="#" class="nav-link"><i class="fas fa-plus text-dark" style="font-size: 120px; text-align: center; display: block;"></i></a>
                         </div>
                     </div>
-                    
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/consola9.webp">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$1.699.900</h5>
-                            <p class="card-text">Consola PS4 Slim 1 TB</p>
-                        </div>
-                    </div>
-                    
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/consola12.webp">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$135.000</h5>
-                            <p class="card-text">Control Ps4 Dualshock 4 2Da Generación Aaa Naranja</p>
+	            
+
+                    <div class="modal fade show" id="modal_agregar">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h2 class="modal-title"><b>Agregar Productos</b></h2>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+
+                                <div class="modal-body">
+                                    <form method="POST" enctype="multipart/form-data">
+                                        <div class="form-group">
+                                            <label>Nombre del producto</label><input class="form-control form-control-sm" type="text" name="nombre" required>
+                                        </div>                    		
+                                        <div class="form-group">
+                                            <label>Precio del producto</label><input class="form-control form-control-sm" type="text" name="precio" value="$"required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Descripcion del producto</label><input class="form-control form-control-sm" type="text" name="descripcion"required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Imagen del producto</label><input class="form-control form-control-sm" type="file" name="imagen"required>
+                                        </div>
+                                        
+
+                                        <input class="btn col-12" type="submit" value="Agregar"><br>
+                                    </form>
+                                </div>
+                                
+                            </div>
                         </div>
                     </div>
 
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/consola11.webp">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$100.999</h5>
-                            <p class="card-text">Grand Theft Auto V Premium Edition Gta V PS4</p>
+                    <?php for($i=0; $i < count($resultado); $i++): ?>
+                        
+                        
+                        <div class="card card-producto">
+                            <img  class="card-img-top border-bottom" src="data:image/jpg;base64,<?php echo base64_encode(($resultado[$i]['imagen'])); ?>">
+                            <div class="card-body">
+                                <h5 class="card-title text-warning"><?php echo $resultado[$i]['precio'] ?></h5>
+                                <p class="card-text"><?php echo $resultado[$i]['nombre'] ?></p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="consolas.php?id=<?php echo $resultado[$i]['id']?>"><i class="fas fa-pencil-alt" style="float: left;"></i></a><a href="eliminarCon.php?id=<?php echo $resultado[$i]['id']?>"><i class="far fa-trash-alt" style="float: right;"></i></a>
+                            </div>
                         </div>
-                    </div>
-                </div>
+                        <?php
+                            if (($i+1) == count($resultado)) {
+                                echo "</div>";
+                            }
+                            elseif (($i+2)%4 == 0) {
+                                echo "</div>";
+                                echo '<div class="card-deck pb-4">';
+                            }                	
+                        ?>
+                    <?php endfor ?>	
 
-                <div class="card-deck pb-4">
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/consola1.webp">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$1.999.900</h5>
-                            <p class="card-text">Consola PS4 1TB MP13</p>
-                        </div>
-                    </div>
-
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/consola3.webp">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$179.790</h5>
-                            <p class="card-text">Videojuego Fifa 21 Playstation 4</p>
-                        </div>
-                    </div>
-                    
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/consola6.webp">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$1.666.699</h5>
-                            <p class="card-text">Consola Nintendo Switch Neon JoY-Con Nueva Version 2019</p>
-                        </div>
-                    </div>
-                    
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/consola4.webp">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$269.900</h5>
-                            <p class="card-text">Control Xbox One Inalámbrico QAS-00001 Blanco</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card-deck pb-4">
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/consola5.webp">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$68.600</h5>
-                            <p class="card-text">Audífono Diadema Gamer Micrófono Luz Led Videojuego G9000 Azul</p>
-                        </div>
-                    </div>
-                    
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/consola2.webp">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$199.900</h5>
-                            <p class="card-text">Control Xbox One Inalámbrico Aaa Primera Generación</p>
-                        </div>
-                    </div>
-                    
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/consola7.webp">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$259.000</h5>
-                            <p class="card-text">Videojuego Nintendo Switch Super Mario Party</p>
-                        </div>
-                    </div>
-
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/consola10.webp">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$114.700</h5>
-                            <p class="card-text">Control Ps4 Dualshock 4 2Da Generación Aaa Camuflado</p>
-                        </div>
-                    </div>
-                </div>
             </section>
         </div>
     </div>

@@ -21,6 +21,81 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 </head>
 <body>
+
+    <?php 
+        include_once './conexionDB.php';
+
+        $sql_leer = "SELECT * FROM televisores"; //Nombre de la tabla
+        $gsent = $pdo->prepare($sql_leer); //pdo es la conexion traida desde connect
+        $gsent->execute();
+        $resultado = $gsent->fetchAll();
+        
+        if ($_POST) {
+            $nombre = $_POST["nombre"];
+            $precio = $_POST["precio"];
+            $descripcion = $_POST["descripcion"];
+            $imagen = file_get_contents($_FILES["imagen"]["tmp_name"]);
+
+            $sql_agregar = "INSERT INTO televisores (nombre,precio,descripcion,imagen) VALUES (?,?,?,?)";
+            $sentencia_agregar = $pdo->prepare($sql_agregar);
+            $sentencia_agregar->execute(array($nombre,$precio,$descripcion,$imagen));
+
+            header("location:./televisores.php");
+        }
+
+    ?>
+    <?php if ($_GET): ?>
+
+        <?php 
+            $id = $_GET['id'];
+            $sql_unico = "SELECT * FROM televisores WHERE id=?"; //Nombre de la tabla
+            $gsent_unico = $pdo->prepare($sql_unico); //pdo es la conexion traida desde connect
+            $gsent_unico->execute(array($id));
+            $resultado_unico = $gsent_unico->fetch();
+        ?>
+
+        <script type="text/javascript">
+            $(window).on('load', function() {
+                $('#modal_editar').modal('show');
+            });
+        </script>
+        <div class="modal fade" id="modal_editar">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title"><b>Editar Producto</b></h2>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-body">
+                        <form method="POST" enctype="multipart/form-data" action="editarT.php">
+                            <div class="form-group">
+                                <input type="hidden" name="id" value="<?php echo $resultado_unico['id'] ?>">
+                                <label>Nombre del producto</label><input class="form-control form-control-sm" type="text" name="nombre" value="<?php echo $resultado_unico['nombre'] ?>" required>
+                            </div>
+                            <img style="margin: auto; display: block;" width="250px" src="data:image/jpg;base64,<?php echo base64_encode(($resultado_unico['imagen'])); ?>">                    		
+                            <div class="form-group">
+                                <label>Precio del producto</label><input class="form-control form-control-sm" type="text" name="precio" value="<?php echo $resultado_unico['precio'] ?>" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Descripcion del producto</label><input class="form-control form-control-sm" type="text" name="descripcion" value="<?php echo $resultado_unico['descripcion'] ?>" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Imagen del producto</label><input class="form-control form-control-sm" type="file" name="imagen" required>
+                            </div>
+                            
+
+                            <input class="btn col-12" type="submit" value="Guardar Cambios"><br>
+                        </form>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    <?php endif ?>
+
     <!-- Barra de navegacion -->
 
 	<div id="carousel" class="carousel slide" data-ride="carousel">
@@ -246,108 +321,74 @@
                     <li class="breadcrumb-item active" aria-current="page">Televisores</li>
                     </ol>
                 </nav>
+                
                 <div class="card-deck pb-4">
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/tv1.webp">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$899.900</h5>
-                            <p class="card-text">Televisor LED Caixun 43 Pulgadas 109 Cms UHD Smart CX43S1USM</p>
+
+                    <div class="card card-producto" data-toggle="modal" data-target="#modal_agregar">
+                        <div class="card-body bg-light">
+                            <a href="#" class="nav-link"><i class="fas fa-plus text-dark" style="font-size: 120px; text-align: center; display: block;"></i></a>
+                        </div>
+                    </div>
+	            
+
+                    <div class="modal fade show" id="modal_agregar">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h2 class="modal-title"><b>Agregar Productos</b></h2>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+
+                                <div class="modal-body">
+                                    <form method="POST" enctype="multipart/form-data">
+                                        <div class="form-group">
+                                            <label>Nombre del producto</label><input class="form-control form-control-sm" type="text" name="nombre" required>
+                                        </div>                    		
+                                        <div class="form-group">
+                                            <label>Precio del producto</label><input class="form-control form-control-sm" type="text" name="precio" value="$"required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Descripcion del producto</label><input class="form-control form-control-sm" type="text" name="descripcion"required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Imagen del producto</label><input class="form-control form-control-sm" type="file" name="imagen"required>
+                                        </div>
+                                        
+
+                                        <input class="btn col-12" type="submit" value="Agregar"><br>
+                                    </form>
+                                </div>
+                                
+                            </div>
                         </div>
                     </div>
 
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/tv2.webp">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$1.219.900</h5>
-                            <p class="card-text">Televisor Samsung 43 Tu6900 Crystal Uhd 4K Smart Tv</p>
+                    <?php for($i=0; $i < count($resultado); $i++): ?>
+                        
+                        
+                        <div class="card card-producto">
+                            <img  class="card-img-top border-bottom" src="data:image/jpg;base64,<?php echo base64_encode(($resultado[$i]['imagen'])); ?>">
+                            <div class="card-body">
+                                <h5 class="card-title text-warning"><?php echo $resultado[$i]['precio'] ?></h5>
+                                <p class="card-text"><?php echo $resultado[$i]['nombre'] ?></p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="televisores.php?id=<?php echo $resultado[$i]['id']?>"><i class="fas fa-pencil-alt" style="float: left;"></i></a><a href="eliminarT.php?id=<?php echo $resultado[$i]['id']?>"><i class="far fa-trash-alt" style="float: right;"></i></a>
+                            </div>
                         </div>
-                    </div>
+                        <?php
+                            if (($i+1) == count($resultado)) {
+                                echo "</div>";
+                            }
+                            elseif (($i+2)%4 == 0) {
+                                echo "</div>";
+                                echo '<div class="card-deck pb-4">';
+                            }                	
+                        ?>
+                    <?php endfor ?>	
 
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/tv3.webp">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$850.000</h5>
-                            <p class="card-text">Televisor Led Samsung 32 Pulgadas Smart Tv Un32t4300</p>
-                        </div>
-                    </div>
-
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/tv4.webp">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$102.800</h5>
-                            <p class="card-text">Tv Box 4k Convierte En Smart Tv Android 7.1 Ram 1gb Rom 8gb</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card-deck pb-4">
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/tv5.webp">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$89.800</h5>
-                            <p class="card-text">Soporte Extensible Doble North Bayou P6 Nuevo Para Tv De 40 A 75</p>
-                        </div>
-                    </div>
-
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/tv6.webp">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$1.990.000</h5>
-                            <p class="card-text">Televisor Lg 60 Pulgadas Uhd 4K 60Un7310 Smart Tv</p>
-                        </div>
-                    </div>
-
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/tv7.webp">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$1.259.900</h5>
-                            <p class="card-text">Televisor 50 Pulgadas 4K UHD Smart TV-126cm Serie F</p>
-                        </div>
-                    </div>
-
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/tv8.webp">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$3.699.900</h5>
-                            <p class="card-text">Tv Led 189 Cms (75) UHD Smart SAMSUNG 75 Pulgadas Smart Tv UN75TU7000</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card-deck pb-4">
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/tv9.webp">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$1.134.899</h5>
-                            <p class="card-text">Televisor 43 Pulgadas Lg 43Lm6300 Fhd Smart Tv
-                            </p>
-                        </div>
-                    </div>
-                    
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/tv10.webp">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$39.799</h5>
-                            <p class="card-text">Soporte Para Tv De 14 Hasta 55 Pulgadas</p>
-                        </div>
-                    </div>
-                    
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/tv11.webp">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$479.900</h5>
-                            <p class="card-text">Televisor Caixun Led 80 Cms 32 Pulgadas Hd Básico CX32F1</p>
-                        </div>
-                    </div>
-
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/tv12.webp">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$55.780</h5>
-                            <p class="card-text">Decodificador Tdt Usb+Control+Hdmi+Rca Sintonizador Tv</p>
-                        </div>
-                    </div>
-                </div>
             </section>
         </div>
     </div>
