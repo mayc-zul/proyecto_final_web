@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Computadores y Accesorios</title>
+    <title>Consolas de Videojuegos</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -36,7 +36,7 @@
 
     <div class="navbar navbar-expand-sm navbar-dark bg-dark fixed">
     	<div class="col-3">
-	    	<a href="../index.html" class="navbar-brand"><h2>TecnoCompras</h2></a>
+	    	<a href="../index.php" class="navbar-brand"><h2>TecnoCompras</h2></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
@@ -66,12 +66,12 @@
 					</div>
     				<div class="modal_body">
                         <div class="list-group">
-                            <a href="./camara.html" class="list-group-item list-group-item-action"><p><i class="fas fa-camera"></i></p><p>Cámara y Fotografía</p></a>
-                            <a href="./celulares.html" class="list-group-item list-group-item-action"><p><i class="fas fa-mobile-alt"></i></p><p>Teléfonos Celulares y Accesorios</p></a>
-                            <a href="./audiovideo.html" class="list-group-item list-group-item-action"><p><i class="fas fa-headphones-alt"></i></p><p>Audio y Vídeo</p></a>
-                            <a href="./computadores.html" class="list-group-item list-group-item-action"><p><i class="fas fa-laptop"></i></p><p>Computadores y Accesorios</p></a>
-                            <a href="./televisores.html" class="list-group-item list-group-item-action"><p><i class="fas fa-tv"></i></p><p>Televisores</p></a>
-                            <a href="./consolas.html" class="list-group-item list-group-item-action"><p><i class="fas fa-gamepad"></i></p><p>Consolas de Videojuegos y Accesorios</p></a>
+                            <a href="./camara.php" class="list-group-item list-group-item-action"><p><i class="fas fa-camera"></i></p><p>Cámara y Fotografía</p></a>
+                            <a href="./celulares.php" class="list-group-item list-group-item-action"><p><i class="fas fa-mobile-alt"></i></p><p>Teléfonos Celulares y Accesorios</p></a>
+                            <a href="./audiovideo.php" class="list-group-item list-group-item-action"><p><i class="fas fa-headphones-alt"></i></p><p>Audio y Vídeo</p></a>
+                            <a href="./computadores.php" class="list-group-item list-group-item-action"><p><i class="fas fa-laptop"></i></p><p>Computadores y Accesorios</p></a>
+                            <a href="./televisores.php" class="list-group-item list-group-item-action"><p><i class="fas fa-tv"></i></p><p>Televisores</p></a>
+                            <a href="./consolas.php" class="list-group-item list-group-item-action"><p><i class="fas fa-gamepad"></i></p><p>Consolas de Videojuegos y Accesorios</p></a>
                         </div>
     				</div>
     			</div>
@@ -160,10 +160,9 @@
     <div class="container-fluid">
         <div class="row py-3">
             <div class="col">
-                <h2>Computadores y Accesorios</h2>
+                <h2>Consolas de Videojuegos y Accesorios</h2>
             </div>
         </div>
-        
         <div class="row">
             <aside class="col-3 scrollspy" data-spy="scroll" data-offset="0">
                 <h5 class="border-bottom pt-3">Filtros</h5>
@@ -239,115 +238,112 @@
                     </div>
                 </form>
             </aside>
-            
             <section class="col-9">
                 <!--Ruta-->
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="../index.html">Inicio</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Computadores y Accesorios</li>
+                    <li class="breadcrumb-item"><a href="../index.php">Inicio</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Consolas de Videojuegos y Accesorios</li>
                     </ol>
                 </nav>
-
                 <div class="card-deck pb-4">
                     <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/allInOne1.webp">
+                        <img class="card-img-top border-bottom" src="./img/consola8.webp">
                         <div class="card-body">
-                            <h5 class="card-title text-warning">$1.718.640</h5>
-                            <p class="card-text">Computador HP All In One R5 4GB 1TB + 256GB SSD 22-dd0023la</p>
+                            <h5 class="card-title text-warning">$1.799.881</h5>
+                            <p class="card-text">Consola Xbox One S 1 Tera Dos Controles 4k Blu Ray</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card card-producto">
+                        <img class="card-img-top border-bottom" src="./img/consola9.webp">
+                        <div class="card-body">
+                            <h5 class="card-title text-warning">$1.699.900</h5>
+                            <p class="card-text">Consola PS4 Slim 1 TB</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card card-producto">
+                        <img class="card-img-top border-bottom" src="./img/consola12.webp">
+                        <div class="card-body">
+                            <h5 class="card-title text-warning">$135.000</h5>
+                            <p class="card-text">Control Ps4 Dualshock 4 2Da Generación Aaa Naranja</p>
                         </div>
                     </div>
 
                     <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/combo2.webp">
+                        <img class="card-img-top border-bottom" src="./img/consola11.webp">
                         <div class="card-body">
-                            <h5 class="card-title text-warning">$2.401.000</h5>
-                            <p class="card-text">Computadores Janus Amd Ryzen 3-3200G, Ram 8Gb Rgb, Disco 240Gb, Monitor Janus 22"</p>
-                        </div>
-                    </div>
-
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/portatil1.webp">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$1.299.000</h5>
-                            <p class="card-text">Portatil Lenovo Ideapad 3-Pentium Gold 4 Gb 128 Ssd Windows 10</p>
-                        </div>
-                    </div>
-
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/bolso1.webp">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$69.900</h5>
-                            <p class="card-text">Morral Case Lenovo 15.6 Backpack</p>
+                            <h5 class="card-title text-warning">$100.999</h5>
+                            <p class="card-text">Grand Theft Auto V Premium Edition Gta V PS4</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="card-deck pb-4">
                     <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/portatil2.webp">
+                        <img class="card-img-top border-bottom" src="./img/consola1.webp">
                         <div class="card-body">
-                            <h5 class="card-title text-warning">$2.049.000</h5>
-                            <p class="card-text">Portátil Lenovo Thinkbook Core I3 10Ma 12Gb 1Tb 14 Windows10pro</p>
+                            <h5 class="card-title text-warning">$1.999.900</h5>
+                            <p class="card-text">Consola PS4 1TB MP13</p>
                         </div>
                     </div>
 
                     <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/discoDuro1.webp">
+                        <img class="card-img-top border-bottom" src="./img/consola3.webp">
                         <div class="card-body">
-                            <h5 class="card-title text-warning">$297.999</h5>
-                            <p class="card-text">Disco Duro Externo 2 Teras Toshiba Canvio Basics Negro</p>
+                            <h5 class="card-title text-warning">$179.790</h5>
+                            <p class="card-text">Videojuego Fifa 21 Playstation 4</p>
                         </div>
                     </div>
-
+                    
                     <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/mouse1.jpeg">
+                        <img class="card-img-top border-bottom" src="./img/consola6.webp">
                         <div class="card-body">
-                            <h5 class="card-title text-warning">$36.999</h5>
-                            <p class="card-text">Mouse Óptico Vertical Ergonómico Inalámbrico Weibo Wb-881</p>
+                            <h5 class="card-title text-warning">$1.666.699</h5>
+                            <p class="card-text">Consola Nintendo Switch Neon JoY-Con Nueva Version 2019</p>
                         </div>
                     </div>
-
+                    
                     <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/impresora1.webp">
+                        <img class="card-img-top border-bottom" src="./img/consola4.webp">
                         <div class="card-body">
-                            <h5 class="card-title text-warning">$159.900</h5>
-                            <p class="card-text">Impresora Hp 2375 Multifuncional Con Cable Usb</p>
+                            <h5 class="card-title text-warning">$269.900</h5>
+                            <p class="card-text">Control Xbox One Inalámbrico QAS-00001 Blanco</p>
                         </div>
                     </div>
-
                 </div>
 
                 <div class="card-deck pb-4">
                     <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/portatil3.webp">
+                        <img class="card-img-top border-bottom" src="./img/consola5.webp">
                         <div class="card-body">
-                            <h5 class="card-title text-warning">$3.489.900</h5>
-                            <p class="card-text">Portatil Acer Nitro 5- Core I5-10300H-Ram 8Gb- 256 Gb Ssd-Gtx1650-Win 10</p>
+                            <h5 class="card-title text-warning">$68.600</h5>
+                            <p class="card-text">Audífono Diadema Gamer Micrófono Luz Led Videojuego G9000 Azul</p>
                         </div>
                     </div>
                     
                     <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/impresora2.webp">
+                        <img class="card-img-top border-bottom" src="./img/consola2.webp">
                         <div class="card-body">
-                            <h5 class="card-title text-warning">$546.267</h5>
-                            <p class="card-text">Impresora Multifuncional HP 410 WiFi</p>
+                            <h5 class="card-title text-warning">$199.900</h5>
+                            <p class="card-text">Control Xbox One Inalámbrico Aaa Primera Generación</p>
                         </div>
                     </div>
                     
                     <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/mouse2.webp">
+                        <img class="card-img-top border-bottom" src="./img/consola7.webp">
                         <div class="card-body">
-                            <h5 class="card-title text-warning">$111.190</h5>
-                            <p class="card-text">Mouse Logitech G203 Lightsync</p>
+                            <h5 class="card-title text-warning">$259.000</h5>
+                            <p class="card-text">Videojuego Nintendo Switch Super Mario Party</p>
                         </div>
                     </div>
 
                     <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/combo1.webp">
+                        <img class="card-img-top border-bottom" src="./img/consola10.webp">
                         <div class="card-body">
-                            <h5 class="card-title text-warning">$76.000</h5>
-                            <p class="card-text">Combo Inalambrico Logitech MK235 Teclado Multimedia y Mouse</p>
+                            <h5 class="card-title text-warning">$114.700</h5>
+                            <p class="card-text">Control Ps4 Dualshock 4 2Da Generación Aaa Camuflado</p>
                         </div>
                     </div>
                 </div>
@@ -355,9 +351,9 @@
         </div>
     </div>
 
-    <!--Servicios a ofrecer-->
+     <!--Servicios a ofrecer-->
 
-    <section class="container-fluid" style="background-color: white;">
+     <section class="container-fluid" style="background-color: white;">
         <div class="row">
             <div class="col serv">
                 <p class="serv-icon"><i class="fas fa-money-check-alt"></i></p>
@@ -385,7 +381,6 @@
                 <p class="text-muted text-center">Asistencia las 24 horas para una experiencia de compra fluida.</p>
             </div> 
         </div>
-
     </section>
 
     <footer class="container-fluid" style="background-color: #222222;">

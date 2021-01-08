@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Virtual Shop</title>
-	<!-- Required meta tags -->
+    <title>Computadores y Accesorios</title>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -19,8 +19,6 @@
     
     <!--iconos-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-
-
 </head>
 <body>
     <!-- Barra de navegacion -->
@@ -38,7 +36,7 @@
 
     <div class="navbar navbar-expand-sm navbar-dark bg-dark fixed">
     	<div class="col-3">
-	    	<a href="../index.html" class="navbar-brand"><h2>TecnoCompras</h2></a>
+	    	<a href="../index.php" class="navbar-brand"><h2>TecnoCompras</h2></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
@@ -68,12 +66,12 @@
 					</div>
     				<div class="modal_body">
                         <div class="list-group">
-                            <a href="./camara.html" class="list-group-item list-group-item-action"><p><i class="fas fa-camera"></i></p><p>Cámara y Fotografía</p></a>
-                            <a href="./celulares.html" class="list-group-item list-group-item-action"><p><i class="fas fa-mobile-alt"></i></p><p>Teléfonos Celulares y Accesorios</p></a>
-                            <a href="./audiovideo.html" class="list-group-item list-group-item-action"><p><i class="fas fa-headphones-alt"></i></p><p>Audio y Vídeo</p></a>
-                            <a href="./computadores.html" class="list-group-item list-group-item-action"><p><i class="fas fa-laptop"></i></p><p>Computadores y Accesorios</p></a>
-                            <a href="./televisores.html" class="list-group-item list-group-item-action"><p><i class="fas fa-tv"></i></p><p>Televisores</p></a>
-                            <a href=".consolas.html" class="list-group-item list-group-item-action"><p><i class="fas fa-gamepad"></i></p><p>Consolas de Videojuegos y Accesorios</p></a>
+                            <a href="./camara.php" class="list-group-item list-group-item-action"><p><i class="fas fa-camera"></i></p><p>Cámara y Fotografía</p></a>
+                            <a href="./celulares.php" class="list-group-item list-group-item-action"><p><i class="fas fa-mobile-alt"></i></p><p>Teléfonos Celulares y Accesorios</p></a>
+                            <a href="./audiovideo.php" class="list-group-item list-group-item-action"><p><i class="fas fa-headphones-alt"></i></p><p>Audio y Vídeo</p></a>
+                            <a href="./computadores.php" class="list-group-item list-group-item-action"><p><i class="fas fa-laptop"></i></p><p>Computadores y Accesorios</p></a>
+                            <a href="./televisores.php" class="list-group-item list-group-item-action"><p><i class="fas fa-tv"></i></p><p>Televisores</p></a>
+                            <a href="./consolas.php" class="list-group-item list-group-item-action"><p><i class="fas fa-gamepad"></i></p><p>Consolas de Videojuegos y Accesorios</p></a>
                         </div>
     				</div>
     			</div>
@@ -162,12 +160,10 @@
     <div class="container-fluid">
         <div class="row py-3">
             <div class="col">
-                <h4 class="text-center">Lo mejor en celulares</h4>
-                <p>Los mejores celulares del mercado y las marcas más reconocidas como Samsung, Apple, Huawei, Motorola los encuentras en tu éxito. Decide entre los celulares básicos, smartphones y otras opciones con diferentes características que se ajustan a ti.</p>
+                <h2>Computadores y Accesorios</h2>
             </div>
         </div>
-
-
+        
         <div class="row">
             <aside class="col-3 scrollspy" data-spy="scroll" data-offset="0">
                 <h5 class="border-bottom pt-3">Filtros</h5>
@@ -243,117 +239,118 @@
                     </div>
                 </form>
             </aside>
-            <section class="col-9"> 
+            
+            <section class="col-9">
                 <!--Ruta-->
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="../index.html">Inicio</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Audio y video</li>
+                    <li class="breadcrumb-item"><a href="../index.php">Inicio</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Computadores y Accesorios</li>
                     </ol>
                 </nav>
 
                 <div class="card-deck pb-4">
                     <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/audiovideo1.jpg">
+                        <img class="card-img-top border-bottom" src="./img/allInOne1.webp">
                         <div class="card-body">
-                            <h5 class="card-title text-warning">$2.099.900</h5>
-                            <p class="card-text">Stereo Inteligente Sonos FIVE</p>
+                            <h5 class="card-title text-warning">$1.718.640</h5>
+                            <p class="card-text">Computador HP All In One R5 4GB 1TB + 256GB SSD 22-dd0023la</p>
                         </div>
                     </div>
 
                     <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/audiovideo2.jpg">
+                        <img class="card-img-top border-bottom" src="./img/combo2.webp">
                         <div class="card-body">
-                            <h5 class="card-title text-warning">$1.369.900</h5>
-                            <p class="card-text">Stereo BOSE Home Speaker 500 Bluetooth con Alexa</p>
+                            <h5 class="card-title text-warning">$2.401.000</h5>
+                            <p class="card-text">Computadores Janus Amd Ryzen 3-3200G, Ram 8Gb Rgb, Disco 240Gb, Monitor Janus 22"</p>
                         </div>
                     </div>
 
                     <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/audiovideo3.jpg">
+                        <img class="card-img-top border-bottom" src="./img/portatil1.webp">
                         <div class="card-body">
-                            <h5 class="card-title text-warning">$299.900</h5>
-                            <p class="card-text">Stereo inalámbrico Echo Dot 3 Amazon Con Alexa Bluetooth</p>
+                            <h5 class="card-title text-warning">$1.299.000</h5>
+                            <p class="card-text">Portatil Lenovo Ideapad 3-Pentium Gold 4 Gb 128 Ssd Windows 10</p>
                         </div>
                     </div>
 
                     <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/audiovideo4.jpg">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$849.900</h5>
-                            <p class="card-text">Stereo Bluetooth JBL Charge 4</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card-deck pb-4">
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/audiovideo5.jpg">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$399.900</h5>
-                            <p class="card-text">Parlante Soundcore Fiesta Rave Neo Conexión Bluetooth</p>
-                        </div>
-                    </div>
-
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/audiovideo6.jpg">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$1.899.900</h5>
-                            <p class="card-text">Barra de sonido Samsung HW-Q7OT/ZL</p>
-                        </div>
-                    </div>
-
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/audiovideo7.jpg">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$1.299.900</h5>
-                            <p class="card-text">Torre Musical LG Xboom RN9</p>
-                        </div>
-                    </div>
-
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/audiovideo8.jpg">
+                        <img class="card-img-top border-bottom" src="./img/bolso1.webp">
                         <div class="card-body">
                             <h5 class="card-title text-warning">$69.900</h5>
-                            <p class="card-text">Stereo Inalámbrico 8 pulgadas DD-Dkaraok</p>
+                            <p class="card-text">Morral Case Lenovo 15.6 Backpack</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="card-deck pb-4">
                     <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/audiovideo9.jpg">
+                        <img class="card-img-top border-bottom" src="./img/portatil2.webp">
                         <div class="card-body">
-                            <h5 class="card-title text-warning">$1.129.900</h5>
-                            <p class="card-text">Proyector Viewsonic PA502s 3500 Lumens 3D</p>
+                            <h5 class="card-title text-warning">$2.049.000</h5>
+                            <p class="card-text">Portátil Lenovo Thinkbook Core I3 10Ma 12Gb 1Tb 14 Windows10pro</p>
                         </div>
                     </div>
 
                     <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/audiovideo10.jpg">
+                        <img class="card-img-top border-bottom" src="./img/discoDuro1.webp">
                         <div class="card-body">
-                            <h5 class="card-title text-warning">$799.900</h5>
-                            <p class="card-text">Proyector Led-video beam-BSPJ-002 Brigthside</p>
+                            <h5 class="card-title text-warning">$297.999</h5>
+                            <p class="card-text">Disco Duro Externo 2 Teras Toshiba Canvio Basics Negro</p>
                         </div>
                     </div>
 
                     <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/audiovideo11.jpg">
+                        <img class="card-img-top border-bottom" src="./img/mouse1.jpeg">
                         <div class="card-body">
-                            <h5 class="card-title text-warning">$299.900</h5>
-                            <p class="card-text">Audífonos Inalámbrico JBL Live 400</p>
+                            <h5 class="card-title text-warning">$36.999</h5>
+                            <p class="card-text">Mouse Óptico Vertical Ergonómico Inalámbrico Weibo Wb-881</p>
                         </div>
                     </div>
 
                     <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/audiovideo12.jpg">
+                        <img class="card-img-top border-bottom" src="./img/impresora1.webp">
                         <div class="card-body">
-                            <h5 class="card-title text-warning">$749.000</h5>
-                            <p class="card-text">Audífonos BOSE  Soudsport Free Wireless</p>
+                            <h5 class="card-title text-warning">$159.900</h5>
+                            <p class="card-text">Impresora Hp 2375 Multifuncional Con Cable Usb</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="card-deck pb-4">
+                    <div class="card card-producto">
+                        <img class="card-img-top border-bottom" src="./img/portatil3.webp">
+                        <div class="card-body">
+                            <h5 class="card-title text-warning">$3.489.900</h5>
+                            <p class="card-text">Portatil Acer Nitro 5- Core I5-10300H-Ram 8Gb- 256 Gb Ssd-Gtx1650-Win 10</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card card-producto">
+                        <img class="card-img-top border-bottom" src="./img/impresora2.webp">
+                        <div class="card-body">
+                            <h5 class="card-title text-warning">$546.267</h5>
+                            <p class="card-text">Impresora Multifuncional HP 410 WiFi</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card card-producto">
+                        <img class="card-img-top border-bottom" src="./img/mouse2.webp">
+                        <div class="card-body">
+                            <h5 class="card-title text-warning">$111.190</h5>
+                            <p class="card-text">Mouse Logitech G203 Lightsync</p>
+                        </div>
+                    </div>
+
+                    <div class="card card-producto">
+                        <img class="card-img-top border-bottom" src="./img/combo1.webp">
+                        <div class="card-body">
+                            <h5 class="card-title text-warning">$76.000</h5>
+                            <p class="card-text">Combo Inalambrico Logitech MK235 Teclado Multimedia y Mouse</p>
                         </div>
                     </div>
                 </div>
-
             </section>
         </div>
     </div>
@@ -388,6 +385,7 @@
                 <p class="text-muted text-center">Asistencia las 24 horas para una experiencia de compra fluida.</p>
             </div> 
         </div>
+
     </section>
 
     <footer class="container-fluid" style="background-color: #222222;">
@@ -423,6 +421,5 @@
             </div>
         </div>
     </footer>
-
 </body>
 </html>

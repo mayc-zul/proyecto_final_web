@@ -38,7 +38,7 @@
 
     <div class="navbar navbar-expand-sm navbar-dark bg-dark fixed">
     	<div class="col-3">
-	    	<a href="../index.html" class="navbar-brand"><h2>TecnoCompras</h2></a>
+	    	<a href="../index.php" class="navbar-brand"><h2>TecnoCompras</h2></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
@@ -68,12 +68,12 @@
 					</div>
     				<div class="modal_body">
                         <div class="list-group">
-                            <a href="./camara.html" class="list-group-item list-group-item-action"><p><i class="fas fa-camera"></i></p><p>Cámara y Fotografía</p></a>
-                            <a href="./celulares.html" class="list-group-item list-group-item-action"><p><i class="fas fa-mobile-alt"></i></p><p>Teléfonos Celulares y Accesorios</p></a>
-                            <a href="./audiovideo.html" class="list-group-item list-group-item-action"><p><i class="fas fa-headphones-alt"></i></p><p>Audio y Vídeo</p></a>
-                            <a href="./computadores.html" class="list-group-item list-group-item-action"><p><i class="fas fa-laptop"></i></p><p>Computadores y Accesorios</p></a>
-                            <a href="./televisores.html" class="list-group-item list-group-item-action"><p><i class="fas fa-tv"></i></p><p>Televisores</p></a>
-                            <a href="./consolas.html" class="list-group-item list-group-item-action"><p><i class="fas fa-gamepad"></i></p><p>Consolas de Videojuegos y Accesorios</p></a>
+                            <a href="./camara.php" class="list-group-item list-group-item-action"><p><i class="fas fa-camera"></i></p><p>Cámara y Fotografía</p></a>
+                            <a href="./celulares.php" class="list-group-item list-group-item-action"><p><i class="fas fa-mobile-alt"></i></p><p>Teléfonos Celulares y Accesorios</p></a>
+                            <a href="./audiovideo.php" class="list-group-item list-group-item-action"><p><i class="fas fa-headphones-alt"></i></p><p>Audio y Vídeo</p></a>
+                            <a href="./computadores.php" class="list-group-item list-group-item-action"><p><i class="fas fa-laptop"></i></p><p>Computadores y Accesorios</p></a>
+                            <a href="./televisores.php" class="list-group-item list-group-item-action"><p><i class="fas fa-tv"></i></p><p>Televisores</p></a>
+                            <a href="./consolas.php" class="list-group-item list-group-item-action"><p><i class="fas fa-gamepad"></i></p><p>Consolas de Videojuegos y Accesorios</p></a>
                         </div>
     				</div>
     			</div>
@@ -159,7 +159,6 @@
     	</div>
     </div>
 
-
     <div class="container-fluid">
         <div class="row py-3">
             <div class="col">
@@ -172,6 +171,18 @@
         <div class="row">
             <aside class="col-3 scrollspy" data-spy="scroll" data-offset="0">
                 <h5 class="border-bottom pt-3">Filtros</h5>
+                <form action="" class="border-bottom pt-3">
+                    <h6>Tipo</h6>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="canon" id="Mcheck1"><label class="form-check-label">Stereo</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="fujifilm" id="Mcheck2"><label class="form-check-label">Audifonos</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="gopro" id="Mcheck3"><label class="form-check-label">Video</label>
+                    </div>
+                </form>
                 <form action="" class="border-bottom pt-3">
                     <h6>Precios</h6>
                     <div class="form-check">
@@ -197,107 +208,38 @@
                 <form action="" class="border-bottom pt-3">
                     <h6>Marcas</h6>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="canon" id="Mcheck1"><label class="form-check-label">ALCATEL</label>
+                        <input class="form-check-input" type="checkbox" name="canon" id="Mcheck1"><label class="form-check-label">SONOS</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="fujifilm" id="Mcheck2"><label class="form-check-label">APPLE</label>
+                        <input class="form-check-input" type="checkbox" name="fujifilm" id="Mcheck2"><label class="form-check-label">BOSE</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="gopro" id="Mcheck3"><label class="form-check-label">HUAWEI</label>
+                        <input class="form-check-input" type="checkbox" name="gopro" id="Mcheck3"><label class="form-check-label">JBL</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="instax" id="Mcheck4"><label class="form-check-label">KRONO</label>
+                        <input class="form-check-input" type="checkbox" name="instax" id="Mcheck4"><label class="form-check-label">AMAZON</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="nikon" id="Mcheck5"><label class="form-check-label">LG</label>
+                        <input class="form-check-input" type="checkbox" name="nikon" id="Mcheck5"><label class="form-check-label">SOUNDCORE</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="sony" id="Mcheck6"><label class="form-check-label">MOTOROLA</label>
+                        <input class="form-check-input" type="checkbox" name="sony" id="Mcheck6"><label class="form-check-label">SAMSUNG</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="canon" id="Mcheck1"><label class="form-check-label">NOKIA</label>
+                        <input class="form-check-input" type="checkbox" name="canon" id="Mcheck1"><label class="form-check-label">LG</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="fujifilm" id="Mcheck2"><label class="form-check-label">SAMSUNG</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="gopro" id="Mcheck3"><label class="form-check-label">XIAOMI</label>
+                        <input class="form-check-input" type="checkbox" name="fujifilm" id="Mcheck2"><label class="form-check-label">DDSING</label>
                     </div>
                 </form>
 
                 <form action="" class="border-bottom">
-                    <h6>Memoria interna</h6>
+                    <h6>Conexión WIFI</h6>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="acc_camara" id="Tcheck1"><label class="form-check-label">256GB</label>
+                        <input class="form-check-input" type="checkbox" name="acc_camara" id="Tcheck1"><label class="form-check-label">Si</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="deportivas" id="Tcheck2"><label class="form-check-label">128GB</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="digital" id="Tcheck3"><label class="form-check-label">64GB</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="instantanea" id="Tcheck4"><label class="form-check-label">32GB</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="profesional" id="Tcheck5"><label class="form-check-label">16GB</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="semiprofesional" id="Tcheck6"><label class="form-check-label">8GB</label>
-                    </div>
-                </form>
-
-                <form action="" class="border-bottom pt-3">
-                    <h6>Cámara frontal</h6>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="canon" id="Mcheck1"><label class="form-check-label">32MP</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="fujifilm" id="Mcheck2"><label class="form-check-label">20MP</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="gopro" id="Mcheck3"><label class="form-check-label">16MP</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="instax" id="Mcheck4"><label class="form-check-label">13MP</label>
-                    </div>
-                </form>
-
-                <form action="" class="border-bottom pt-3">
-                    <h6>Tamaño de la pantalla</h6>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="canon" id="Mcheck1"><label class="form-check-label">6.5 pulgadas</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="fujifilm" id="Mcheck2"><label class="form-check-label">6.4 pulgadas</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="gopro" id="Mcheck3"><label class="form-check-label">6.3 pulgadas</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="instax" id="Mcheck4"><label class="form-check-label">6.2 pulgadas</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="instax" id="Mcheck4"><label class="form-check-label">5 pulgadas</label>
-                    </div>
-                </form>
-
-                <form action="" class="border-bottom pt-3">
-                    <h6>Cámara posterior</h6>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="canon" id="Mcheck1"><label class="form-check-label">108MP + 12MP + 12MP</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="fujifilm" id="Mcheck2"><label class="form-check-label">12MP + 64MP+ 12MP</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="gopro" id="Mcheck3"><label class="form-check-label">13MP</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="instax" id="Mcheck4"><label class="form-check-label">48MP + 5MP 8MP + 2MP + 2MP</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="instax" id="Mcheck4"><label class="form-check-label">12MP + 12MP + 8MP</label>
+                        <input class="form-check-input" type="checkbox" name="deportivas" id="Tcheck2"><label class="form-check-label">No</label>
                     </div>
                 </form>
             </aside>
@@ -305,109 +247,109 @@
                 <!--Ruta-->
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="../index.html">Inicio</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Teléfonos celulares y accesorios</li>
+                    <li class="breadcrumb-item"><a href="../index.php">Inicio</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Audio y video</li>
                     </ol>
                 </nav>
 
                 <div class="card-deck pb-4">
                     <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/celular1.jpg">
+                        <img class="card-img-top border-bottom" src="./img/audiovideo1.jpg">
                         <div class="card-body">
-                            <h5 class="card-title text-warning">$759.900</h5>
-                            <p class="card-text">Celular Xiaomi Redmi Note 9S 128GB</p>
+                            <h5 class="card-title text-warning">$2.099.900</h5>
+                            <p class="card-text">Stereo Inteligente Sonos FIVE</p>
                         </div>
                     </div>
 
                     <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/celular2.jpg">
+                        <img class="card-img-top border-bottom" src="./img/audiovideo2.jpg">
                         <div class="card-body">
-                            <h5 class="card-title text-warning">$529.900</h5>
-                            <p class="card-text">Celular Samsung Galaxy M11 32GB + Micro SD 32GB + Cover</p>
+                            <h5 class="card-title text-warning">$1.369.900</h5>
+                            <p class="card-text">Stereo BOSE Home Speaker 500 Bluetooth con Alexa</p>
                         </div>
                     </div>
 
                     <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/celular3.jpg">
+                        <img class="card-img-top border-bottom" src="./img/audiovideo3.jpg">
                         <div class="card-body">
-                            <h5 class="card-title text-warning">$699.900</h5>
-                            <p class="card-text">Celular Motorola One Fusion Plus 128GB</p>
+                            <h5 class="card-title text-warning">$299.900</h5>
+                            <p class="card-text">Stereo inalámbrico Echo Dot 3 Amazon Con Alexa Bluetooth</p>
                         </div>
                     </div>
 
                     <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/celular4.jpg">
+                        <img class="card-img-top border-bottom" src="./img/audiovideo4.jpg">
                         <div class="card-body">
-                            <h5 class="card-title text-warning">$1.099.900</h5>
-                            <p class="card-text">Celular Samsung Galcy M31 128GB + Cover</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card-deck pb-4">
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/celular5.jpg">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$649.900</h5>
-                            <p class="card-text">Celular Xiaomi Redmi Note 8 128GB</p>
-                        </div>
-                    </div>
-
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/celular6.jpg">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$649.900</h5>
-                            <p class="card-text">Celular Nokia 3.4 64GB</p>
-                        </div>
-                    </div>
-
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/celular7.jpg">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$3.099.900</h5>
-                            <p class="card-text">¡Phone 11 64GB</p>
-                        </div>
-                    </div>
-
-                    <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/celular8.jpg">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning">$2.349.900</h5>
-                            <p class="card-text">¡Phone XR 64GB</p>
+                            <h5 class="card-title text-warning">$849.900</h5>
+                            <p class="card-text">Stereo Bluetooth JBL Charge 4</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="card-deck pb-4">
                     <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/celular9.jpg">
+                        <img class="card-img-top border-bottom" src="./img/audiovideo5.jpg">
                         <div class="card-body">
-                            <h5 class="card-title text-warning">$79.900</h5>
-                            <p class="card-text">Cargador Smartphone MI Inalámbrico</p>
+                            <h5 class="card-title text-warning">$399.900</h5>
+                            <p class="card-text">Parlante Soundcore Fiesta Rave Neo Conexión Bluetooth</p>
                         </div>
                     </div>
 
                     <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/celular10.jpg">
+                        <img class="card-img-top border-bottom" src="./img/audiovideo6.jpg">
                         <div class="card-body">
-                            <h5 class="card-title text-warning">$199.990</h5>
-                            <p class="card-text">Batería Externa Samsung</p>
+                            <h5 class="card-title text-warning">$1.899.900</h5>
+                            <p class="card-text">Barra de sonido Samsung HW-Q7OT/ZL</p>
                         </div>
                     </div>
 
                     <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/celular11.jpg">
+                        <img class="card-img-top border-bottom" src="./img/audiovideo7.jpg">
                         <div class="card-body">
-                            <h5 class="card-title text-warning">$749.900</h5>
-                            <p class="card-text">Smarwatch Galaxy Watch 42mm R810</p>
+                            <h5 class="card-title text-warning">$1.299.900</h5>
+                            <p class="card-text">Torre Musical LG Xboom RN9</p>
                         </div>
                     </div>
 
                     <div class="card card-producto">
-                        <img class="card-img-top border-bottom" src="./img/celular12.jpg">
+                        <img class="card-img-top border-bottom" src="./img/audiovideo8.jpg">
                         <div class="card-body">
-                            <h5 class="card-title text-warning">$2.109.900</h5>
-                            <p class="card-text">Apple Watch Seria 6(GPS) 44mm</p>
+                            <h5 class="card-title text-warning">$69.900</h5>
+                            <p class="card-text">Stereo Inalámbrico 8 pulgadas DD-Dkaraok</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-deck pb-4">
+                    <div class="card card-producto">
+                        <img class="card-img-top border-bottom" src="./img/audiovideo9.jpg">
+                        <div class="card-body">
+                            <h5 class="card-title text-warning">$1.129.900</h5>
+                            <p class="card-text">Proyector Viewsonic PA502s 3500 Lumens 3D</p>
+                        </div>
+                    </div>
+
+                    <div class="card card-producto">
+                        <img class="card-img-top border-bottom" src="./img/audiovideo10.jpg">
+                        <div class="card-body">
+                            <h5 class="card-title text-warning">$799.900</h5>
+                            <p class="card-text">Proyector Led-video beam-BSPJ-002 Brigthside</p>
+                        </div>
+                    </div>
+
+                    <div class="card card-producto">
+                        <img class="card-img-top border-bottom" src="./img/audiovideo11.jpg">
+                        <div class="card-body">
+                            <h5 class="card-title text-warning">$299.900</h5>
+                            <p class="card-text">Audífonos Inalámbrico JBL Live 400</p>
+                        </div>
+                    </div>
+
+                    <div class="card card-producto">
+                        <img class="card-img-top border-bottom" src="./img/audiovideo12.jpg">
+                        <div class="card-body">
+                            <h5 class="card-title text-warning">$749.000</h5>
+                            <p class="card-text">Audífonos BOSE  Soudsport Free Wireless</p>
                         </div>
                     </div>
                 </div>

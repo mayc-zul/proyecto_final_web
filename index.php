@@ -69,12 +69,12 @@
 					</div>
     				<div class="modal_body">
                         <div class="list-group">
-                            <a href="./html/camara.html" class="list-group-item list-group-item-action"><p><i class="fas fa-camera"></i></p><p>Cámara y Fotografía</p></a>
-                            <a href="./html/celulares.html" class="list-group-item list-group-item-action"><p><i class="fas fa-mobile-alt"></i></p><p>Teléfonos Celulares y Accesorios</p></a>
-                            <a href="./html/audiovideo.html" class="list-group-item list-group-item-action"><p><i class="fas fa-headphones-alt"></i></p><p>Audio y Vídeo</p></a>
-                            <a href="./html/computadores.html" class="list-group-item list-group-item-action"><p><i class="fas fa-laptop"></i></p><p>Computadores y Accesorios</p></a>
-                            <a href="./html/televisores.html" class="list-group-item list-group-item-action"><p><i class="fas fa-tv"></i></p><p>Televisores</p></a>
-                            <a href="./html/consolas.html" class="list-group-item list-group-item-action"><p><i class="fas fa-gamepad"></i></p><p>Consolas de Videojuegos y Accesorios</p></a>
+                            <a href="./php/camara.php" class="list-group-item list-group-item-action"><p><i class="fas fa-camera"></i></p><p>Cámara y Fotografía</p></a>
+                            <a href="./php/celulares.php" class="list-group-item list-group-item-action"><p><i class="fas fa-mobile-alt"></i></p><p>Teléfonos Celulares y Accesorios</p></a>
+                            <a href="./php/audiovideo.php" class="list-group-item list-group-item-action"><p><i class="fas fa-headphones-alt"></i></p><p>Audio y Vídeo</p></a>
+                            <a href="./php/computadores.php" class="list-group-item list-group-item-action"><p><i class="fas fa-laptop"></i></p><p>Computadores y Accesorios</p></a>
+                            <a href="./php/televisores.php" class="list-group-item list-group-item-action"><p><i class="fas fa-tv"></i></p><p>Televisores</p></a>
+                            <a href="./php/consolas.php" class="list-group-item list-group-item-action"><p><i class="fas fa-gamepad"></i></p><p>Consolas de Videojuegos y Accesorios</p></a>
                         </div>
     				</div>
     			</div>
@@ -298,7 +298,7 @@
                         <div class="card-img-overlay">
                           <h3 class="card-title">Cámaras</h3>
                           <p class="card-text">Toma tu mejores fotos</p>
-                          <a class="btn btn-light btn-personalizado" href="./html/camara.html">Comprar ahora</a>
+                          <a class="btn btn-light btn-personalizado" href="./php/camara.php">Comprar ahora</a>
                         </div>
                     </div>
 
@@ -307,7 +307,7 @@
                         <div class="card-img-overlay">
                           <h3 class="card-title">Audifonos</h3>
                           <p class="card-text">Escuchar buen sonido</p>
-                          <a class="btn btn-light btn-personalizado" href="./html/audiovideo.html">Comprar ahora</a>
+                          <a class="btn btn-light btn-personalizado" href="./php/audiovideo.php">Comprar ahora</a>
                         </div>
                     </div>
 
@@ -316,7 +316,7 @@
                         <div class="card-img-overlay">
                           <h3 class="card-title">Celulares</h3>
                           <p class="card-text">Celulares de todas las marcas</p>
-                          <a class="btn btn-light btn-personalizado" href="./html/celulares.html">Comprar ahora</a>
+                          <a class="btn btn-light btn-personalizado" href="./php/celulares.php">Comprar ahora</a>
                         </div>
                     </div>
                 </div>
@@ -332,7 +332,7 @@
                         <div class="card-img-overlay">
                           <h3 class="card-title">Consola de videojuegos</h3>
                           <p class="card-text">Consigue todo tipo de consola para jugra los mejores juegos</p>
-                          <a class="btn btn-light btn-personalizado" href="./html/consolas.html">Comprar ahora</a>
+                          <a class="btn btn-light btn-personalizado" href="./php/consolas.php">Comprar ahora</a>
                         </div>
                     </div>
                 </div>
@@ -347,7 +347,7 @@
                         <div class="card-img-overlay">
                           <h3 class="card-title">Televisores y muchos más</h3>
                           <p class="card-text">Disfruta del mejor centro de entretenimiento para tú hogar</p>
-                          <a class="btn btn-light btn-personalizado" href="./html/televisores.html">Comprar ahora</a>
+                          <a class="btn btn-light btn-personalizado" href="./php/televisores.php">Comprar ahora</a>
                         </div>
                     </div>
 
@@ -356,7 +356,7 @@
                         <div class="card-img-overlay">
                           <h3 class="card-title">Stereo</h3>
                           <p class="card-text">Escuchar musica de buena calidad con sonido de buena calidad</p>
-                          <a class="btn btn-light btn-personalizado" href="./html/audiovideo.html">Comprar ahora</a>
+                          <a class="btn btn-light btn-personalizado" href="./php/audiovideo.php">Comprar ahora</a>
                         </div>
                     </div>
                 </div>
