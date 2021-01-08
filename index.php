@@ -1,3 +1,7 @@
+<?php session_start();
+$card_pagina = 12;
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -52,7 +56,15 @@
             <ul class="navbar-nav mr-auto">
                 <a href="#" class="nav-link" data-toggle="modal" data-target="#modal_categorias"><p class="nav-icon"><i class="fas fa-bars"></i></p>Categorias</a>
             	<a href="#" class="nav-link" data-toggle="modal" data-target="#modal_car"><p class="nav-icon"><i class="fas fa-shopping-cart"></i></p><p>Mi carrito</p></a>
-            	<a href="#" class="nav-link" data-toggle="modal" data-target="#modal_user" ><p class="nav-icon"><i class="fas fa-user"></i></p><p>Inciar sesion</p></a>
+            	<?php
+                if (isset($_SESSION['user'])) {
+                    echo '<a href="./php/cerrar.php" class="nav-link"><p class="nav-icon"><i class="fas fa-user-slash"></i></p><p>Cerrar sesión</p></a>';
+
+                    
+                }else{
+                    echo '<a href="#" class="nav-link" data-toggle="modal" data-target="#modal_user" ><p class="nav-icon"><i class="fas fa-user"></i></p><p>Inciar sesión</p></a>';
+                }    
+                ?>
             	
             </ul>
     		
@@ -93,15 +105,15 @@
 					</div>
 
 					<div class="modal-body">
-						<form>
+                    <form action="./php/login.php" method="POST">
                             <div class="form-group">
-                                <label>Correo</label><input class="form-control form-control-sm" type="email" name="mail" required>
+                                <label>Usuario</label><input class="form-control form-control-sm" type="text" name="user" required>
                             </div>                    		
                             <div class="form-group">
                                 <label>Contraseña</label><input class="form-control form-control-sm" type="password" name="password" size="6" maxlength="10" required>
                             </div>
 
-                            <button class="btn col-12" type="submit" data-dismiss="modal">Iniciar Sesión</button><br><br>
+                            <button class="btn col-12" type="submit">Iniciar Sesión</button><br><br>
                             <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#modal_registro">Aún no estas registrado? Haz click aquí</a>
                         </form>
 					</div>
@@ -122,7 +134,7 @@
 					</div>
 
 					<div class="modal-body">
-						<form>
+						<form action="./php/registro_new_user.php" method="POST">
                             <div class="form-group">
                                 <label>Nombre</label>
                                 <input class="form-control form-control-sm" type="text" name="name" required>
@@ -131,7 +143,7 @@
                                 <label>Fecha de nacimiento</label><input class="form-control form-control-sm" type="date" name="birthday" required>
                             </div>
                             <div class="form-group">
-                                <label>Teléfono</label><input class="form-control form-control-sm">
+                                <label>Teléfono</label><input class="form-control form-control-sm" type="number" name="phone" require>
                             </div>
                             <div class="form-group">
                                 <label>Correo electrónico</label><input class="form-control form-control-sm" type="email" name="mail" required>
@@ -141,16 +153,16 @@
                             </div>
             
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="radio1" id="radio1">
+                                <input class="form-check-input" type="checkbox" value="1" id="radio1" name="condiciones">
                                 <label class="form-check-label" for="defaultCheck1">Acepto los términos y condiciones</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="radio2" id="radio2">
+                                <input class="form-check-input" type="checkbox" value="2" id="radio2" name="recibir">
                                 <label class="form-check-label" for="defaultCheck1">Deseo recibir correos con novedades</label>
                             </div>
                             <br>
 
-                            <button class="btn" type="submit" data-dismiss="modal">Registrarme</button>
+                            <button class="btn" type="submit">Registrarme</button>
                             <button class="btn" type="reset">Borrar información</button>
                         </form>
 					</div>
@@ -160,6 +172,15 @@
     	</div>
     	
     </div>
+
+    <?php
+    if (isset($_SESSION['user'])) {
+        echo '<div class="container-fluid">
+                <h5 class="mb-0 text-center">!Bienvenido! '.$_SESSION['user'].'</h5>
+            </div>';
+      
+    }
+    ?>
 
 
     <!-- Carousel pagina principal -->
