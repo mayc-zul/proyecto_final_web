@@ -41,7 +41,7 @@ $card_pagina = 12;
         </div>
     </div>
 
-    <div class="navbar navbar-expand-sm navbar-dark bg-dark fixed">
+    <div class="navbar navbar-expand-lg navbar-dark bg-dark fixed">
     	<div class="col-3">
 	    	<a href="#" class="navbar-brand"><h2>TecnoCompras</h2></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
