@@ -126,7 +126,7 @@
     		
             <ul class="navbar-nav mr-auto">
                 <a href="#" class="nav-link" data-toggle="modal" data-target="#modal_categorias"><p class="nav-icon"><i class="fas fa-bars"></i></p>Categorias</a>
-            	<a href="#" class="nav-link" data-toggle="modal" data-target="#modal_car"><p class="nav-icon"><i class="fas fa-shopping-cart"></i></p><p>Mi carrito</p></a>
+            	<a href="./carrito.php" class="nav-link"><p class="nav-icon"><i class="fas fa-shopping-cart"></i></p><p>Mi carrito</p></a>
                 <?php
                 if (isset($_SESSION['user'])) {
                     echo '<a href="./cerrar.php" class="nav-link"><p class="nav-icon"><i class="fas fa-user-slash"></i></p><p>Cerrar sesión</p></a>';
@@ -152,7 +152,7 @@
 					</div>
     				<div class="modal_body">
                         <div class="list-group">
-                            <a href="./camara.php" class="list-group-item list-group-item-action"><p><i class="fas fa-camera"></i></p><p>Cámara y Fotografía</p></a>
+                            <a href="./camaras.php" class="list-group-item list-group-item-action"><p><i class="fas fa-camera"></i></p><p>Cámara y Fotografía</p></a>
                             <a href="./celulares.php" class="list-group-item list-group-item-action"><p><i class="fas fa-mobile-alt"></i></p><p>Teléfonos Celulares y Accesorios</p></a>
                             <a href="./audiovideo.php" class="list-group-item list-group-item-action"><p><i class="fas fa-headphones-alt"></i></p><p>Audio y Vídeo</p></a>
                             <a href="./computadores.php" class="list-group-item list-group-item-action"><p><i class="fas fa-laptop"></i></p><p>Computadores y Accesorios</p></a>
@@ -246,8 +246,8 @@
     <div class="container-fluid">
         <div class="row py-3">
             <div class="col">
-                <h4 class="text-center">Lo mejor en celulares</h4>
-                <p>Los mejores celulares del mercado y las marcas más reconocidas como Samsung, Apple, Huawei, Motorola los encuentras en tu éxito. Decide entre los celulares básicos, smartphones y otras opciones con diferentes características que se ajustan a ti.</p>
+                <h4 class="text-center">Audio y vídeo</h4>
+                <p>Encuentra equipos de sonido, audífonos, parlantes, cámaras de vídeo, barras de sonido, teatros en casa y mucho más. Grandes marcas como Xiaomi, Samsung, Sony, JBL, LG, Nikon, descubre las mejores opciones para elegir de excelente calidad.</p>
             </div>
         </div>
 
@@ -383,7 +383,7 @@
                         
                         
                         <div class="card card-producto">
-                            <img  class="card-img-top border-bottom" src="data:image/jpg;base64,<?php echo base64_encode(($resultado[$i]['imagen'])); ?>">
+                            <a href="vistaproducto.php?categoria=<?php echo 'audiovideo'?>&id=<?php echo $resultado[$i]['id']?>"><img  class="card-img-top border-bottom" src="data:image/jpg;base64,<?php echo base64_encode(($resultado[$i]['imagen'])); ?>"></a>
                             <div class="card-body">
                                 <h5 class="card-title text-warning"><?php echo $resultado[$i]['precio'] ?></h5>
                                 <p class="card-text"><?php echo $resultado[$i]['nombre'] ?></p>

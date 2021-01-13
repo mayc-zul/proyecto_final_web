@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,10 +25,10 @@
 </head>
 <body>
 
-<?php 
+    <?php 
         include_once './conexionDB.php';
 
-        $sql_leer = "SELECT * FROM camaras"; //Nombre de la tabla
+        $sql_leer = "SELECT * FROM ".$_GET['categoria']; //Nombre de la tabla
         $gsent = $pdo->prepare($sql_leer); //pdo es la conexion traida desde connect
         $gsent->execute();
         $resultado = $gsent->fetchAll();
@@ -38,11 +39,11 @@
             $descripcion = $_POST["descripcion"];
             $imagen = file_get_contents($_FILES["imagen"]["tmp_name"]);
 
-            $sql_agregar = "INSERT INTO camaras (nombre,precio,descripcion,imagen) VALUES (?,?,?,?)";
+            $sql_agregar = "INSERT INTO". $_GET['categoria']. "(nombre,precio,descripcion,imagen) VALUES (?,?,?,?)";
             $sentencia_agregar = $pdo->prepare($sql_agregar);
             $sentencia_agregar->execute(array($nombre,$precio,$descripcion,$imagen));
 
-            header("location:./camara.php");
+            header("location:./".$_GET['categoria'].".php");
         }
 
     ?>
@@ -50,17 +51,12 @@
 
         <?php 
             $id = $_GET['id'];
-            $sql_unico = "SELECT * FROM camaras WHERE id=?"; //Nombre de la tabla
+            $sql_unico = "SELECT * FROM ".$_GET['categoria']." WHERE id=?"; //Nombre de la tabla
             $gsent_unico = $pdo->prepare($sql_unico); //pdo es la conexion traida desde connect
             $gsent_unico->execute(array($id));
             $resultado_unico = $gsent_unico->fetch();
         ?>
 
-        <script type="text/javascript">
-            $(window).on('load', function() {
-                $('#modal_editar').modal('show');
-            });
-        </script>
         <div class="modal fade" id="modal_editar">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -126,7 +122,7 @@
     		
             <ul class="navbar-nav mr-auto">
                 <a href="#" class="nav-link" data-toggle="modal" data-target="#modal_categorias"><p class="nav-icon"><i class="fas fa-bars"></i></p>Categorias</a>
-            	<a href="#" class="nav-link" data-toggle="modal" data-target="#modal_car"><p class="nav-icon"><i class="fas fa-shopping-cart"></i></p><p>Mi carrito</p></a>
+            	<a href="./carrito.php" class="nav-link"><p class="nav-icon"><i class="fas fa-shopping-cart"></i></p><p>Mi carrito</p></a>
             	<a href="#" class="nav-link" data-toggle="modal" data-target="#modal_user" ><p class="nav-icon"><i class="fas fa-user"></i></p><p>Inciar sesion</p></a>
             	
             </ul>
@@ -144,7 +140,7 @@
 					</div>
     				<div class="modal_body">
                         <div class="list-group">
-                            <a href="./camara.php" class="list-group-item list-group-item-action"><p><i class="fas fa-camera"></i></p><p>Cámara y Fotografía</p></a>
+                            <a href="./camaras.php" class="list-group-item list-group-item-action"><p><i class="fas fa-camera"></i></p><p>Cámara y Fotografía</p></a>
                             <a href="./celulares.php" class="list-group-item list-group-item-action"><p><i class="fas fa-mobile-alt"></i></p><p>Teléfonos Celulares y Accesorios</p></a>
                             <a href="./audiovideo.php" class="list-group-item list-group-item-action"><p><i class="fas fa-headphones-alt"></i></p><p>Audio y Vídeo</p></a>
                             <a href="./computadores.php" class="list-group-item list-group-item-action"><p><i class="fas fa-laptop"></i></p><p>Computadores y Accesorios</p></a>
@@ -234,181 +230,30 @@
     		</div>
     	</div>	
     </div>
+    
+    <?php $_SESSION['categoria'] = $_GET['categoria'];
+    $_SESSION['id_producto'] = $id;?>
 
-    <div class="container-fluid">
-        <div class="row py-3">
-            <div class="col">
-                <h4 class="text-center">Las mejores cámaras y accesorios</h4>
-                <p>Encuentra en esta categoría cámaras digitales, cámaras de vídeo, cámaras profesionales, cámara semiprofesional, cámaras instantaneas, las más innovadoras cámaras deportivas y los mejores accesorios comprarle a tu cámara los encuentras aquí.</p>
-            </div>
-        </div>
+    <nav class="container" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="../index.php">Inicio</a></li>
+        <li class="breadcrumb-item"><a href="<?php echo './'.$_GET['categoria'].'.php'?>"><?php echo $_GET['categoria']?></a></li>
+        <li class="breadcrumb-item active" aria-current="page"><?php echo $resultado_unico["nombre"]?></li>
+        </ol>
+    </nav>
 
-
+    <div class="container bg-white mt-4 rounded pagos">
         <div class="row">
-            <aside class="col-3 scrollspy" data-spy="scroll" data-offset="0">
-                <h5 class="border-bottom pt-3">Filtros</h5>
-                <form action="" class="border-bottom">
-                    <h6>Tipo de cámaras</h6>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="acc_camara" id="Tcheck1"><label class="form-check-label">Accesorios para cámaras</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="deportivas" id="Tcheck2"><label class="form-check-label">Deportivas</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="digital" id="Tcheck3"><label class="form-check-label">Digital</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="instantanea" id="Tcheck4"><label class="form-check-label">Instantanea</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="profesional" id="Tcheck5"><label class="form-check-label">Profesional</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="semiprofesional" id="Tcheck6"><label class="form-check-label">Semiprofesional</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="instantanea" id="Tcheck7"><label class="form-check-label">Video</label>
-                    </div>
-                </form>
-
-                <form action="" class="border-bottom pt-3">
-                    <h6>Precios</h6>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="canon" id="Mcheck1"><label class="form-check-label">Menos de $499.000</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="fujifilm" id="Mcheck2"><label class="form-check-label">$500.000 - $999.999</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="gopro" id="Mcheck3"><label class="form-check-label">$1.000.000 - $2.999.999</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="instax" id="Mcheck4"><label class="form-check-label">$3.000.000 - $3.999.999</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="nikon" id="Mcheck5"><label class="form-check-label">$4.000.000 - 4.999.999</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="sony" id="Mcheck6"><label class="form-check-label"> Más de $5.000.000</label>
-                    </div>
-                </form>
-
-                <form action="" class="border-bottom pt-3">
-                    <h6>Marcas</h6>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="canon" id="Mcheck1"><label class="form-check-label">CANON</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="fujifilm" id="Mcheck2"><label class="form-check-label">FUJIFILM</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="gopro" id="Mcheck3"><label class="form-check-label">GoPro</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="instax" id="Mcheck4"><label class="form-check-label">INSTAX</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="nikon" id="Mcheck5"><label class="form-check-label">NIKON</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="sony" id="Mcheck6"><label class="form-check-label">SONY</label>
-                    </div>
-                </form>
-
-                <form action="" class="border-bottom pt-3">
-                    <h6>Megapíxeles</h6>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="canon" id="Mcheck1"><label class="form-check-label">24MP</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="fujifilm" id="Mcheck2"><label class="form-check-label">26MP</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="gopro" id="Mcheck3"><label class="form-check-label">30MP</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="instax" id="Mcheck4"><label class="form-check-label">32MP</label>
-                    </div>
-                </form>
-            </aside>
-            <section class="col-9"> 
-                <!--Ruta-->
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="../index.php">Inicio</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Cámaras y Fotografía</li>
-                    </ol>
-                </nav>
-
-                <div class="card-deck pb-4">
-
-                    <div class="card card-producto" data-toggle="modal" data-target="#modal_agregar">
-                        <div class="card-body bg-light">
-                            <a href="#" class="nav-link"><i class="fas fa-plus text-dark" style="font-size: 120px; text-align: center; display: block;"></i></a>
-                        </div>
-                    </div>
-	            
-
-                    <div class="modal fade show" id="modal_agregar">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h2 class="modal-title"><b>Agregar Productos</b></h2>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-
-                                <div class="modal-body">
-                                    <form method="POST" enctype="multipart/form-data">
-                                        <div class="form-group">
-                                            <label>Nombre del producto</label><input class="form-control form-control-sm" type="text" name="nombre" required>
-                                        </div>                    		
-                                        <div class="form-group">
-                                            <label>Precio del producto</label><input class="form-control form-control-sm" type="text" name="precio" value="$"required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Descripcion del producto</label><input class="form-control form-control-sm" type="text" name="descripcion"required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Imagen del producto</label><input class="form-control form-control-sm" type="file" name="imagen"required>
-                                        </div>
-                                        
-
-                                        <input class="btn col-12" type="submit" value="Agregar"><br>
-                                    </form>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-
-                    <?php for($i=0; $i < count($resultado); $i++): ?>
-                        
-                        
-                        <div class="card card-producto">
-                            <img  class="card-img-top border-bottom" src="data:image/jpg;base64,<?php echo base64_encode(($resultado[$i]['imagen'])); ?>">
-                            <div class="card-body">
-                                <h5 class="card-title text-warning"><?php echo $resultado[$i]['precio'] ?></h5>
-                                <p class="card-text"><?php echo $resultado[$i]['nombre'] ?></p>
-                            </div>
-                            <div class="card-footer">
-                                <a href="camara.php?id=<?php echo $resultado[$i]['id']?>"><i class="fas fa-pencil-alt" style="float: left;"></i></a><a href="eliminarCam.php?id=<?php echo $resultado[$i]['id']?>"><i class="far fa-trash-alt" style="float: right;"></i></a>
-                            </div>
-                        </div>
-                        <?php
-                            if (($i+1) == count($resultado)) {
-                                echo "</div>";
-                            }
-                            elseif (($i+2)%4 == 0) {
-                                echo "</div>";
-                                echo '<div class="card-deck pb-4">';
-                            }                	
-                        ?>
-                    <?php endfor ?>	
-
-            </section>
+            <div class="col-6">
+                <img  class="zoom-producto img-thumbnail" src="data:image/jpg;base64,<?php echo base64_encode(($resultado_unico['imagen'])); ?>" width="500">
+            </div>
+            <div class="col-6">
+                <h3><?php echo $resultado_unico["nombre"]?></h3>
+                <p><?php echo $resultado_unico["descripcion"]?></p>
+                <h5 class="text-warning"><?php echo $resultado_unico["precio"]?></h5>
+                <a class="btn btn-dark mt-2" href="./add_carrito.php?categoria=<?php echo $_GET['categoria']?>">Añadir a carrito</a>
+                <a class="btn btn-dark mt-2" href="">Comprar</a>
+            </div>
         </div>
     </div>
 
@@ -477,6 +322,5 @@
             </div>
         </div>
     </footer>
-
 </body>
 </html>

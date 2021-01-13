@@ -20,6 +20,7 @@ if (password_verify($contrasena_login, $resultado['password'])) {
     //Las contraseña son iguales
     $_SESSION['user'] = $usuraio_login;
     $_SESSION['tipo_usuario'] = $resultado['tipo_usuario'];
+    $_SESSION['id'] = $resultado['id'];
     header('Location: ./restringido.php');
 }else{
     //Las contraseñas no son iguales

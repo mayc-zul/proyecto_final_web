@@ -293,3 +293,36 @@ div.col p.text-muted{
 .scrollspy::-webkit-scrollbar-track {
     border-radius: 10px;  
 }
+
+.zoom-producto{
+    transition: .5s;
+    overflow:hidden;
+}
+.zoom-producto:hover{
+    transform:scale(1.2);
+}
+.quantity{
+    width:50px
+}
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number] {
+    -moz-appearance:textfield;
+}
+.minicard{
+    position:absolute;
+    background-color: #0069d9;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    right: 160px;
+    top: 6px;
+    color: white;    
+}

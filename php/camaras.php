@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,10 +25,10 @@
 </head>
 <body>
 
-    <?php 
+<?php 
         include_once './conexionDB.php';
 
-        $sql_leer = "SELECT * FROM celulares"; //Nombre de la tabla
+        $sql_leer = "SELECT * FROM camaras"; //Nombre de la tabla
         $gsent = $pdo->prepare($sql_leer); //pdo es la conexion traida desde connect
         $gsent->execute();
         $resultado = $gsent->fetchAll();
@@ -38,11 +39,11 @@
             $descripcion = $_POST["descripcion"];
             $imagen = file_get_contents($_FILES["imagen"]["tmp_name"]);
 
-            $sql_agregar = "INSERT INTO celulares (nombre,precio,descripcion,imagen) VALUES (?,?,?,?)";
+            $sql_agregar = "INSERT INTO camaras (nombre,precio,descripcion,imagen) VALUES (?,?,?,?)";
             $sentencia_agregar = $pdo->prepare($sql_agregar);
             $sentencia_agregar->execute(array($nombre,$precio,$descripcion,$imagen));
 
-            header("location:./celulares.php");
+            header("location:./camara.php");
         }
 
     ?>
@@ -50,7 +51,7 @@
 
         <?php 
             $id = $_GET['id'];
-            $sql_unico = "SELECT * FROM celulares WHERE id=?"; //Nombre de la tabla
+            $sql_unico = "SELECT * FROM camaras WHERE id=?"; //Nombre de la tabla
             $gsent_unico = $pdo->prepare($sql_unico); //pdo es la conexion traida desde connect
             $gsent_unico->execute(array($id));
             $resultado_unico = $gsent_unico->fetch();
@@ -72,7 +73,7 @@
                     </div>
 
                     <div class="modal-body">
-                        <form method="POST" enctype="multipart/form-data" action="editarCel.php">
+                        <form method="POST" enctype="multipart/form-data" action="editarCam.php">
                             <div class="form-group">
                                 <input type="hidden" name="id" value="<?php echo $resultado_unico['id'] ?>">
                                 <label>Nombre del producto</label><input class="form-control form-control-sm" type="text" name="nombre" value="<?php echo $resultado_unico['nombre'] ?>" required>
@@ -97,6 +98,7 @@
             </div>
         </div>
     <?php endif ?>
+
 
     <!-- Barra de navegacion -->
 
@@ -231,15 +233,14 @@
     				
     			</div>
     		</div>
-    	</div>
+    	</div>	
     </div>
-
 
     <div class="container-fluid">
         <div class="row py-3">
             <div class="col">
-                <h4 class="text-center">Lo mejor en celulares</h4>
-                <p>Los mejores celulares del mercado y las marcas más reconocidas como Samsung, Apple, Huawei, Motorola los encuentras en tu éxito. Decide entre los celulares básicos, smartphones y otras opciones con diferentes características que se ajustan a ti.</p>
+                <h4 class="text-center">Las mejores cámaras y accesorios</h4>
+                <p>Encuentra en esta categoría cámaras digitales, cámaras de vídeo, cámaras profesionales, cámara semiprofesional, cámaras instantaneas, las más innovadoras cámaras deportivas y los mejores accesorios comprarle a tu cámara los encuentras aquí.</p>
             </div>
         </div>
 
@@ -247,6 +248,31 @@
         <div class="row">
             <aside class="col-3 scrollspy" data-spy="scroll" data-offset="0">
                 <h5 class="border-bottom pt-3">Filtros</h5>
+                <form action="" class="border-bottom">
+                    <h6>Tipo de cámaras</h6>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="acc_camara" id="Tcheck1"><label class="form-check-label">Accesorios para cámaras</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="deportivas" id="Tcheck2"><label class="form-check-label">Deportivas</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="digital" id="Tcheck3"><label class="form-check-label">Digital</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="instantanea" id="Tcheck4"><label class="form-check-label">Instantanea</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="profesional" id="Tcheck5"><label class="form-check-label">Profesional</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="semiprofesional" id="Tcheck6"><label class="form-check-label">Semiprofesional</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="instantanea" id="Tcheck7"><label class="form-check-label">Video</label>
+                    </div>
+                </form>
+
                 <form action="" class="border-bottom pt-3">
                     <h6>Precios</h6>
                     <div class="form-check">
@@ -272,107 +298,38 @@
                 <form action="" class="border-bottom pt-3">
                     <h6>Marcas</h6>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="canon" id="Mcheck1"><label class="form-check-label">ALCATEL</label>
+                        <input class="form-check-input" type="checkbox" name="canon" id="Mcheck1"><label class="form-check-label">CANON</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="fujifilm" id="Mcheck2"><label class="form-check-label">APPLE</label>
+                        <input class="form-check-input" type="checkbox" name="fujifilm" id="Mcheck2"><label class="form-check-label">FUJIFILM</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="gopro" id="Mcheck3"><label class="form-check-label">HUAWEI</label>
+                        <input class="form-check-input" type="checkbox" name="gopro" id="Mcheck3"><label class="form-check-label">GoPro</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="instax" id="Mcheck4"><label class="form-check-label">KRONO</label>
+                        <input class="form-check-input" type="checkbox" name="instax" id="Mcheck4"><label class="form-check-label">INSTAX</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="nikon" id="Mcheck5"><label class="form-check-label">LG</label>
+                        <input class="form-check-input" type="checkbox" name="nikon" id="Mcheck5"><label class="form-check-label">NIKON</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="sony" id="Mcheck6"><label class="form-check-label">MOTOROLA</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="canon" id="Mcheck1"><label class="form-check-label">NOKIA</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="fujifilm" id="Mcheck2"><label class="form-check-label">SAMSUNG</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="gopro" id="Mcheck3"><label class="form-check-label">XIAOMI</label>
-                    </div>
-                </form>
-
-                <form action="" class="border-bottom">
-                    <h6>Memoria interna</h6>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="acc_camara" id="Tcheck1"><label class="form-check-label">256GB</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="deportivas" id="Tcheck2"><label class="form-check-label">128GB</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="digital" id="Tcheck3"><label class="form-check-label">64GB</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="instantanea" id="Tcheck4"><label class="form-check-label">32GB</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="profesional" id="Tcheck5"><label class="form-check-label">16GB</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="semiprofesional" id="Tcheck6"><label class="form-check-label">8GB</label>
+                        <input class="form-check-input" type="checkbox" name="sony" id="Mcheck6"><label class="form-check-label">SONY</label>
                     </div>
                 </form>
 
                 <form action="" class="border-bottom pt-3">
-                    <h6>Cámara frontal</h6>
+                    <h6>Megapíxeles</h6>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="canon" id="Mcheck1"><label class="form-check-label">32MP</label>
+                        <input class="form-check-input" type="checkbox" name="canon" id="Mcheck1"><label class="form-check-label">24MP</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="fujifilm" id="Mcheck2"><label class="form-check-label">20MP</label>
+                        <input class="form-check-input" type="checkbox" name="fujifilm" id="Mcheck2"><label class="form-check-label">26MP</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="gopro" id="Mcheck3"><label class="form-check-label">16MP</label>
+                        <input class="form-check-input" type="checkbox" name="gopro" id="Mcheck3"><label class="form-check-label">30MP</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="instax" id="Mcheck4"><label class="form-check-label">13MP</label>
-                    </div>
-                </form>
-
-                <form action="" class="border-bottom pt-3">
-                    <h6>Tamaño de la pantalla</h6>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="canon" id="Mcheck1"><label class="form-check-label">6.5 pulgadas</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="fujifilm" id="Mcheck2"><label class="form-check-label">6.4 pulgadas</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="gopro" id="Mcheck3"><label class="form-check-label">6.3 pulgadas</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="instax" id="Mcheck4"><label class="form-check-label">6.2 pulgadas</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="instax" id="Mcheck4"><label class="form-check-label">5 pulgadas</label>
-                    </div>
-                </form>
-
-                <form action="" class="border-bottom pt-3">
-                    <h6>Cámara posterior</h6>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="canon" id="Mcheck1"><label class="form-check-label">108MP + 12MP + 12MP</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="fujifilm" id="Mcheck2"><label class="form-check-label">12MP + 64MP+ 12MP</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="gopro" id="Mcheck3"><label class="form-check-label">13MP</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="instax" id="Mcheck4"><label class="form-check-label">48MP + 5MP 8MP + 2MP + 2MP</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="instax" id="Mcheck4"><label class="form-check-label">12MP + 12MP + 8MP</label>
+                        <input class="form-check-input" type="checkbox" name="instax" id="Mcheck4"><label class="form-check-label">32MP</label>
                     </div>
                 </form>
             </aside>
@@ -381,7 +338,7 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="../index.php">Inicio</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Teléfonos celulares y accesorios</li>
+                    <li class="breadcrumb-item active" aria-current="page">Cámaras y Fotografía</li>
                     </ol>
                 </nav>
 
@@ -432,13 +389,13 @@
                         
                         
                         <div class="card card-producto">
-                            <a href="vistaproducto.php?categoria=<?php echo 'celulares'?>&id=<?php echo $resultado[$i]['id']?>"><img  class="card-img-top border-bottom" src="data:image/jpg;base64,<?php echo base64_encode(($resultado[$i]['imagen'])); ?>"></a>
+                            <a href="vistaproducto.php?categoria=<?php echo 'camaras'?>&id=<?php echo $resultado[$i]['id']?>"><img  class="card-img-top border-bottom" src="data:image/jpg;base64,<?php echo base64_encode(($resultado[$i]['imagen'])); ?>"></a>
                             <div class="card-body">
                                 <h5 class="card-title text-warning"><?php echo $resultado[$i]['precio'] ?></h5>
                                 <p class="card-text"><?php echo $resultado[$i]['nombre'] ?></p>
                             </div>
                             <div class="card-footer">
-                                <a href="celulares.php?id=<?php echo $resultado[$i]['id']?>"><i class="fas fa-pencil-alt" style="float: left;"></i></a><a href="eliminarCel.php?id=<?php echo $resultado[$i]['id']?>"><i class="far fa-trash-alt" style="float: right;"></i></a>
+                                <a href="camara.php?id=<?php echo $resultado[$i]['id']?>"><i class="fas fa-pencil-alt" style="float: left;"></i></a><a href="eliminarCam.php?id=<?php echo $resultado[$i]['id']?>"><i class="far fa-trash-alt" style="float: right;"></i></a>
                             </div>
                         </div>
                         <?php
@@ -450,7 +407,7 @@
                                 echo '<div class="card-deck pb-4">';
                             }                	
                         ?>
-                    <?php endfor ?>
+                    <?php endfor ?>	
 
             </section>
         </div>
