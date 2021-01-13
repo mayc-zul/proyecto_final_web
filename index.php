@@ -1,7 +1,4 @@
-<?php session_start();
-$card_pagina = 12;
-
-?>
+<?php session_start();?>
 <!DOCTYPE html>
 <html>
 <head>

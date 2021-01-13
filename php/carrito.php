@@ -65,7 +65,7 @@ for ($i=0; $i <$row_producto ; $i++) {
         </div>
     </div>
 
-    <div class="navbar navbar-expand-sm navbar-dark bg-dark fixed">
+    <div class="navbar navbar-expand-lg navbar-dark bg-dark fixed">
     	<div class="col-3">
 	    	<a href="../index.php" class="navbar-brand"><h2>TecnoCompras</h2></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -79,8 +79,16 @@ for ($i=0; $i <$row_producto ; $i++) {
     		
             <ul class="navbar-nav mr-auto">
                 <a href="#" class="nav-link" data-toggle="modal" data-target="#modal_categorias"><p class="nav-icon"><i class="fas fa-bars"></i></p>Categorias</a>
-            	<a href="./carrito.php" class="nav-link"><p class="nav-icon"><i class="fas fa-shopping-cart"></i></p><p>Mi carrito</p><span class="minicard"><?php echo $count_total?></span></a>
-            	<a href="#" class="nav-link" data-toggle="modal" data-target="#modal_user" ><p class="nav-icon"><i class="fas fa-user"></i></p><p>Inciar sesion</p></a>
+            	<a href="./carrito.php" class="nav-link"><p class="nav-icon"><i class="fas fa-shopping-cart"></i></p><p>Mi carrito</p></a>
+            	<?php
+                if (isset($_SESSION['user'])) {
+                    echo '<a href="./cerrar.php" class="nav-link"><p class="nav-icon"><i class="fas fa-user-slash"></i></p><p>Cerrar sesión</p></a>';
+
+                    
+                }else{
+                    echo '<a href="#" class="nav-link" data-toggle="modal" data-target="#modal_user" ><p class="nav-icon"><i class="fas fa-user"></i></p><p>Inciar sesión</p></a>';
+                }    
+                ?>
             	
             </ul>
     		
@@ -97,7 +105,7 @@ for ($i=0; $i <$row_producto ; $i++) {
 					</div>
     				<div class="modal_body">
                         <div class="list-group">
-                            <a href="./camara.php" class="list-group-item list-group-item-action"><p><i class="fas fa-camera"></i></p><p>Cámara y Fotografía</p></a>
+                            <a href="./camaras.php" class="list-group-item list-group-item-action"><p><i class="fas fa-camera"></i></p><p>Cámara y Fotografía</p></a>
                             <a href="./celulares.php" class="list-group-item list-group-item-action"><p><i class="fas fa-mobile-alt"></i></p><p>Teléfonos Celulares y Accesorios</p></a>
                             <a href="./audiovideo.php" class="list-group-item list-group-item-action"><p><i class="fas fa-headphones-alt"></i></p><p>Audio y Vídeo</p></a>
                             <a href="./computadores.php" class="list-group-item list-group-item-action"><p><i class="fas fa-laptop"></i></p><p>Computadores y Accesorios</p></a>
