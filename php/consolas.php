@@ -150,7 +150,7 @@
 					</div>
     				<div class="modal_body">
                         <div class="list-group">
-                            <a href="./camara.php" class="list-group-item list-group-item-action"><p><i class="fas fa-camera"></i></p><p>Cámara y Fotografía</p></a>
+                            <a href="./camaras.php" class="list-group-item list-group-item-action"><p><i class="fas fa-camera"></i></p><p>Cámara y Fotografía</p></a>
                             <a href="./celulares.php" class="list-group-item list-group-item-action"><p><i class="fas fa-mobile-alt"></i></p><p>Teléfonos Celulares y Accesorios</p></a>
                             <a href="./audiovideo.php" class="list-group-item list-group-item-action"><p><i class="fas fa-headphones-alt"></i></p><p>Audio y Vídeo</p></a>
                             <a href="./computadores.php" class="list-group-item list-group-item-action"><p><i class="fas fa-laptop"></i></p><p>Computadores y Accesorios</p></a>
@@ -174,15 +174,15 @@
 					</div>
 
 					<div class="modal-body">
-						<form>
+                        <form action="./login.php" method="POST">
                             <div class="form-group">
-                                <label>Correo</label><input class="form-control form-control-sm" type="email" name="mail" required>
-                            </div>                    		
+                                <label>Usuario</label><input class="form-control form-control-sm" type="text" name="user" required>
+                            </div>                       		
                             <div class="form-group">
                                 <label>Contraseña</label><input class="form-control form-control-sm" type="password" name="password" size="6" maxlength="10" required>
                             </div>
 
-                            <button class="btn col-12" type="submit" data-dismiss="modal">Iniciar Sesión</button><br><br>
+                            <button class="btn col-12" type="submit">Iniciar Sesión</button><br><br>
                             <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#modal_registro">Aún no estas registrado? Haz click aquí</a>
                         </form>
 					</div>
@@ -331,72 +331,127 @@
                     </ol>
                 </nav>
                 
-                <div class="card-deck pb-4">
-
-                    <div class="card card-producto" data-toggle="modal" data-target="#modal_agregar">
-                        <div class="card-body bg-light">
-                            <a href="#" class="nav-link"><i class="fas fa-plus text-dark" style="font-size: 120px; text-align: center; display: block;"></i></a>
-                        </div>
-                    </div>
-	            
-
-                    <div class="modal fade show" id="modal_agregar">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h2 class="modal-title"><b>Agregar Productos</b></h2>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
+                <?php if (isset($_SESSION['user'])): ?>
+                    <?php if($_SESSION['tipo_usuario'] == 'administrador') : ?>
+                        
+                        <div class="card-deck pb-4">
+                            <div class="card card-producto" data-toggle="modal" data-target="#modal_agregar">
+                                <div class="card-body bg-light">
+                                    <a href="#" class="nav-link"><i class="fas fa-plus text-dark" style="font-size: 120px; text-align: center; display: block;"></i></a>
                                 </div>
+                            </div>
+                        
 
-                                <div class="modal-body">
-                                    <form method="POST" enctype="multipart/form-data">
-                                        <div class="form-group">
-                                            <label>Nombre del producto</label><input class="form-control form-control-sm" type="text" name="nombre" required>
-                                        </div>                    		
-                                        <div class="form-group">
-                                            <label>Precio del producto</label><input class="form-control form-control-sm" type="text" name="precio" value="$"required>
+                            <div class="modal fade show" id="modal_agregar">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h2 class="modal-title"><b>Agregar Productos</b></h2>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
                                         </div>
-                                        <div class="form-group">
-                                            <label>Descripcion del producto</label><input class="form-control form-control-sm" type="text" name="descripcion"required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Imagen del producto</label><input class="form-control form-control-sm" type="file" name="imagen"required>
+
+                                        <div class="modal-body">
+                                            <form method="POST" enctype="multipart/form-data">
+                                                <div class="form-group">
+                                                    <label>Nombre del producto</label><input class="form-control form-control-sm" type="text" name="nombre" required>
+                                                </div>                    		
+                                                <div class="form-group">
+                                                    <label>Precio del producto</label><input class="form-control form-control-sm" type="text" name="precio" value="$"required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Descripcion del producto</label><input class="form-control form-control-sm" type="text" name="descripcion"required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Imagen del producto</label><input class="form-control form-control-sm" type="file" name="imagen"required>
+                                                </div>
+                                                
+
+                                                <input class="btn col-12" type="submit" value="Agregar"><br>
+                                            </form>
                                         </div>
                                         
-
-                                        <input class="btn col-12" type="submit" value="Agregar"><br>
-                                    </form>
+                                    </div>
                                 </div>
-                                
                             </div>
-                        </div>
-                    </div>
 
-                    <?php for($i=0; $i < count($resultado); $i++): ?>
-                        
-                        
-                        <div class="card card-producto">
-                            <img  class="card-img-top border-bottom" src="data:image/jpg;base64,<?php echo base64_encode(($resultado[$i]['imagen'])); ?>">
-                            <div class="card-body">
-                                <h5 class="card-title text-warning"><?php echo $resultado[$i]['precio'] ?></h5>
-                                <p class="card-text"><?php echo $resultado[$i]['nombre'] ?></p>
-                            </div>
-                            <div class="card-footer">
-                                <a href="consolas.php?id=<?php echo $resultado[$i]['id']?>"><i class="fas fa-pencil-alt" style="float: left;"></i></a><a href="eliminarCon.php?id=<?php echo $resultado[$i]['id']?>"><i class="far fa-trash-alt" style="float: right;"></i></a>
-                            </div>
-                        </div>
-                        <?php
-                            if (($i+1) == count($resultado)) {
-                                echo "</div>";
-                            }
-                            elseif (($i+2)%4 == 0) {
-                                echo "</div>";
-                                echo '<div class="card-deck pb-4">';
-                            }                	
-                        ?>
-                    <?php endfor ?>	
+                            <?php for($i=0; $i < count($resultado); $i++): ?>
+                                
+                                
+                                <div class="card card-producto">
+                                    <a href="vistaproducto.php?categoria=<?php echo 'consolas'?>&id=<?php echo $resultado[$i]['id']?>"><img  class="card-img-top border-bottom" src="data:image/jpg;base64,<?php echo base64_encode(($resultado[$i]['imagen'])); ?>"></a>
+                                    <div class="card-body">
+                                        <h5 class="card-title text-warning"><?php echo $resultado[$i]['precio'] ?></h5>
+                                        <p class="card-text"><?php echo $resultado[$i]['nombre'] ?></p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <a href="computadores.php?id=<?php echo $resultado[$i]['id']?>"><i class="fas fa-pencil-alt" style="float: left;"></i></a><a href="eliminarC.php?id=<?php echo $resultado[$i]['id']?>"><i class="far fa-trash-alt" style="float: right;"></i></a>
+                                    </div>
+                                </div>
+                                <?php
+                                    if (($i+1) == count($resultado)) {
+                                        echo "</div>";
+                                    }
+                                    elseif (($i+2)%4 == 0) {
+                                        echo "</div>";
+                                        echo '<div class="card-deck pb-4">';
+                                    }                	
+                                ?>
+                            <?php endfor ?>	
+                    
+                    <?php else: ?>
+                        <div class="card-deck pb-4">
+                                
+                                <?php for($i=0; $i < count($resultado); $i++): ?>
+                                    
+                                    
+                                    <div class="card card-producto">
+                                        <a href="vistaproducto.php?categoria=<?php echo 'consolas'?>&id=<?php echo $resultado[$i]['id']?>"><img  class="card-img-top border-bottom" src="data:image/jpg;base64,<?php echo base64_encode(($resultado[$i]['imagen'])); ?>"></a>
+                                        <div class="card-body">
+                                            <h5 class="card-title text-warning"><?php echo $resultado[$i]['precio'] ?></h5>
+                                            <p class="card-text"><?php echo $resultado[$i]['nombre'] ?></p>
+                                        </div>
+                                    </div>
+                                    <?php
+                                        if (($i+1) == count($resultado)) {
+                                            echo "</div>";
+                                        }
+                                        elseif (($i+1)%4 == 0) {
+                                            echo "</div>";
+                                            echo '<div class="card-deck pb-4">';
+                                        }                	
+                                    ?>
+                                <?php endfor ?>
+                    
+                    
+                    <?php endif ?>
+
+                <?php else: ?>
+                    <div class="card-deck pb-4">
+                            
+                            <?php for($i=0; $i < count($resultado); $i++): ?>
+                                
+                                
+                                <div class="card card-producto">
+                                <a href="vistaproducto.php?categoria=<?php echo 'consolas'?>&id=<?php echo $resultado[$i]['id']?>"><img  class="card-img-top border-bottom" src="data:image/jpg;base64,<?php echo base64_encode(($resultado[$i]['imagen'])); ?>"></a>
+                                    <div class="card-body">
+                                        <h5 class="card-title text-warning"><?php echo $resultado[$i]['precio'] ?></h5>
+                                        <p class="card-text"><?php echo $resultado[$i]['nombre'] ?></p>
+                                    </div>
+                                </div>
+                                <?php
+                                    if (($i+1) == count($resultado)) {
+                                        echo "</div>";
+                                    }
+                                    elseif (($i+1)%4 == 0) {
+                                        echo "</div>";
+                                        echo '<div class="card-deck pb-4">';
+                                    }                	
+                                ?>
+                            <?php endfor ?>
+
+                <?php endif ?>	
 
             </section>
         </div>
