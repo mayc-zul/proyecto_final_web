@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-01-2021 a las 22:35:50
+-- Tiempo de generación: 13-01-2021 a las 20:55:47
 -- Versión del servidor: 10.4.17-MariaDB
 -- Versión de PHP: 8.0.0
 
@@ -40,11 +40,12 @@ CREATE TABLE `carrito` (
 --
 
 INSERT INTO `carrito` (`id`, `id_usuario`, `categoria`, `id_producto`, `cantidad`) VALUES
-(30, 0, 'camaras', 10, 2),
+(30, 0, 'camaras', 10, 3),
 (31, 0, 'camaras', 15, 2),
 (32, 0, 'camaras', 9, 2),
 (33, 0, 'camaras', 11, 3),
-(34, 0, 'audiovideo', 3, 1);
+(34, 0, 'audiovideo', 3, 1),
+(35, 0, 'consolas', 3, 1);
 
 --
 -- Índices para tablas volcadas
@@ -64,7 +65,7 @@ ALTER TABLE `carrito`
 -- AUTO_INCREMENT de la tabla `carrito`
 --
 ALTER TABLE `carrito`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
