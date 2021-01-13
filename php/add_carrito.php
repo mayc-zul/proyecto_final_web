@@ -6,10 +6,15 @@ include_once './conexionDB.php';
 $categoria = $_GET['categoria'];
 $id_producto = $_SESSION['id_producto'];
 $cantidad = 1;
+if (!isset($_SESSION['user'])) {
+    $id_usuario = 0;
+}else{
+    $id_usuario = $_SESSION['id'];
+}
 
-$sql_carrito = "SELECT * FROM carrito WHERE categoria=?";
+$sql_carrito = "SELECT * FROM carrito WHERE id_usuario=?";
 $sentencia_carrito = $pdo->prepare($sql_carrito);
-$sentencia_carrito ->execute(array($categoria));
+$sentencia_carrito ->execute(array($id_usuario));
 $resultado_carrito = $sentencia_carrito->fetchAll();
 $row = $sentencia_carrito->rowCount();
 $repetir = 0;
@@ -37,7 +42,7 @@ if($row != 0){
         $sentencia_agregar->execute(array($id_usuario,$categoria,$id_producto,$cantidad));
         echo 'Ningun usuario hay iniciado sesión<br>';
     }else{
-        $id_usuario = $_SESSION['id_usuario'];
+        $id_usuario = $_SESSION['id'];
         $sql_agregar = "INSERT INTO carrito (id_usuario,categoria,id_producto,cantidad) VALUES (?,?,?,?)";
         $sentencia_agregar = $pdo->prepare($sql_agregar);
         $sentencia_agregar->execute(array($id_usuario,$categoria,$id_producto,$cantidad));
@@ -53,7 +58,7 @@ if ($repetir > 0 && $existe == false) {
         $sentencia_agregar->execute(array($id_usuario,$categoria,$id_producto,$cantidad));
         echo 'Ningun usuario hay iniciado sesión<br>';
     }else{
-        $id_usuario = $_SESSION['id_usuario'];
+        $id_usuario = $_SESSION['id'];
         $sql_agregar = "INSERT INTO carrito (id_usuario,categoria,id_producto,cantidad) VALUES (?,?,?,?)";
         $sentencia_agregar = $pdo->prepare($sql_agregar);
         $sentencia_agregar->execute(array($id_usuario,$categoria,$id_producto,$cantidad));
