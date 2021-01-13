@@ -49,6 +49,8 @@ for ($i=0; $i <$row_producto ; $i++) {
     <!--iconos-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
+    <!-- Include the PayPal JavaScript SDK -->
+    <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD"></script>
 
 </head>
 <body>
@@ -214,7 +216,7 @@ for ($i=0; $i <$row_producto ; $i++) {
         $gsent_unico = $pdo->prepare($sql_unico); //pdo es la conexion traida desde connect
         $gsent_unico->execute(array($resultado_producto_add[$i]['id_producto']));
         $resultado_unico = $gsent_unico->fetch();
-        $total = intval(preg_replace('/[.$]/','',$resultado_unico["precio"])) * $resultado_producto_add[$i]['cantidad'];
+        $total = intval(preg_replace('/[,$]/','',$resultado_unico["precio"])) * $resultado_producto_add[$i]['cantidad'];
         $total_compra += $total;
     }
     ?>
@@ -228,40 +230,14 @@ for ($i=0; $i <$row_producto ; $i++) {
         $gsent_unico->execute(array($resultado_producto_add[$i]['id_producto']));
         $resultado_unico = $gsent_unico->fetch();?>
         
-        <div class="row mb-2">
-            <div class="col-8">
-                <div class="card flex-row flex-wrap mb-3">
-                    <div class="card-header border-0">
-                        <img src="data:image/jpg;base64,<?php echo base64_encode(($resultado_unico['imagen'])); ?>" width="200">
-                    </div>
-                    <div class="card-block px-3">
-                        <h3 class="card-title"><?php echo $resultado_unico["nombre"]?></h3>
-                        <h5 class=""> Precio unitario: <?php echo $resultado_unico["precio"]?></h5>
-                        <?php $total = intval(preg_replace('/[.$]/','',$resultado_unico["precio"])) * $resultado_producto_add[$i]['cantidad'];?>
-                        <h5 class=""> Total: $<?php echo number_format($total)?></h5> 
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <a href="remove.php?id=<?php echo $resultado_producto_add[$i]['id']?>" class="btn btn-outline-dark <?php echo $resultado_producto_add[$i]['cantidad'] == 1 ? 'disabled': '' ?>"><i class="fas fa-minus"></i></a>
-                            </div>
-                            <!--<button href="" onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="btn btn-dark"><i class="fas fa-minus"></i></button>-->
-                            <input class="quantity" min="0" name="quantity" value="<?php echo $resultado_producto_add[$i]['cantidad'] ?>" type="number">
-                            <div class="input-group-append">
-                                <a href="agregar.php?id=<?php echo $resultado_producto_add[$i]['id']?>&categoria=<?php echo $resultado_producto_add[$i]['categoria']?>" class="btn btn-outline-dark "><i class="fas fa-plus"></i></a>
-                            </div>
-                            <!--<button href="./mas.php" onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="btn btn-dark"><i class="fas fa-plus"></i></button>-->
-                        </div>
-                        <a class="btn btn-dark mt-3" href="eliminar_carrito.php?id=<?php echo $resultado_producto_add[$i]['id']?>">Eliminar del carrito</a>
-                    </div>
-                </div>
-            </div>
-            <?php if($i == 0):?>
-            <div class="col-4 bg-white rounded">
-                <h5 class="mt-3"> Total de compra: $<?php echo number_format($total_compra)?></h5>
+        <?php if($i == 0):?>
+        <div class="w-25 float-right realse">
+            <div class="col bg-white rounded">
+                <h4 class="pt-3">Resumen de tu orden</h4>
+                <br>
+                <h6> Total de compra: $<?php echo number_format($total_compra)?></h6>
                 <br>
                 <div id="paypal-button-container"></div>
-
-                    <!-- Include the PayPal JavaScript SDK -->
-                    <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD"></script>
 
                     <script>
                         // Render the PayPal button into #paypal-button-container
@@ -289,8 +265,35 @@ for ($i=0; $i <$row_producto ; $i++) {
 
                         }).render('#paypal-button-container');
                     </script>
+            </div>
+        </div>
+                
+        <?php endif?>
+
+        <div class="w-75 mb-2 realse">
+            <div class="col">
+                <div class="card flex-row mb-3 ">
+                    <div class="card-header border-0">
+                        <img src="data:image/jpg;base64,<?php echo base64_encode(($resultado_unico['imagen'])); ?>" width="200">
+                    </div>
+                    <div class="card-block px-3">
+                        <h4 class="card-title"><?php echo $resultado_unico["nombre"]?></h4>
+                        <h5 class="float-left">Precio unitario: </h5><h5 class="text-warning flex-row"><?php echo $resultado_unico["precio"]?></h5>
+                        <?php $total = intval(preg_replace('/[,$]/','',$resultado_unico["precio"])) * $resultado_producto_add[$i]['cantidad'];?>
+                        <h5 class="text-warning"> Total: $<?php echo number_format($total)?></h5> 
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <a href="remove.php?id=<?php echo $resultado_producto_add[$i]['id']?>" class="btn btn-outline-dark <?php echo $resultado_producto_add[$i]['cantidad'] == 1 ? 'disabled': '' ?>"><i class="fas fa-minus"></i></a>
+                            </div>
+                            <input class="quantity" min="0" name="quantity" value="<?php echo $resultado_producto_add[$i]['cantidad'] ?>" type="number">
+                            <div class="input-group-append">
+                                <a href="agregar.php?id=<?php echo $resultado_producto_add[$i]['id']?>&categoria=<?php echo $resultado_producto_add[$i]['categoria']?>" class="btn btn-outline-dark "><i class="fas fa-plus"></i></a>
+                            </div>
+                        </div>
+                        <a class="btn btn-dark mt-2" href="eliminar_carrito.php?id=<?php echo $resultado_producto_add[$i]['id']?>"><i class="far fa-trash-alt" style="margin-right:5px"></i>Eliminar del carrito</a>
+                    </div>
                 </div>
-            <?php endif?>
+            </div>
         </div>
         <?php endfor?>
     </div>

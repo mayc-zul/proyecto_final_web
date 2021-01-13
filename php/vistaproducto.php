@@ -259,8 +259,8 @@
                 <h3><?php echo $resultado_unico["nombre"]?></h3>
                 <p><?php echo $resultado_unico["descripcion"]?></p>
                 <h5 class="text-warning"><?php echo $resultado_unico["precio"]?></h5>
-                <a class="btn btn-dark mt-2" href="./add_carrito.php?categoria=<?php echo $_GET['categoria']?>">Añadir a carrito</a>
-                <a class="btn btn-dark mt-2" href="">Comprar</a>
+                <a class="btn btn-dark mt-2" href="./add_carrito.php?categoria=<?php echo $_GET['categoria']?>"><i class="fas fa-cart-plus" style="margin-right:5px"></i>Añadir a carrito</a>
+                <a class="btn btn-dark mt-2" href=""><i class="fas fa-money-bill" style="margin-right:5px"></i>Comprar</a>
             </div>
         </div>
     </div>
