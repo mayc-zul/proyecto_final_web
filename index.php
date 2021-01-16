@@ -21,7 +21,27 @@
     <!--iconos-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
+    <!--Programa para el mapa-->
+    <script text="text/javascript" src="./js/mapa.js"></script> 
 
+    <!--API Google maps-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfX4lowanRbhWaQ_8tPQ2OT1tmBj_JU3I" async defer></script>
+
+    <style type="text/css">
+            #mapa{
+                width: 100%;
+                height: 80%;
+            }
+
+            html, body{
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+
+    </style>
+
+ 
 </head>
 <body>
 
@@ -40,16 +60,18 @@
 
     <div class="navbar navbar-expand-lg navbar-dark bg-dark fixed">
     	<div class="col-3">
-	    	<a href="#" class="navbar-brand"><h2>TecnoCompras</h2></a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-		</div>
+            <a href="#" class="navbar-brand"><h2>TecnoCompras</h2></a>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+		
 
     	<div class="collapse navbar-collapse" id="navbarSupportedContent">
-    		<input class="form-control mr-sm-2 col-7" type="search" placeholder="Busca lo que necesites" aria-label="Search">
-            <button class="btn btn-outline-light mr-3" type="submit">Buscar</button>
-    		
+            <form class="form-inline my-2 col-lg-7 col-sm-12">
+    		    <input class="form-control mr-sm-2 col-lg-7 col-sm-10" type="search" placeholder="Busca lo que necesites" aria-label="Search">
+                <button class="btn btn-outline-light mr-3" type="submit">Buscar</button>
+            </form>
             <ul class="navbar-nav mr-auto">
                 <a href="#" class="nav-link" data-toggle="modal" data-target="#modal_categorias"><p class="nav-icon"><i class="fas fa-bars"></i></p>Categorias</a>
             	<a href="./php/carrito.php" class="nav-link"><p class="nav-icon"><i class="fas fa-shopping-cart"></i></p><p>Mi carrito</p></a>
@@ -195,19 +217,19 @@
                     </ol>
                     <div class="carousel-inner rounded">
                         <div class="carousel-item active">
-                            <img  src="./img/slider1.png" alt="First slide" height="600">
+                            <img  src="./img/slider1.png" alt="First slide">
                         </div>
                         <div class="carousel-item">
-                            <img src="./img/slider2.png" alt="Second slide" height="600">
+                            <img src="./img/slider2.png" alt="Second slide">
                         </div>
                         <div class="carousel-item">
-                            <img src="./img/slider3.png" alt="Third slide" height="600">
+                            <img src="./img/slider3.png" alt="Third slide">
                         </div>
                         <div class="carousel-item">
-                            <img src="./img/slider4.png" alt="Third slide" height="600">
+                            <img src="./img/slider4.png" alt="Third slide">
                         </div>
                         <div class="carousel-item">
-                            <img src="./img/slider5.png" alt="Third slide" height="600">
+                            <img src="./img/slider5.png" alt="Third slide">
                         </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -261,7 +283,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Modal title</h5>
+                    <h5 class="modal-title">Métodos de pago</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 </div>
                 <div class="modal-body">
@@ -315,7 +337,7 @@
                         <img class="card-img" src="./img/camaras.jpg" height="260">
                         <div class="card-img-overlay">
                           <h3 class="card-title">Cámaras</h3>
-                          <p class="card-text">Toma tu mejores fotos</p>
+                          <p class="card-text card-text-categorias">Toma tu mejores fotos</p>
                           <a class="btn btn-light btn-personalizado" href="./php/camara.php">Comprar ahora</a>
                         </div>
                     </div>
@@ -324,7 +346,7 @@
                         <img class="card-img" src="./img/audifonos.jpg" height="260">
                         <div class="card-img-overlay">
                           <h3 class="card-title">Audifonos</h3>
-                          <p class="card-text">Escuchar buen sonido</p>
+                          <p class="card-text card-text-categorias">Escuchar buen sonido</p>
                           <a class="btn btn-light btn-personalizado" href="./php/audiovideo.php">Comprar ahora</a>
                         </div>
                     </div>
@@ -333,7 +355,7 @@
                         <img class="card-img" src="./img/cel.jpg" height="260">
                         <div class="card-img-overlay">
                           <h3 class="card-title">Celulares</h3>
-                          <p class="card-text">Celulares de todas las marcas</p>
+                          <p class="card-text card-text-categorias">Celulares de todas las marcas</p>
                           <a class="btn btn-light btn-personalizado" href="./php/celulares.php">Comprar ahora</a>
                         </div>
                     </div>
@@ -346,10 +368,10 @@
             <div class="col">
                 <div class="card-deck pb-4">
                     <div class="card bg-dark text-white">
-                        <img class="card-img" src="./img/videogames.jpg" height="600">
+                        <img class="card-img card-categoria-img" src="./img/videogames.jpg" height="600">
                         <div class="card-img-overlay">
                           <h3 class="card-title">Consola de videojuegos</h3>
-                          <p class="card-text">Consigue todo tipo de consola para jugra los mejores juegos</p>
+                          <p class="card-text card-text-categorias">Consigue todo tipo de consola para jugra los mejores juegos</p>
                           <a class="btn btn-light btn-personalizado" href="./php/consolas.php">Comprar ahora</a>
                         </div>
                     </div>
@@ -361,19 +383,19 @@
             <div class="col">
                 <div class="card-deck pb-4">
                     <div class="card bg-dark text-white">
-                        <img class="card-img" src="./img/tv.jpg" height="600">
+                        <img class="card-img card-categoria-img" src="./img/tv.jpg" height="600">
                         <div class="card-img-overlay">
                           <h3 class="card-title">Televisores y muchos más</h3>
-                          <p class="card-text">Disfruta del mejor centro de entretenimiento para tú hogar</p>
+                          <p class="card-text card-text-categorias">Disfruta del mejor centro de entretenimiento para tú hogar</p>
                           <a class="btn btn-light btn-personalizado" href="./php/televisores.php">Comprar ahora</a>
                         </div>
                     </div>
 
                     <div class="card bg-dark text-white">
-                        <img class="card-img" src="./img/stereo.jpg" height="600">
+                        <img class="card-img card-categoria-img" src="./img/stereo.jpg" height="600">
                         <div class="card-img-overlay">
                           <h3 class="card-title">Stereo</h3>
-                          <p class="card-text">Escuchar musica de buena calidad con sonido de buena calidad</p>
+                          <p class="card-text card-text-categorias">Escuchar musica de buena calidad con sonido de buena calidad</p>
                           <a class="btn btn-light btn-personalizado" href="./php/audiovideo.php">Comprar ahora</a>
                         </div>
                     </div>
@@ -529,7 +551,7 @@
 
     <div class="image-box" style="background-image: url('./img/background1.jpg')">
         <h1 class="card-title">Compra nuestros productos</h1><br>
-        <h5 class="card-text">Recibe descuentos del 10%, 20% y hasta el 40% con precios de locos</h5>
+        <h5 class="card-text card-text-categorias">Recibe descuentos del 10%, 20% y hasta el 40% con precios de locos</h5>
         <a class="btn btn-light btn-personalizado" href="#">Comprar ahora</a>
     </div>
 
@@ -566,9 +588,9 @@
         </div>
     </section>
 
-    <footer class="container-fluid" style="background-color: #222222;">
-        <div class="row">
-            <div class="col">
+    <footer class="container-fluid footer-style">
+        <div class="row footer-row-style">
+            <div class="col-3 col-info">
                 <h6 class="footer-text footer-tilte">SUSCRÍBETE A NUESTRO NEWSLETTER</h6>
                 <small class="footer-text">Infórmate de lo último. Nuestras ofertas y novedades directamente en tu e-mail.</small>
 
@@ -578,27 +600,72 @@
                 <p class="redes instagram"><i class="fab fa-instagram"></i></p>
             </div>
 
-            <div class="col">
+            <div class="col-3 col-nav-pie">
                 <h6 class="footer-text footer-tilte">Páginas</h6>
                 <nav class="nav flex-column">
-                    <a class="nav-link" href="#">Inicio</a>
-                    <a class="nav-link" href="#">Tienda</a>
-                    <a class="nav-link" href="#">Sobre Nosotros</a>
-                    <a class="nav-link" href="#">Contacto</a>
+                    <a class="nav-link nav-footer" href="#">Inicio</a>
+                    <a class="nav-link nav-footer" href="#" data-toggle="modal" data-target="#modal_tiendas">Tienda</a>
+                    <a class="nav-link nav-footer" href="#">Sobre Nosotros</a>
+                    <a class="nav-link nav-footer" href="#">Contacto</a>
                 </nav>          
             </div>
 
-            <div class="col">
+            <div class="col-6 col-map">
                 <h6 class="footer-text footer-tilte">Puntos físicos</h6>
+                <div id="mapa"></div>
             </div>
         </div>
 
-        <div class="row">
+        <div class="row row-nav-footer">
             <div class="col">
-                <p class="pie">© 2020-2021, "nombre de la tienda", Inc. o sus filiales</p>
+            <ul class="nav justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#modal_tiendas">Tienda</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Sobre Nosotros</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contacto</a>
+                </li>
+            </ul>
             </div>
         </div>
+
     </footer>
+    <div class="container-fluid" style="background-color: #222222;">
+        <div class="row">
+            <div class="col">
+                <p class="pie">© 2020-2021, Tecnocompras, Inc. o sus filiales</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modal_tiendas">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title"><b>Puntos físicos</b></h2>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal_body">
+                    <div class="list-group">
+                        <a class="list-group-item list-group-item-action" onclick="seleccionado(0)"><p><i class="fas fa-map-marked-alt" data-dismiss="modal"></i></p><p>Tecnocompra Bello</p></a>
+                        <a class="list-group-item list-group-item-action" onclick="seleccionado(1)"><p><i class="fas fa-map-marked-alt" data-dismiss="modal"></i></p><p>Tecnocompra Cl. 65c, Medellín</p></a>
+                        <a class="list-group-item list-group-item-action" onclick="seleccionado(2)"><p><i class="fas fa-map-marked-alt" data-dismiss="modal"></i></p><p>Tecnocompra Cl. 50 # 81 a 47, Medellín</p></a>
+                        <a class="list-group-item list-group-item-action" onclick="seleccionado(3)"><p><i class="fas fa-map-marked-alt" data-dismiss="modal"></i></p><p>Tecnocompra Via Medellín-Via Sta. Elena</p></a>
+                        <a class="list-group-item list-group-item-action" onclick="seleccionado(4)"><p><i class="fas fa-map-marked-alt" data-dismiss="modal"></i></p><p>Tecnocompra Itagüí</p></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
 
 </body>
 </html>

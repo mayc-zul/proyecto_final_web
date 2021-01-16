@@ -20,6 +20,25 @@
     
     <!--iconos-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <!--Programa para el mapa-->
+    <script text="text/javascript" src="../js/mapa.js"></script> 
+
+    <!--API Google maps-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfX4lowanRbhWaQ_8tPQ2OT1tmBj_JU3I" async defer></script>
+
+    <style type="text/css">
+            #mapa{
+                width: 100%;
+                height: 80%;
+            }
+
+            html, body{
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+
+    </style>
 </head>
 <body>
 
@@ -112,16 +131,18 @@
     </div>
 
     <div class="navbar navbar-expand-lg navbar-dark bg-dark fixed">
-    	<div class="col-3">
-	    	<a href="../index.php" class="navbar-brand"><h2>TecnoCompras</h2></a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-		</div>
+        <div class="col-3">
+            <a href="../index.php" class="navbar-brand"><h2>TecnoCompras</h2></a>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
     	<div class="collapse navbar-collapse" id="navbarSupportedContent">
-    		<input class="form-control mr-sm-2 col-7" type="search" placeholder="Busca lo que necesites" aria-label="Search">
-            <button class="btn btn-outline-light mr-3" type="submit">Buscar</button>
+            <form class="form-inline my-2 col-lg-7 col-sm-12">
+    		    <input class="form-control mr-sm-2 col-lg-7 col-sm-10" type="search" placeholder="Busca lo que necesites" aria-label="Search">
+                <button class="btn btn-outline-light mr-3" type="submit">Buscar</button>
+            </form>
     		
             <ul class="navbar-nav mr-auto">
                 <a href="#" class="nav-link" data-toggle="modal" data-target="#modal_categorias"><p class="nav-icon"><i class="fas fa-bars"></i></p>Categorias</a>
@@ -250,8 +271,9 @@
         </div>
         
         <div class="row">
-            <aside class="col-3 scrollspy" data-spy="scroll" data-offset="0">
-                <h5 class="border-bottom pt-3">Filtros</h5>
+            <a class="btn btn-dark btn-collapse" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><p class="icon-filter"><i class="fas fa-filter"></p></i>Filtros</a>
+            <aside class="col-lg-3 col-md-3 col-filtro collapse show scrollspy" data-spy="scroll" data-offset="0" id="collapseExample">
+                <h5 class="border-bottom pt-3 title-fil">Filtros</h5>
                 <form action="" class="border-bottom pt-3">
                     <h6>Tipo</h6>
                     <div class="form-check">
@@ -327,7 +349,7 @@
 
 
             
-            <section class="col-9">
+            <section class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
                 <!--Ruta-->
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
@@ -499,9 +521,9 @@
 
     </section>
 
-    <footer class="container-fluid" style="background-color: #222222;">
-        <div class="row">
-            <div class="col">
+    <footer class="container-fluid footer-style">
+        <div class="row footer-row-style">
+            <div class="col-3 col-info">
                 <h6 class="footer-text footer-tilte">SUSCRÍBETE A NUESTRO NEWSLETTER</h6>
                 <small class="footer-text">Infórmate de lo último. Nuestras ofertas y novedades directamente en tu e-mail.</small>
 
@@ -511,26 +533,70 @@
                 <p class="redes instagram"><i class="fab fa-instagram"></i></p>
             </div>
 
-            <div class="col">
+            <div class="col-3 col-nav-pie">
                 <h6 class="footer-text footer-tilte">Páginas</h6>
                 <nav class="nav flex-column">
-                    <a class="nav-link" href="#">Inicio</a>
-                    <a class="nav-link" href="#">Tienda</a>
-                    <a class="nav-link" href="#">Sobre Nosotros</a>
-                    <a class="nav-link" href="#">Contacto</a>
+                    <a class="nav-link nav-footer" href="../index.php">Inicio</a>
+                    <a class="nav-link nav-footer" href="#" data-toggle="modal" data-target="#modal_tiendas">Tienda</a>
+                    <a class="nav-link nav-footer" href="#">Sobre Nosotros</a>
+                    <a class="nav-link nav-footer" href="#">Contacto</a>
                 </nav>          
             </div>
 
-            <div class="col">
+            <div class="col-6 col-map">
                 <h6 class="footer-text footer-tilte">Puntos físicos</h6>
+                <div id="mapa"></div>
             </div>
         </div>
 
-        <div class="row">
+        <div class="row row-nav-footer">
             <div class="col">
-                <p class="pie">© 2020-2021, "nombre de la tienda", Inc. o sus filiales</p>
+            <ul class="nav justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link active" href="../index.php">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#modal_tiendas">Tienda</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Sobre Nosotros</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contacto</a>
+                </li>
+            </ul>
             </div>
         </div>
+
     </footer>
+    <div class="container-fluid" style="background-color: #222222;">
+        <div class="row">
+            <div class="col">
+                <p class="pie">© 2020-2021, Tecnocompras, Inc. o sus filiales</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modal_tiendas">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title"><b>Puntos físicos</b></h2>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal_body">
+                    <div class="list-group">
+                        <a class="list-group-item list-group-item-action" onclick="seleccionado(0)"><p><i class="fas fa-map-marked-alt" data-dismiss="modal"></i></p><p>Tecnocompra Bello</p></a>
+                        <a class="list-group-item list-group-item-action" onclick="seleccionado(1)"><p><i class="fas fa-map-marked-alt" data-dismiss="modal"></i></p><p>Tecnocompra Cl. 65c, Medellín</p></a>
+                        <a class="list-group-item list-group-item-action" onclick="seleccionado(2)"><p><i class="fas fa-map-marked-alt" data-dismiss="modal"></i></p><p>Tecnocompra Cl. 50 # 81 a 47, Medellín</p></a>
+                        <a class="list-group-item list-group-item-action" onclick="seleccionado(3)"><p><i class="fas fa-map-marked-alt" data-dismiss="modal"></i></p><p>Tecnocompra Via Medellín-Via Sta. Elena</p></a>
+                        <a class="list-group-item list-group-item-action" onclick="seleccionado(4)"><p><i class="fas fa-map-marked-alt" data-dismiss="modal"></i></p><p>Tecnocompra Itagüí</p></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

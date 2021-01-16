@@ -68,16 +68,18 @@ for ($i=0; $i <$row_producto ; $i++) {
     </div>
 
     <div class="navbar navbar-expand-lg navbar-dark bg-dark fixed">
-    	<div class="col-3">
-	    	<a href="../index.php" class="navbar-brand"><h2>TecnoCompras</h2></a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-		</div>
+        <div class="col-3">
+            <a href="../index.php" class="navbar-brand"><h2>TecnoCompras</h2></a>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
     	<div class="collapse navbar-collapse" id="navbarSupportedContent">
-    		<input class="form-control mr-sm-2 col-7" type="search" placeholder="Busca lo que necesites" aria-label="Search">
-            <button class="btn btn-outline-light mr-3" type="submit">Buscar</button>
+            <form class="form-inline my-2 col-lg-7 col-sm-12">
+    		    <input class="form-control mr-sm-2 col-lg-7 col-sm-10" type="search" placeholder="Busca lo que necesites" aria-label="Search">
+                <button class="btn btn-outline-light mr-3" type="submit">Buscar</button>
+            </form>
     		
             <ul class="navbar-nav mr-auto">
                 <a href="#" class="nav-link" data-toggle="modal" data-target="#modal_categorias"><p class="nav-icon"><i class="fas fa-bars"></i></p>Categorias</a>
@@ -222,7 +224,7 @@ for ($i=0; $i <$row_producto ; $i++) {
     ?>
 
     
-    <div class="container">
+    <div class="container-fluid">
         <?php for ($i=0; $i <$row_producto ; $i++):?>
         <?php 
         $sql_unico = "SELECT * FROM ".$resultado_producto_add[$i]['categoria']." WHERE id=?"; //Nombre de la tabla
@@ -231,8 +233,8 @@ for ($i=0; $i <$row_producto ; $i++) {
         $resultado_unico = $gsent_unico->fetch();?>
         
         <?php if($i == 0):?>
-        <div class="w-25 float-right realse">
-            <div class="col bg-white rounded">
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 float-right ">
+            <div class="col bg-white rounded realse">
                 <h4 class="pt-3">Resumen de tu orden</h4>
                 <br>
                 <h6> Total de compra: $<?php echo number_format($total_compra)?></h6>
@@ -269,34 +271,36 @@ for ($i=0; $i <$row_producto ; $i++) {
         </div>
                 
         <?php endif?>
-
-        <div class="w-75 mb-2 realse">
-            <div class="col">
-                <div class="card flex-row mb-3 ">
-                    <div class="card-header border-0">
-                        <img src="data:image/jpg;base64,<?php echo base64_encode(($resultado_unico['imagen'])); ?>" width="200">
-                    </div>
-                    <div class="card-block px-3">
-                        <h4 class="card-title"><?php echo $resultado_unico["nombre"]?></h4>
-                        <h5 class="float-left">Precio unitario: </h5><h5 class="text-warning flex-row"><?php echo $resultado_unico["precio"]?></h5>
-                        <?php $total = intval(preg_replace('/[,$]/','',$resultado_unico["precio"])) * $resultado_producto_add[$i]['cantidad'];?>
-                        <h5 class="text-warning"> Total: $<?php echo number_format($total)?></h5> 
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <a href="remove.php?id=<?php echo $resultado_producto_add[$i]['id']?>" class="btn btn-outline-dark <?php echo $resultado_producto_add[$i]['cantidad'] == 1 ? 'disabled': '' ?>"><i class="fas fa-minus"></i></a>
-                            </div>
-                            <input class="quantity" min="0" name="quantity" value="<?php echo $resultado_producto_add[$i]['cantidad'] ?>" type="number">
-                            <div class="input-group-append">
-                                <a href="agregar.php?id=<?php echo $resultado_producto_add[$i]['id']?>&categoria=<?php echo $resultado_producto_add[$i]['categoria']?>" class="btn btn-outline-dark "><i class="fas fa-plus"></i></a>
+            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                <div class="card mb-3 mt-4 pl-2 realse">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img class="imag-prod" src="data:image/jpg;base64,<?php echo base64_encode(($resultado_unico['imagen'])); ?>" width="200">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                            <h4 class="card-title"><?php echo $resultado_unico["nombre"]?></h4>
+                                <h5 class="float-left">Precio unitario: </h5><h5 class="text-warning flex-row"><?php echo $resultado_unico["precio"]?></h5>
+                                <?php $total = intval(preg_replace('/[,$]/','',$resultado_unico["precio"])) * $resultado_producto_add[$i]['cantidad'];?>
+                                <h5 class="text-warning"> Total: $<?php echo number_format($total)?></h5> 
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <a href="remove.php?id=<?php echo $resultado_producto_add[$i]['id']?>" class="btn btn-outline-dark <?php echo $resultado_producto_add[$i]['cantidad'] == 1 ? 'disabled': '' ?>"><i class="fas fa-minus"></i></a>
+                                    </div>
+                                    <input class="quantity" min="0" name="quantity" value="<?php echo $resultado_producto_add[$i]['cantidad'] ?>" type="number">
+                                    <div class="input-group-append">
+                                        <a href="agregar.php?id=<?php echo $resultado_producto_add[$i]['id']?>&categoria=<?php echo $resultado_producto_add[$i]['categoria']?>" class="btn btn-outline-dark "><i class="fas fa-plus"></i></a>
+                                    </div>
+                                </div>
+                                <a class="btn btn-dark mt-2" href="eliminar_carrito.php?id=<?php echo $resultado_producto_add[$i]['id']?>"><i class="far fa-trash-alt" style="margin-right:5px"></i>Eliminar del carrito</a>
                             </div>
                         </div>
-                        <a class="btn btn-dark mt-2" href="eliminar_carrito.php?id=<?php echo $resultado_producto_add[$i]['id']?>"><i class="far fa-trash-alt" style="margin-right:5px"></i>Eliminar del carrito</a>
                     </div>
                 </div>
             </div>
+            <?php endfor?>  
         </div>
-        <?php endfor?>
-    </div>
+ 
     
     
 </body>

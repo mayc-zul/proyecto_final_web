@@ -1,6 +1,16 @@
 *{
 	box-sizing: border-box;
 }
+#mapa{
+    width: 100%;
+    height: 80%;
+}
+
+html, body{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
 
 .d-block1{
     margin: 0px;
@@ -233,6 +243,9 @@ div.col p.text-muted{
     color: white;
     float: left;
     padding-left: 20px;
+    display: inline;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .facebook:hover{
@@ -330,3 +343,139 @@ input[type=number] {
 .realse{
     box-shadow: 2px 2px 3px 0 rgba(0,0,0,.22);
 }
+.footer-style{
+    background-color: #222222;
+    
+}
+
+.row-nav-footer{
+    display: none;
+}
+.btn-collapse{
+    display: none;
+}
+
+.icon-filter{
+    margin: 0px;
+    font-size: 18px;
+    padding-right: 10px;
+}
+.imag-prod{
+    width: 100%;
+}
+
+.footer-style{
+    height: 55%;
+}
+.footer-row-style{
+    height: 78%;
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .card-deck .card-producto {
+      -ms-flex: 0 0 100%;
+      flex: 0 0 100%;
+      
+    }
+    .image-box {
+        min-height:90vh;
+        background-size: 100% 100%;
+        width: 100%;
+    }
+  }
+  
+  @media (min-width: 768px) and (max-width: 991.98px) {
+    .card-deck .card-producto {
+      -ms-flex: 0 0 45%;
+      flex: 0 0 45%;
+      
+    }
+    .image-box {
+        min-height:80vh;
+        background-size: 100% 100%;
+        width: 100%;
+    }
+  }
+  
+  @media (min-width: 250px) and (max-width: 573px) {
+    .image-box {
+        min-height:30vh;
+        background-size: 100% 73%;
+        
+    }
+    .card-categoria-img{
+        height: 300px;
+    }
+    h1{
+        font-size: 25px;
+    }
+    h2{
+        font-size: 23px;
+    }
+    h3{
+        font-size: 24px;
+    }
+    .card-text{
+        font-size: 15px;
+        text-align: left;
+    }
+
+    h5{
+        font-size: 11px;
+    }
+    .title-fil{
+        font-size: 15px;
+    }
+    p, .card-text-categorias{
+        font-size: 14px;
+        text-align: center;
+    }
+    .btn{
+        font-size: 13px;
+    }
+    .card-title{
+        font-size: 18px;
+    }
+    .carousel-inner img{
+        height: 280px;
+    }
+    .col-info{
+        display: none;
+    }
+    .col-nav-pie{
+        display: none;
+    }
+    .col-map{
+        flex: 0 0 100%;
+        max-width: 100%;
+        height: 90%;
+    }
+    .nav-footer{
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .pie{
+        margin-top: 0px;
+        padding-top: 15px;
+    }
+    #mapa{
+        height: 60%;
+    }
+    .row-nav-footer{
+        display: inherit;
+    }
+    .row-nav-footer .nav-link{
+        padding: 0.5rem 0.5rem;
+    }
+    .footer-style{
+        height: 45%;
+    }
+    .footer-row-style{
+        height: 78%;
+    }
+    .btn-collapse{
+        display: inherit;
+        width: 100%;
+    }
+  }
+
