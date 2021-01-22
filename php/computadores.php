@@ -540,82 +540,7 @@
                     <a class="nav-link" href="../index.php">Inicio</a>
                     <a class="nav-link" href="#" data-toggle="modal" data-target="#modal_tiendas">Tienda</a>
                     <a class="nav-link" href="#" data-toggle="modal" data-target="#modal_about">Sobre Nosotros</a>
-
-                    <div class="modal fade" id="modal_about">
-                        <div class="modal-dialog modal-lg">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h2 class="modal-title"><b>Sobre Nosotros</b></h2>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-
-                                <div class="modal-body">
-                                    <h4 class="modal-title"><b>Descubre quiénes somos y que le ofrecemos a nuestros usuarios</b></h4><br>
-                                    <div class="row">
-                                        <div class="w-25 px-2 pb-2">
-                                            <img src="https://cdn2.f-cdn.com/contestentries/1416356/2678895/5ba16b39313d0_thumb900.jpg" alt="" width=95%>
-                                            <!-- <img src="https://static.vecteezy.com/system/resources/previews/000/107/902/non_2x/electronic-tech-elements-illustration-vector.jpg" alt="" width=95%><br>
-                                            <img src="https://cdn0.iconfinder.com/data/icons/shopping-and-e-commerce-57/60/buying__bag__shopping__secure__protection-512.png" alt="" width="90%"> -->
-                                        </div>
-                                        <div class="w-75 pl-2">
-                                            <p><span><b>TecnoCompras</b></span> es una pagina web que le permite a sus usuarios, comprar de manera sencilla, rápida y segura, diferentes tipos de electrodomésticos, los cuales se encuentran incluidos en diferentes categorías tales como celulares, computadores, cámaras, etc.,
-                                            los productos que se ofrecen dentro de TecnoCompras son totalmente garantizados, puesto que son adquiridos por proveedores oficiales o directamente por medio de la empresa manufacturera del mismo, contando con las garantías que ofrece el fabricante del producto;
-                                            el envío de los productos se hace por medio de la empresa de paquetería mas importante a nivel mundial DHL, los cuales ofrecen una extensa garantía a cerca de la integridad de los productos.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                    
                     <a class="nav-link" href="#" data-toggle="modal" data-target="#modal_contact">Contacto</a>
-
-                    <div class="modal fade" id="modal_contact">
-                        <div class="modal-dialog modal-lg">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h2 class="modal-title"><b>Contacto</b></h2>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-
-                                <div class="modal-body">
-                                    <h4 class="modal-title"><b>Contáctate con nosotros</b></h4><hr>
-                                    <div class="row">
-                                        <div class="w-25 pl-5 pt-3">
-                                            <p><i class="fas fa-user fa-7x"></i></p>
-                                        </div>
-                                        <div class="w-75 pl-2">
-                                            <p><span><b>Maycol Esteban Zuluaga Montoya</b></span></p>
-                                            <p>Cofundador <br> Correo: maycol.zuluaga@udea.edu.co <br>Telefono: +57 300 355 3476</p>
-                                            <p  style="float: left;padding-left: 5px;"><i class="fab fa-facebook-square fa-2x"></i></p>
-                                            <p  style="float: left;padding-left: 20px;"><i class="fab fa-twitter-square fa-2x"></i></p>
-                                            <p  style="float: left;padding-left: 20px;"><i class="fab fa-instagram fa-2x"></i></p>
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <div class="row">
-                                        <div class="w-25 pl-5 pt-3">
-                                            <p><i class="fas fa-user fa-7x"></i></p>
-                                        </div>
-                                        <div class="w-75 pl-2">
-                                            <p><span><b>Mateo Jaramillo Obando</b></span></p>
-                                            <p>Cofundador <br> Correo: mateo.jaramilloo@udea.edu.co <br>Telefono: +57 319 270 0110</p>
-                                            <p  style="float: left;padding-left: 5px;"><i class="fab fa-facebook-square fa-2x"></i></p>
-                                            <p  style="float: left;padding-left: 20px;"><i class="fab fa-twitter-square fa-2x"></i></p>
-                                            <p  style="float: left;padding-left: 20px;"><i class="fab fa-instagram fa-2x"></i></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-
                 </nav>          
             </div>
 
@@ -671,6 +596,79 @@
                         <a class="list-group-item list-group-item-action" onclick="seleccionado(4)"><p><i class="fas fa-map-marked-alt" data-dismiss="modal"></i></p><p>Tecnocompra Itagüí</p></a>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modal_about">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title"><b>Sobre Nosotros</b></h2>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <h4 class="modal-title"><b>Descubre quiénes somos y que le ofrecemos a nuestros usuarios</b></h4><br>
+                    <div class="row">
+                        <div class="w-25 px-2 pb-2">
+                            <img src="https://cdn2.f-cdn.com/contestentries/1416356/2678895/5ba16b39313d0_thumb900.jpg" alt="" width=95%>
+                            <!-- <img src="https://static.vecteezy.com/system/resources/previews/000/107/902/non_2x/electronic-tech-elements-illustration-vector.jpg" alt="" width=95%><br>
+                            <img src="https://cdn0.iconfinder.com/data/icons/shopping-and-e-commerce-57/60/buying__bag__shopping__secure__protection-512.png" alt="" width="90%"> -->
+                        </div>
+                        <div class="w-75 pl-2">
+                            <p><span><b>TecnoCompras</b></span> es una pagina web que le permite a sus usuarios, comprar de manera sencilla, rápida y segura, diferentes tipos de electrodomésticos, los cuales se encuentran incluidos en diferentes categorías tales como celulares, computadores, cámaras, etc.,
+                            los productos que se ofrecen dentro de TecnoCompras son totalmente garantizados, puesto que son adquiridos por proveedores oficiales o directamente por medio de la empresa manufacturera del mismo, contando con las garantías que ofrece el fabricante del producto;
+                            el envío de los productos se hace por medio de la empresa de paquetería mas importante a nivel mundial DHL, los cuales ofrecen una extensa garantía a cerca de la integridad de los productos.</p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modal_contact">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title"><b>Contacto</b></h2>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <h4 class="modal-title"><b>Contáctate con nosotros</b></h4><hr>
+                    <div class="row">
+                        <div class="w-25 pl-5 pt-3">
+                            <p><i class="fas fa-user fa-7x"></i></p>
+                        </div>
+                        <div class="w-75 pl-2">
+                            <p><span><b>Maycol Esteban Zuluaga Montoya</b></span></p>
+                            <p>Cofundador <br> Correo: maycol.zuluaga@udea.edu.co <br>Telefono: +57 300 355 3476</p>
+                            <p  style="float: left;padding-left: 5px;"><i class="fab fa-facebook-square fa-2x"></i></p>
+                            <p  style="float: left;padding-left: 20px;"><i class="fab fa-twitter-square fa-2x"></i></p>
+                            <p  style="float: left;padding-left: 20px;"><i class="fab fa-instagram fa-2x"></i></p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="w-25 pl-5 pt-3">
+                            <p><i class="fas fa-user fa-7x"></i></p>
+                        </div>
+                        <div class="w-75 pl-2">
+                            <p><span><b>Mateo Jaramillo Obando</b></span></p>
+                            <p>Cofundador <br> Correo: mateo.jaramilloo@udea.edu.co <br>Telefono: +57 319 270 0110</p>
+                            <p  style="float: left;padding-left: 5px;"><i class="fab fa-facebook-square fa-2x"></i></p>
+                            <p  style="float: left;padding-left: 20px;"><i class="fab fa-twitter-square fa-2x"></i></p>
+                            <p  style="float: left;padding-left: 20px;"><i class="fab fa-instagram fa-2x"></i></p>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
         </div>
     </div>

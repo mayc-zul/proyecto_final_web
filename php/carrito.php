@@ -69,7 +69,7 @@ for ($i=0; $i <$row_producto ; $i++) {
 
     <div class="navbar navbar-expand-lg navbar-dark bg-dark fixed">
         <div class="col-3">
-            <a href="../index.php" class="navbar-brand"><h2>TecnoCompras</h2></a>
+            <a href="../index.php" class="navbar-brand"><h1><b>TecnoCompras</b></h1></a>
         </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -133,15 +133,15 @@ for ($i=0; $i <$row_producto ; $i++) {
 					</div>
 
 					<div class="modal-body">
-						<form>
+                        <form action="./login.php" method="POST" name="login_form">
                             <div class="form-group">
-                                <label>Correo</label><input class="form-control form-control-sm" type="email" name="mail" required>
-                            </div>                    		
+                                <label>Usuario</label><input class="form-control form-control-sm" type="text" name="user" required>
+                            </div>                       		
                             <div class="form-group">
                                 <label>Contraseña</label><input class="form-control form-control-sm" type="password" name="password" size="6" maxlength="10" required>
                             </div>
 
-                            <button class="btn col-12" type="submit" data-dismiss="modal">Iniciar Sesión</button><br><br>
+                            <button class="btn col-12" type="submit">Iniciar Sesión</button><br><br>
                             <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#modal_registro">Aún no estas registrado? Haz click aquí</a>
                         </form>
 					</div>
