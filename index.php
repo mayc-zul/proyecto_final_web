@@ -16,7 +16,47 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- <script type="text/javascript" src="./js/verificacion.js"></script> -->
+    <script>
+        window.onload = function(){
+        //Obtener formulario y los elementos de este
+        var login_form = document.login_form.elements;
+        var regist_form = document.regist_form.elements;
+        //var add_product = document.add_product.elements;
+        //var edit_product = document.edit_product.elements;
+        
+        login_form[0].onkeypress = permitir;
+        login_form[1].onkeypress = permitir;
+        
+        regist_form[0].onkeypress = permitir;
+        regist_form[4].onkeypress = permitir;
+        
+        //add_product[1].onkeypress = permitir_p;
+        //edit_product[1].onkeypress = permitir_p;
+        }
 
+        function permitir(event){
+            switch(this.type){
+                case "text": 
+                    p = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ 1234567890"
+                    break;
+                case "password":
+                    p = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+                    break;
+            }
+
+            var cod = event.charCode;
+            var letra = String.fromCharCode(cod);
+            return p.indexOf(letra) != -1;
+        }
+
+        function permitir_p(event){
+            p = "1234567890,$"
+            var cod = event.charCode;
+            var letra = String.fromCharCode(cod);
+            return p.indexOf(letra) != -1;
+        }
+    </script>
     
     <!--iconos-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
@@ -40,7 +80,7 @@
 
     <div class="navbar navbar-expand-lg navbar-dark bg-dark fixed">
     	<div class="col-3">
-	    	<a href="#" class="navbar-brand"><h2>TecnoCompras</h2></a>
+	    	<a href="#" class="navbar-brand"><h1><b>TecnoCompras</b></h1></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
@@ -102,7 +142,7 @@
 					</div>
 
 					<div class="modal-body">
-                    <form action="./php/login.php" method="POST">
+                        <form action="./php/login.php" method="POST" name="login_form">
                             <div class="form-group">
                                 <label>Usuario</label><input class="form-control form-control-sm" type="text" name="user" required>
                             </div>                    		
@@ -131,7 +171,7 @@
 					</div>
 
 					<div class="modal-body">
-						<form action="./php/registro_new_user.php" method="POST">
+						<form action="./php/registro_new_user.php" method="POST" name="regist_form">
                             <div class="form-group">
                                 <label>Nombre</label>
                                 <input class="form-control form-control-sm" type="text" name="name" required>
@@ -150,11 +190,11 @@
                             </div>
             
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="1" id="radio1" name="condiciones">
+                                <input class="form-check-input" type="checkbox" value="1" id="radio1" name="condiciones" required>
                                 <label class="form-check-label" for="defaultCheck1">Acepto los términos y condiciones</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="2" id="radio2" name="recibir">
+                                <input class="form-check-input" type="checkbox" value="2" id="radio2" name="recibir" required>
                                 <label class="form-check-label" for="defaultCheck1">Deseo recibir correos con novedades</label>
                             </div>
                             <br>
@@ -583,8 +623,83 @@
                 <nav class="nav flex-column">
                     <a class="nav-link" href="#">Inicio</a>
                     <a class="nav-link" href="#">Tienda</a>
-                    <a class="nav-link" href="#">Sobre Nosotros</a>
-                    <a class="nav-link" href="#">Contacto</a>
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#modal_about">Sobre Nosotros</a>
+
+                    <div class="modal fade" id="modal_about">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h2 class="modal-title"><b>Sobre Nosotros</b></h2>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+
+                                <div class="modal-body">
+                                    <h4 class="modal-title"><b>Descubre quiénes somos y que le ofrecemos a nuestros usuarios</b></h4><br>
+                                    <div class="row">
+                                        <div class="w-25 px-2 pb-2">
+                                            <img src="https://cdn2.f-cdn.com/contestentries/1416356/2678895/5ba16b39313d0_thumb900.jpg" alt="" width=95%>
+                                            <!-- <img src="https://static.vecteezy.com/system/resources/previews/000/107/902/non_2x/electronic-tech-elements-illustration-vector.jpg" alt="" width=95%><br>
+                                            <img src="https://cdn0.iconfinder.com/data/icons/shopping-and-e-commerce-57/60/buying__bag__shopping__secure__protection-512.png" alt="" width="90%"> -->
+                                        </div>
+                                        <div class="w-75 pl-2">
+                                            <p><span><b>TecnoCompras</b></span> es una pagina web que le permite a sus usuarios, comprar de manera sencilla, rápida y segura, diferentes tipos de electrodomésticos, los cuales se encuentran incluidos en diferentes categorías tales como celulares, computadores, cámaras, etc.,
+                                            los productos que se ofrecen dentro de TecnoCompras son totalmente garantizados, puesto que son adquiridos por proveedores oficiales o directamente por medio de la empresa manufacturera del mismo, contando con las garantías que ofrece el fabricante del producto;
+                                            el envío de los productos se hace por medio de la empresa de paquetería mas importante a nivel mundial DHL, los cuales ofrecen una extensa garantía a cerca de la integridad de los productos.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#modal_contact">Contacto</a>
+
+                    <div class="modal fade" id="modal_contact">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h2 class="modal-title"><b>Contacto</b></h2>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+
+                                <div class="modal-body">
+                                    <h4 class="modal-title"><b>Contáctate con nosotros</b></h4><hr>
+                                    <div class="row">
+                                        <div class="w-25 pl-5 pt-3">
+                                            <p><i class="fas fa-user fa-7x"></i></p>
+                                        </div>
+                                        <div class="w-75 pl-2">
+                                            <p><span><b>Maycol Esteban Zuluaga Montoya</b></span></p>
+                                            <p>Cofundador <br> Correo: maycol.zuluaga@udea.edu.co <br>Telefono: +57 300 355 3476</p>
+                                            <p  style="float: left;padding-left: 5px;"><i class="fab fa-facebook-square fa-2x"></i></p>
+                                            <p  style="float: left;padding-left: 20px;"><i class="fab fa-twitter-square fa-2x"></i></p>
+                                            <p  style="float: left;padding-left: 20px;"><i class="fab fa-instagram fa-2x"></i></p>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="w-25 pl-5 pt-3">
+                                            <p><i class="fas fa-user fa-7x"></i></p>
+                                        </div>
+                                        <div class="w-75 pl-2">
+                                            <p><span><b>Mateo Jaramillo Obando</b></span></p>
+                                            <p>Cofundador <br> Correo: mateo.jaramilloo@udea.edu.co <br>Telefono: +57 319 270 0110</p>
+                                            <p  style="float: left;padding-left: 5px;"><i class="fab fa-facebook-square fa-2x"></i></p>
+                                            <p  style="float: left;padding-left: 20px;"><i class="fab fa-twitter-square fa-2x"></i></p>
+                                            <p  style="float: left;padding-left: 20px;"><i class="fab fa-instagram fa-2x"></i></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+
                 </nav>          
             </div>
 
