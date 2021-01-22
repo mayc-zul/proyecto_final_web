@@ -283,7 +283,7 @@
                         <p><?php echo $resultado_unico["descripcion"]?></p>
                         <h5 class="text-warning"><?php echo $resultado_unico["precio"]?></h5>
                         <a class="btn btn-dark mt-2" href="./add_carrito.php?categoria=<?php echo $_GET['categoria']?>"><i class="fas fa-cart-plus" style="margin-right:5px"></i>Añadir a carrito</a>
-                        <a class="btn btn-dark mt-2" href=""><i class="fas fa-money-bill" style="margin-right:5px"></i>Comprar</a>
+                        <a class="btn btn-dark mt-2" href="./add_carrito.php?categoria=<?php echo $_GET['categoria']?>"><i class="fas fa-money-bill" style="margin-right:5px"></i>Comprar</a>
                     </div>
                 </div>
             </div>
@@ -389,11 +389,11 @@
                 </div>
                 <div class="modal_body">
                     <div class="list-group">
-                        <a class="list-group-item list-group-item-action" onclick="seleccionado(0)"><p><i class="fas fa-map-marked-alt" data-dismiss="modal"></i></p><p>Tecnocompra Bello</p></a>
-                        <a class="list-group-item list-group-item-action" onclick="seleccionado(1)"><p><i class="fas fa-map-marked-alt" data-dismiss="modal"></i></p><p>Tecnocompra Cl. 65c, Medellín</p></a>
-                        <a class="list-group-item list-group-item-action" onclick="seleccionado(2)"><p><i class="fas fa-map-marked-alt" data-dismiss="modal"></i></p><p>Tecnocompra Cl. 50 # 81 a 47, Medellín</p></a>
-                        <a class="list-group-item list-group-item-action" onclick="seleccionado(3)"><p><i class="fas fa-map-marked-alt" data-dismiss="modal"></i></p><p>Tecnocompra Via Medellín-Via Sta. Elena</p></a>
-                        <a class="list-group-item list-group-item-action" onclick="seleccionado(4)"><p><i class="fas fa-map-marked-alt" data-dismiss="modal"></i></p><p>Tecnocompra Itagüí</p></a>
+                        <a class="list-group-item list-group-item-action" onclick="seleccionado(0)"><p><i class="fas fa-map-marked-alt" data-dismiss="modal"></i></p><p>Tecnocompras Bello</p></a>
+                        <a class="list-group-item list-group-item-action" onclick="seleccionado(1)"><p><i class="fas fa-map-marked-alt" data-dismiss="modal"></i></p><p>Tecnocompras Cl. 65c, Medellín</p></a>
+                        <a class="list-group-item list-group-item-action" onclick="seleccionado(2)"><p><i class="fas fa-map-marked-alt" data-dismiss="modal"></i></p><p>Tecnocompras Cl. 50 # 81 a 47, Medellín</p></a>
+                        <a class="list-group-item list-group-item-action" onclick="seleccionado(3)"><p><i class="fas fa-map-marked-alt" data-dismiss="modal"></i></p><p>Tecnocompras Via Medellín-Via Sta. Elena</p></a>
+                        <a class="list-group-item list-group-item-action" onclick="seleccionado(4)"><p><i class="fas fa-map-marked-alt" data-dismiss="modal"></i></p><p>Tecnocompras Itagüí</p></a>
                     </div>
                 </div>
             </div>
