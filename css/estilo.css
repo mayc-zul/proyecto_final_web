@@ -366,10 +366,10 @@ input[type=number] {
 }
 
 .footer-style{
-    height: 55%;
+    height: 50%;
 }
 .footer-row-style{
-    height: 78%;
+    height: 100%;
 }
 
 @media (min-width: 576px) and (max-width: 767.98px) {
@@ -383,6 +383,8 @@ input[type=number] {
         background-size: 100% 100%;
         width: 100%;
     }
+
+
   }
   
   @media (min-width: 768px) and (max-width: 991.98px) {
@@ -395,6 +397,12 @@ input[type=number] {
         min-height:80vh;
         background-size: 100% 100%;
         width: 100%;
+    }
+    .footer-style{
+        height: 72%;
+    }
+    .footer-row-style{
+        height: 100%;
     }
   }
   
@@ -477,6 +485,35 @@ input[type=number] {
     .btn-collapse{
         display: inherit;
         width: 100%;
+    }
+    .fade .modal-title{
+        font-size: 16px;
+
+    }
+    .fade p{
+        font-size: 14px;
+        text-align: left;
+        margin-right: 10px;
+    }
+    .fade .div-img{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .fade img{
+        height: 50%;
+    }
+    #modal_contact p{
+        font-size: 12px;
+        text-align: center;
+        margin: 0px;
+        padding: 0px;
+    }
+    #modal_contact .fab{
+        margin-left: 506%;
+    }
+    #modalpagos p{
+        text-align: left;
     }
   }
 

@@ -327,10 +327,10 @@
                 </div>
                 <div class="modal-body">
                     <div class="row pb-4" id="credito">
-                        <div class="col-lg-3 col-icon">
+                        <div class="col-3 col-lg-3 col-icon">
                             <p class="monal-icono"><i class="far fa-credit-card ico"></i></p>
                         </div>
-                        <div class="col-lg-9">
+                        <div class="col-9 col-lg-9">
                             <h5>Tarjeta de crédito</h5>
                             <p class="title-item">En hasta 48 coutas en todo el sitio</p>
                             <img src="./icons/visa.png" width="30px">
@@ -338,10 +338,10 @@
                         </div>
                     </div>
                     <div class="row pb-4" id="banco">
-                        <div class="col-lg-3 col-icon">
+                        <div class="col-3 col-lg-3 col-icon">
                             <p class="monal-icono"><i class="fas fa-university"></i></p>
                         </div>
-                        <div class="col-lg-9">
+                        <div class="col-9 col-lg-9">
                             <h5>Transferencia desde tu banco</h5>
                             <p class="title-item">Termina tu compra y haz un traspaso online sin moverte de tu casa</p>
                             <img src="./icons/pse.png" width="30px">
@@ -349,10 +349,10 @@
                     </div>
 
                     <div class="row pb-4" id="efectivo">
-                        <div class="col-lg-3 col-icon">
+                        <div class="col-3 col-lg-3 col-icon">
                             <p class="monal-icono"><i class="far fa-money-bill-alt"></i></p>
                         </div>
-                        <div class="col-lg-9">
+                        <div class="col-9 col-lg-9">
                             <h5>Efectivo en puntos de pago</h5>
                             <p class="title-item">Es muy simple, puede pagar en los siguientes puntos</p>
                             <img src="./icons/Efecty.png" width="40px">
@@ -718,7 +718,7 @@
                 <div class="modal-body">
                     <h4 class="modal-title"><b>Descubre quiénes somos y que le ofrecemos a nuestros usuarios</b></h4><br>
                     <div class="row">
-                        <div class="w-25 px-2 pb-2">
+                        <div class="w-25 px-2 pb-2 div-img">
                             <img src="https://cdn2.f-cdn.com/contestentries/1416356/2678895/5ba16b39313d0_thumb900.jpg" alt="" width=95%>
                             <!-- <img src="https://static.vecteezy.com/system/resources/previews/000/107/902/non_2x/electronic-tech-elements-illustration-vector.jpg" alt="" width=95%><br>
                             <img src="https://cdn0.iconfinder.com/data/icons/shopping-and-e-commerce-57/60/buying__bag__shopping__secure__protection-512.png" alt="" width="90%"> -->
@@ -748,10 +748,10 @@
                 <div class="modal-body">
                     <h4 class="modal-title"><b>Contáctate con nosotros</b></h4><hr>
                     <div class="row">
-                        <div class="w-25 pl-5 pt-3">
+                        <div class="col-lg-4 col-md-3 col-sm-3 col-12 text-center">
                             <p><i class="fas fa-user fa-7x"></i></p>
                         </div>
-                        <div class="w-75 pl-2">
+                        <div class="col-lg-8 col-md-9 col-sm-9 col-12 pl-2">
                             <p><span><b>Maycol Esteban Zuluaga Montoya</b></span></p>
                             <p>Cofundador <br> Correo: maycol.zuluaga@udea.edu.co <br>Telefono: +57 300 355 3476</p>
                             <p  style="float: left;padding-left: 5px;"><i class="fab fa-facebook-square fa-2x"></i></p>
@@ -761,10 +761,10 @@
                     </div>
                     <hr>
                     <div class="row">
-                        <div class="w-25 pl-5 pt-3">
+                        <div class="col-lg-4 col-md-3 col-sm-3 text-center">
                             <p><i class="fas fa-user fa-7x"></i></p>
                         </div>
-                        <div class="w-75 pl-2">
+                        <div class="col-lg-8 col-md-9 col-sm-9 pl-2">
                             <p><span><b>Mateo Jaramillo Obando</b></span></p>
                             <p>Cofundador <br> Correo: mateo.jaramilloo@udea.edu.co <br>Telefono: +57 319 270 0110</p>
                             <p  style="float: left;padding-left: 5px;"><i class="fab fa-facebook-square fa-2x"></i></p>
