@@ -13,8 +13,8 @@ $resultado = $sentencia->fetch();
 
 
 if (!$resultado) {
-    echo '<script>alert("El usuario que no existe.")</script>';
-    die();
+    echo '<script>alert("El usuario no existe.")</script>';
+    header('location:../index.php');
 }
 if (password_verify($contrasena_login, $resultado['password'])) {
     //Las contraseña son iguales
@@ -25,6 +25,6 @@ if (password_verify($contrasena_login, $resultado['password'])) {
 }else{
     //Las contraseñas no son iguales
     echo '<script>alert("La contraseña que se ingreso no corresponde es incorrecta.")</script>';
-    die();
+    header('location:../index.php');
 }
 ?>
