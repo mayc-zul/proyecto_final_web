@@ -13,5 +13,5 @@ $sql_editar = "UPDATE camaras SET nombre=?,precio=?,descripcion=?,imagen=? WHERE
 $sentencia_editar = $pdo->prepare($sql_editar);
 $sentencia_editar->execute(array($nombre,$precio,$descripcion,$imagen,$id));
 
-header('location:./camara.php');
+header('location:./camaras.php');
 

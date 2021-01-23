@@ -408,7 +408,7 @@
                                         <p class="card-text"><?php echo $resultado[$i]['nombre'] ?></p>
                                     </div>
                                     <div class="card-footer">
-                                        <a href="consolas.php?id=<?php echo $resultado[$i]['id']?>"><i class="fas fa-pencil-alt" style="float: left;"></i></a><a href="eliminarC.php?id=<?php echo $resultado[$i]['id']?>"><i class="far fa-trash-alt" style="float: right;"></i></a>
+                                        <a href="consolas.php?id=<?php echo $resultado[$i]['id']?>"><i class="fas fa-pencil-alt" style="float: left;"></i></a><a href="eliminarCon.php?id=<?php echo $resultado[$i]['id']?>"><i class="far fa-trash-alt" style="float: right;"></i></a>
                                     </div>
                                 </div>
                                 <?php
