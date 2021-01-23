@@ -233,10 +233,7 @@
 
     <?php
     if (isset($_SESSION['user'])) {
-        echo '<div class="container-fluid">
-                <h5 class="mb-0 text-center">!Bienvenido! '.$_SESSION['user'].'</h5>
-            </div>';
-      
+        echo '<script>alert("!Bienvenido!'.$_SESSION['user'].'.")</script>';      
     }
     ?>
 
